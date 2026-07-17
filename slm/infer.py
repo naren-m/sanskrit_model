@@ -47,6 +47,26 @@ class Inference:
             gen = gen[:gen.index(self.tok.eos_id)]
         return self.tok.decode(gen, skip_special=False)
 
+    @torch.no_grad()
+    def logprob(self, src: str, tgt: str) -> float:
+        """Scoring API (spec §4): mean per-token log-prob of `tgt` given `src`
+        under teacher forcing. Used to RANK symbolically-licensed candidates
+        (segmentation paths, verified analyses) — the model as ranker, not
+        generator. Length-normalized so candidates of different lengths compare."""
+        src_ids = self.tok.encode(src)
+        tgt_ids = self.tok.encode(tgt) + [self.tok.eos_id]
+        ids = [self.tok.bos_id] + src_ids + [self.tok.sep_id] + tgt_ids
+        x = torch.tensor([ids[:-1]], dtype=torch.long, device=self.device)
+        y = torch.tensor([ids[1:]], dtype=torch.long, device=self.device)
+        logits, _ = self.model(x)
+        logp = torch.log_softmax(logits[0], dim=-1)
+        start = len(src_ids) + 1  # first position whose target is a tgt token
+        tot, n = 0.0, 0
+        for t in range(start, y.size(1)):
+            tot += logp[t, y[0, t]].item()
+            n += 1
+        return tot / max(1, n)
+
     def morph(self, root: str) -> dict:
         raw = self._gen(f"<morph>{root}")
         m, gn, ar = _DHATU_RE.search(raw), _GANA_RE.search(raw), _ARTHA_RE.search(raw)
@@ -77,14 +97,17 @@ class Inference:
         return {"task": "seg", "input": text, "model": pred, "padas": padas}
 
     def meter(self, line: str) -> dict:
-        weights = rules.syllable_weights(line)
-        scan = self.chandas.identify(line)
-        raw = self._gen(f"<Candas><wt>{weights}")
+        # scan() transliterates IAST/Devanagari/loose-roman -> SLP1, splits
+        # padas, and applies the Anustubh rules before the vrtta table.
+        result = self.chandas.scan(line)
+        weights = "".join(p["weights"] for p in result["padas"])
+        best = result["verse_meter_guess"] or {}
+        raw = self._gen(f"<Candas><wt>{result['padas'][0]['weights']}") if result["padas"] else ""
         mm = _METER_RE.search(raw)
-        best = scan[0] if scan else {}
         return {
             "task": "meter", "input": line, "weights": weights,
             "syllables": len(weights),
+            "verse_meter": result["verse_meter"],
             "symbolic_best": {"name": best.get("name_iast", best.get("name_slp1", "")),
                               "distance": best.get("distance")},
             "model_name": mm.group(1) if mm else raw,

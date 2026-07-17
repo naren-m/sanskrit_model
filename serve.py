@@ -109,7 +109,8 @@ function render(d){
  }else if(d.task==="meter"){
   out.innerHTML=`<div><span class=prop>chandas</span>: ${d.input}</div>`+
    `<div class=wt>${d.weights}</div><div class=mut>${d.syllables} syllables</div>`+
-   `<div>engine best: <b>${d.symbolic_best.name||"?"}</b> <span class=mut>(distance ${d.symbolic_best.distance})</span></div>`+
+   `<div>meter: <b>${d.verse_meter||"?"}</b></div>`+
+   `<div class=mut>vṛtta best: ${d.symbolic_best.name||"?"} (distance ${d.symbolic_best.distance})</div>`+
    `<div class=mut>model guess: ${d.model_name}</div>`;
  }
 }

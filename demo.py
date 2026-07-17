@@ -90,16 +90,17 @@ class Engine:
         print(f"  {B}model segments{X}: {text} → {pred}")
 
     def meter(self, line: str):
-        scan = self.chandas.identify(line)
-        w = rules.syllable_weights(line)
+        result = self.chandas.scan(line)
         print(f"  {B}chandas{X}: {line}")
-        print(f"      weights = {w}  ({len(w)} syllables)")
-        if scan:
-            top = scan[0]
-            print(f"      best meter: {top.get('name_iast', top)}  "
-                  f"(distance {top.get('distance','?')})")
-        pred = self._gen(f"<Candas><wt>{w}")
-        print(f"      {DIM}model guess from L/G: {pred}{X}")
+        for i, p in enumerate(result["padas"], 1):
+            print(f"      pāda {i}: {p['weights']}  "
+                  f"({p['syllable_count']} syl)  {p['text']}")
+        print(f"      {G}meter{X}: {result['verse_meter']}")
+        # per-pada model guess from the first pada's L/G string
+        if result["padas"]:
+            w = result["padas"][0]["weights"]
+            pred = self._gen(f"<Candas><wt>{w}")
+            print(f"      {DIM}model guess from L/G (pāda 1): {pred}{X}")
 
 
 def showcase(e: Engine):
@@ -134,6 +135,9 @@ def repl(e: Engine):
             break
         parts = line.split()
         cmd, args = parts[0], parts[1:]
+        # a meter command takes the WHOLE rest of the line (a verse can be many
+        # space-separated words / padas) -- not just the first token.
+        rest = line.split(None, 1)[1] if len(parts) > 1 else ""
         try:
             if cmd == "morph" and args:
                 e.morph(args[0])
@@ -141,8 +145,8 @@ def repl(e: Engine):
                 e.sandhi_join(args[0], args[1])
             elif cmd == "seg" and args:
                 e.seg(args[0])
-            elif cmd == "meter" and args:
-                e.meter(args[0])
+            elif cmd == "meter" and rest:
+                e.meter(rest)
             else:
                 print("  ?  usage: morph gam | sandhi rAma asti | seg rAmo'sti | meter rAmAya")
         except Exception as ex:

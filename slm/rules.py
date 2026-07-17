@@ -31,6 +31,7 @@ other modules in this project — do not rename without updating call sites.
 from __future__ import annotations
 
 import csv
+import unicodedata
 from pathlib import Path
 
 # ---------------------------------------------------------------------------
@@ -70,6 +71,180 @@ AVAGRAHA = "'"
 SLP1_ALPHABET: list[str] = list("aAiIuUfFxXeEoO") + list(
     "kKgGNcCjJYwWqQRtTdDnpPbBmyrlvSzsh"
 ) + [_ANUSVARA, _VISARGA, AVAGRAHA]
+
+
+# ---------------------------------------------------------------------------
+# 1a. Transliteration -> SLP1  (input normalisation)
+#
+# The phonology/chandas code below is defined purely over SLP1. Real users
+# type IAST (caritaṃ), loose romanisation (charitaṃ), Dravidian-style long
+# vowels (ō/ē), or Devanagari (चरितं) -- all of which must be folded to SLP1
+# *before* syllabification, or every downstream weight is garbage. to_slp1()
+# is that shim. It is deliberately weight-preserving: aspiration (ch vs c) is
+# collapsed only where it does not change laghu/guru, and dandas become line
+# breaks so a verse typed on one line still splits into padas.
+# ---------------------------------------------------------------------------
+
+#: IAST / loose-roman digraphs and diacritics -> SLP1. Longest keys are tried
+#: first (see _ROMAN_KEYS) so "kh"/"ai" win over "k"/"a". Loose romanisation
+#: (charita for carita) maps ch->C, which is a different phoneme than c but
+#: identical in weight, so meter scanning is unaffected.
+_ROMAN_TO_SLP1: dict[str, str] = {
+    # aspirated stops + diphthongs (2 code points each)
+    "kh": "K", "gh": "G", "ch": "C", "jh": "J", "ṭh": "W", "ḍh": "Q",
+    "th": "T", "dh": "D", "ph": "P", "bh": "B", "ai": "E", "au": "O",
+    # long vowels / vocalic liquids
+    "ā": "A", "ī": "I", "ū": "U", "ṛ": "f", "ṝ": "F", "ḷ": "x", "ḹ": "X",
+    # Dravidian-script long e/o carry an explicit macron; Sanskrit has only
+    # the (always-long) e/o, so both fold to the same SLP1 letter.
+    "ē": "e", "ō": "o",
+    # sibilants + special nasals
+    "ś": "S", "ṣ": "z", "ṅ": "N", "ñ": "Y", "ṇ": "R",
+    # retroflex/other single-diacritic consonants
+    "ṭ": "w", "ḍ": "q",
+    # marks: anusvara (ṃ/ṁ) and visarga (ḥ)
+    "ṃ": "M", "ṁ": "M", "ḥ": "H",
+    # plain ASCII vowels + consonants (identity where SLP1 agrees)
+    "a": "a", "i": "i", "u": "u", "e": "e", "o": "o",
+    "k": "k", "g": "g", "c": "c", "j": "j", "t": "t", "d": "d", "n": "n",
+    "p": "p", "b": "b", "m": "m", "y": "y", "r": "r", "l": "l", "v": "v",
+    "w": "v", "s": "s", "h": "h",
+    # avagraha variants -> SLP1 avagraha (silent, ignored in weighting)
+    "'": "'", "ʼ": "'", "’": "'", "ऽ": "'",
+}
+#: match longest romanisation keys first
+_ROMAN_KEYS: list[str] = sorted(_ROMAN_TO_SLP1, key=len, reverse=True)
+
+#: Devanagari -> SLP1 building blocks (implicit-'a' expansion done in to_slp1).
+_DEVA_INDEP_VOWEL = {
+    "अ": "a", "आ": "A", "इ": "i", "ई": "I", "उ": "u", "ऊ": "U",
+    "ऋ": "f", "ॠ": "F", "ऌ": "x", "ॡ": "X",
+    "ए": "e", "ऐ": "E", "ओ": "o", "औ": "O",
+}
+_DEVA_MATRA = {
+    "ा": "A", "ि": "i", "ी": "I", "ु": "u", "ू": "U", "ृ": "f", "ॄ": "F",
+    "ॢ": "x", "े": "e", "ै": "E", "ो": "o", "ौ": "O",
+}
+_DEVA_CONSONANT = {
+    "क": "k", "ख": "K", "ग": "g", "घ": "G", "ङ": "N",
+    "च": "c", "छ": "C", "ज": "j", "झ": "J", "ञ": "Y",
+    "ट": "w", "ठ": "W", "ड": "q", "ढ": "Q", "ण": "R",
+    "त": "t", "थ": "T", "द": "d", "ध": "D", "न": "n",
+    "प": "p", "फ": "P", "ब": "b", "भ": "B", "म": "m",
+    "य": "y", "र": "r", "ल": "l", "व": "v", "ळ": "l",
+    "श": "S", "ष": "z", "स": "s", "ह": "h",
+}
+_DEVA_VIRAMA = "्"
+_DEVA_ANUSVARA = {"ं": "M", "ँ": "M"}  # anusvara, candrabindu
+_DEVA_VISARGA = "ः"
+
+
+def _has_devanagari(text: str) -> bool:
+    #: only actual aksharas count -- NOT the danda ।/॥ (U+0964/5), which lives
+    #: in the Devanagari block but also terminates romanised verses.
+    return any(
+        ch in _DEVA_CONSONANT or ch in _DEVA_INDEP_VOWEL or ch in _DEVA_MATRA
+        for ch in text
+    )
+
+
+def _devanagari_to_slp1(text: str) -> str:
+    out: list[str] = []
+    pending_a = False  # a bare consonant carries an implicit short 'a'
+    for ch in text:
+        if ch in _DEVA_CONSONANT:
+            if pending_a:
+                out.append("a")
+            out.append(_DEVA_CONSONANT[ch])
+            pending_a = True
+        elif ch == _DEVA_VIRAMA:
+            pending_a = False  # virama suppresses the implicit 'a'
+        elif ch in _DEVA_MATRA:
+            out.append(_DEVA_MATRA[ch])
+            pending_a = False
+        else:
+            if pending_a:  # flush the implicit 'a' before non-consonant marks
+                out.append("a")
+                pending_a = False
+            if ch in _DEVA_INDEP_VOWEL:
+                out.append(_DEVA_INDEP_VOWEL[ch])
+            elif ch in _DEVA_ANUSVARA:
+                out.append("M")
+            elif ch == _DEVA_VISARGA:
+                out.append("H")
+            elif ch == "ऽ":
+                out.append("'")
+            elif ch in "।॥":
+                out.append("\n")
+            elif ch.isspace():
+                out.append(" ")
+            # digits, punctuation, unknown marks -> dropped
+    if pending_a:
+        out.append("a")
+    return "".join(out)
+
+
+_SLP1_SET = set(SLP1_ALPHABET)
+
+
+def _is_slp1(text: str) -> bool:
+    """True when *text* is already SLP1 (all letters valid, at least one
+    uppercase SLP1 letter present as a positive signal). Pure-lowercase ASCII
+    is left to the roman path, which maps it identically anyway."""
+    core = [c for c in text if not (c.isspace() or c in "|।॥")]
+    return bool(core) and all(c in _SLP1_SET for c in core) and any(
+        c.isupper() for c in core
+    )
+
+
+def _roman_to_slp1(text: str) -> str:
+    text = text.lower()
+    out: list[str] = []
+    i, n = 0, len(text)
+    while i < n:
+        ch = text[i]
+        if ch in "।॥|":
+            out.append("\n")
+            i += 1
+            continue
+        if ch.isspace():
+            out.append(" ")
+            i += 1
+            continue
+        for key in _ROMAN_KEYS:
+            if text.startswith(key, i):
+                out.append(_ROMAN_TO_SLP1[key])
+                i += len(key)
+                break
+        else:
+            # unrecognised (digit, stray punctuation) -> word boundary
+            out.append(" ")
+            i += 1
+    return "".join(out)
+
+
+def to_slp1(text: str) -> str:
+    """Normalise IAST, loose romanisation, or Devanagari input to SLP1.
+
+    Dandas (।/॥/|) become newlines so a one-line verse splits into padas;
+    unrecognised characters (digits, punctuation) become spaces. Text that is
+    already valid SLP1 passes through unchanged (every SLP1 letter is its own
+    key in the roman table). This is a pragmatic prosody-oriented shim, not a
+    full reversible transliterator: it preserves syllable weight, not every
+    phonemic distinction (loose ``ch`` -> ``C`` is intentional).
+    """
+    text = unicodedata.normalize("NFC", text)
+    if _has_devanagari(text):
+        slp1 = _devanagari_to_slp1(text)
+    elif _is_slp1(text):
+        # already SLP1 -- do NOT lowercase (SLP1 uses case distinctively);
+        # only fold dandas to newlines.
+        slp1 = "".join("\n" if ch in "|।॥" else ch for ch in text)
+    else:
+        slp1 = _roman_to_slp1(text)
+    # collapse runs of spaces (but keep newlines as pada separators)
+    lines = [" ".join(ln.split()) for ln in slp1.split("\n")]
+    return "\n".join(ln for ln in lines if ln)
 
 
 def syllabify(word: str) -> list[str]:
@@ -174,18 +349,23 @@ class SandhiEngine:
         # Junction rules only (see docstring): second_slp1 must be non-empty.
         self.rules: list[dict] = [r for r in all_rows if r["second_slp1"]]
 
-        # Index for split(): bucket rules by the first character of
-        # result_slp1, so at each text position we only test rules whose
-        # result could plausibly start there instead of scanning all ~1467.
+        # Index for split(): bucket rules by the first character of the
+        # SPACE-STRIPPED result. result_slp1 embeds a space as a word-boundary
+        # marker (e.g. i+a -> "y a" for "ity aham"), but split()'s input is
+        # continuous space-free text, so matching must use the stripped form
+        # ("ya"); the boundary is recovered from first_slp1/second_slp1, not the
+        # space. Without this, the ~1427 spaced rules never match (jm8.5).
+        for r in self.rules:
+            r["_res_ns"] = r["result_slp1"].replace(" ", "")
         self._by_result_first_char: dict[str, list[dict]] = {}
         for r in self.rules:
-            key = r["result_slp1"][0] if r["result_slp1"] else ""
+            key = r["_res_ns"][0] if r["_res_ns"] else ""
             self._by_result_first_char.setdefault(key, []).append(r)
         # Within each bucket, try longer (more specific) results first --
         # this makes split()'s bounded search surface higher-confidence
         # candidates before it runs out of its node/result budget.
         for bucket in self._by_result_first_char.values():
-            bucket.sort(key=lambda r: -len(r["result_slp1"]))
+            bucket.sort(key=lambda r: -len(r["_res_ns"]))
 
     def join(self, first: str, second: str) -> list[tuple[str, str]]:
         """Apply sandhi at the junction of two padas.
@@ -284,7 +464,7 @@ class SandhiEngine:
 
             ch = text[pos]
             for rule in self._by_result_first_char.get(ch, ()):
-                res = rule["result_slp1"]
+                res = rule["_res_ns"]  # space-stripped; input text is continuous
                 if text[pos:pos + len(res)] != res:
                     continue
                 new_pada = building + rule["first_slp1"]
@@ -455,11 +635,17 @@ class ChandasEngine:
         return abs(len(weights) - len(pattern)) + mismatches
 
     def identify(self, verse_line: str) -> list[dict]:
-        """Compute ``verse_line``'s syllable_weights and rank all known
-        meters by distance to it. Exact matches (distance 0) sort first.
-        Returns [{name_iast, class, pattern, distance}, ...] for every meter,
-        best (lowest distance) first."""
-        weights = syllable_weights(verse_line)
+        """Rank all known fixed-pattern (vrtta) meters by distance to
+        ``verse_line``. Input is transliterated to SLP1 first, so IAST or
+        Devanagari padas work. Exact matches (distance 0) sort first. Returns
+        [{name_iast, class, pattern, distance, exact}, ...], best first.
+
+        NOTE: this only knows *samavrtta* meters with a fixed L/G string. It
+        cannot recognise Anustubh (rule-defined, not a fixed pattern) -- use
+        :meth:`scan`, which checks the Anustubh rules before falling back
+        here. A non-zero best distance means "no exact vrtta match", not a
+        confident identification."""
+        weights = syllable_weights(to_slp1(verse_line).replace("\n", " "))
         ranked = []
         for m in self.meters:
             d = self._distance(weights, m["_clean_pattern"])
@@ -468,18 +654,45 @@ class ChandasEngine:
                 "class": m["class"],
                 "pattern": m["pattern"],
                 "distance": d,
+                "exact": d == 0,
             })
         ranked.sort(key=lambda r: (r["distance"], r["name_iast"]))
         return ranked
 
-    def scan(self, verse: str) -> dict:
-        """Split a multi-line verse into padas (one per non-blank line; if
-        the whole verse is on a single line, fall back to splitting on
-        runs of 2+ spaces or a danda '|' as a secondary heuristic so a
-        sloka typed as one line still yields multiple padas), then report
-        per-pada syllable weights, syllable counts, and the best meter guess
-        for each pada plus for the verse as a whole (first pada's guess,
-        the traditional diagnostic pada for meter identification)."""
+    @staticmethod
+    def _anustubh(padas_w: list[str]) -> str | None:
+        """Recognise the Anustubh (sloka) family from a list of per-pada L/G
+        strings. Anustubh is defined by *rules*, not a fixed pattern: 4 padas
+        (or a 2-pada half) of 8 syllables, with the 5th syllable laghu and the
+        6th guru in every pada. The 7th alternates -- guru in odd padas,
+        laghu in even -- for the canonical *pathya*; any other 7th pattern is
+        a *vipula* variant. Returns a label, or None if the rules don't hold
+        (so the caller falls back to fixed-pattern matching)."""
+        if len(padas_w) not in (2, 4) or any(len(p) != 8 for p in padas_w):
+            return None
+        # 5th laghu (idx 4) + 6th guru (idx 5) in every pada is the core sig
+        if not all(p[4] == "L" and p[5] == "G" for p in padas_w):
+            return None
+        pathya = all((p[6] == "G") == (i % 2 == 0) for i, p in enumerate(padas_w))
+        return "anuṣṭubh (pathyā)" if pathya else "anuṣṭubh (vipulā)"
+
+    def scan(self, verse: str, transliterate: bool = True) -> dict:
+        """Identify the meter of a whole verse.
+
+        The verse is transliterated to SLP1 (IAST / loose-roman / Devanagari
+        all accepted; dandas and newlines split padas), then:
+
+        1. If it parses as 8-syllable padas obeying the Anustubh rules, it is
+           reported as anuṣṭubh -- the meter of most epic/stotra verse, which
+           the fixed-pattern table cannot represent.
+        2. Otherwise each pada is matched against the samavrtta table, and the
+           verse meter is the first pada's match *only if it is exact*.
+
+        Returns per-pada weights/counts/best_meter plus a verse-level
+        ``verse_meter`` string and ``verse_meter_guess`` (the raw best-match
+        dict, kept for backward compatibility)."""
+        if transliterate:
+            verse = to_slp1(verse)
         lines = [ln.strip() for ln in verse.strip().splitlines() if ln.strip()]
         if len(lines) <= 1:
             raw = lines[0] if lines else verse.strip()
@@ -489,19 +702,37 @@ class ChandasEngine:
 
         padas = []
         for line in lines:
-            weights = syllable_weights(line)
             guesses = self.identify(line)
             padas.append({
                 "text": line,
-                "weights": weights,
-                "syllable_count": len(weights),
+                "weights": syllable_weights(to_slp1(line).replace("\n", " ")),
+                "syllable_count": len(syllable_weights(to_slp1(line).replace("\n", " "))),
                 "best_meter": guesses[0] if guesses else None,
             })
+
+        # Anustubh check: flatten all syllables and re-chunk into 8-syl padas
+        # (a sloka is often typed as 2 lines of 16, not 4 lines of 8).
+        flat = "".join(p["weights"] for p in padas)
+        anustubh = None
+        if flat and len(flat) % 8 == 0 and len(flat) // 8 in (2, 4):
+            chunks = [flat[i:i + 8] for i in range(0, len(flat), 8)]
+            anustubh = self._anustubh(chunks)
+
+        best = padas[0]["best_meter"] if padas else None
+        if anustubh:
+            verse_meter = f"{anustubh}  [{len(flat)} syllables]"
+        elif best and best.get("exact"):
+            verse_meter = f"{best['name_iast']} (vṛtta, exact)"
+        else:
+            verse_meter = "unknown (no exact vṛtta match; not anuṣṭubh)"
 
         return {
             "pada_count": len(padas),
             "padas": padas,
-            "verse_meter_guess": padas[0]["best_meter"] if padas else None,
+            "total_syllables": len(flat),
+            "anustubh": anustubh,
+            "verse_meter": verse_meter,
+            "verse_meter_guess": best,
         }
 
 
@@ -575,6 +806,7 @@ if __name__ == "__main__":
         best = p["best_meter"]
         best_str = f"{best['name_iast']} (d={best['distance']})" if best else "n/a"
         print(f"      [{p['syllable_count']:2}] {p['weights']:20} best={best_str}  text={p['text']!r}")
+    print(f"    verse_meter => {result['verse_meter']}")
 
     print("\n" + "=" * 70)
     print("Self-test complete.")
