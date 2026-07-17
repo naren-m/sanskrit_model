@@ -463,6 +463,15 @@ class SandhiEngine:
                 return
 
             ch = text[pos]
+            # Skip branch FIRST: depth-first order then reaches low-boundary
+            # (mostly-skipped) segmentations before descending into the
+            # combinatorial tree of rule-match branches. With match branches
+            # first, any input with a spurious early rule match (e.g. the
+            # "pf|..." matches at the start of "prApnuyurmAnavAH") filled the
+            # found-list cap with over-split garbage and the correct minimal
+            # split was never generated at all.
+            rec(pos + 1, building + ch, padas, skips + 1)
+
             for rule in self._by_result_first_char.get(ch, ()):
                 res = rule["_res_ns"]  # space-stripped; input text is continuous
                 if text[pos:pos + len(res)] != res:
@@ -472,14 +481,15 @@ class SandhiEngine:
                     continue
                 rec(pos + len(res), rule["second_slp1"], padas + [new_pada], skips)
 
-            rec(pos + 1, building + ch, padas, skips + 1)
-
         rec(0, "", [], 0)
 
-        # Rank: more boundaries (more padas) first, then fewer skip chars
-        # (more of the split explained by actual rule matches), then
-        # shorter total representation as a final tiebreaker.
-        found.sort(key=lambda item: (-len(item[0]), item[1]))
+        # Rank: FEWER boundaries (fewer padas) first — minimal splits are the
+        # linguistically likely ones, and the downstream Analyzer rescores the
+        # whole pool with lexicon coverage anyway, so this ordering only
+        # decides which candidates survive the max_results cut. Ties broken by
+        # fewer skip chars (more of the split explained by actual rule
+        # matches).
+        found.sort(key=lambda item: (len(item[0]), item[1]))
 
         deduped: list[list[str]] = []
         seen_tuples: set[tuple[str, ...]] = set()
