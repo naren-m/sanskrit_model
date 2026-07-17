@@ -59,10 +59,96 @@ def decode(model, tok, device, src: str, max_new=64) -> str:
 _DHATU_RE = re.compile(r"<dhAtu>([^<]*)")
 
 
+def ab_main(n_cap: int):
+    """A/B gate (tasks-jm8.1, spec §7): does the neural ranker beat a char
+    trigram and a pure lexicon+frequency ranker at picking the gold
+    segmentation out of the SAME lattice candidate pool?
+
+    Arms (identical pools, only the sequence-scorer term differs):
+      symbolic — lexicon coverage + log-freq only
+      trigram  — + char-trigram logprob (trained on the GPT's own corpus)
+      neural   — + GPT teacher-forced logprob (production scorer)
+      generate — GPT free decode (production fallback path; own output, no
+                 pool), with 'rederiv' = does its split concat back to src?
+    """
+    from evals.baseline import (AblationRanker, CharTrigram, NeuralSeqScorer,
+                                training_lines, word_f1)
+    from slm.infer import Inference
+
+    tok = SLP1Tokenizer.load(ROOT / "tokenizer" / "slp1_vocab.json")
+    inf = Inference()
+    print(f"device={inf.device}  ckpt val_bpb={inf.val_bpb:.4f}")
+    print("training trigram on corpus...", flush=True)
+    tri = CharTrigram(training_lines())
+
+    holder: dict = {"src": ""}
+    ranker = AblationRanker({
+        "symbolic": None,
+        "trigram": tri,
+        "neural": NeuralSeqScorer(inf, holder),
+    })
+
+    val = json.loads((DATA / "val.json").read_text())
+    rows = [e for e in val if e["task"] == "seg"][:n_cap]
+    arms = ["symbolic", "trigram", "neural", "generate"]
+    stats = {a: {"exact": 0, "f1": 0.0, "rederiv": 0, "hit_pool": 0} for a in arms}
+    in_pool = 0  # oracle ceiling: gold present in the shared candidate pool
+
+    for e in rows:
+        ids, ls = e["ids"], e["loss_start"]
+        src = tok.decode(ids[1:ls - 1], skip_special=False)
+        gold = tok.decode(ids[ls:-1], skip_special=False)
+        text = src.removeprefix("<seg>")
+        gold_padas = [p.strip() for p in gold.split("|") if p.strip()]
+        holder["src"] = text
+
+        cands = ranker.candidates(text)
+        gold_avail = gold_padas in cands
+        in_pool += gold_avail
+        for arm in arms:
+            if arm == "generate":
+                pred = [p.strip() for p in
+                        decode(inf.model, tok, inf.device, src).split("|") if p.strip()]
+            else:
+                pred = ranker.rank(text, arm, cands)
+            s = stats[arm]
+            s["exact"] += pred == gold_padas
+            s["f1"] += word_f1(pred, gold_padas)
+            s["rederiv"] += "".join(pred) == text
+            s["hit_pool"] += gold_avail and pred == gold_padas
+
+    n = len(rows)
+    print(f"\nA/B seg ablation on {n} held-out examples "
+          f"(identical lattice pools for rank arms)")
+    print(f"pool ceiling (gold in lattice pool): {in_pool}/{n} "
+          f"({100*in_pool/max(1,n):.1f}%) — rank arms cannot exceed this; "
+          f"'hit|pool' is accuracy on just those rows")
+    print(f"{'arm':10s} {'exact':>12s} {'word-F1':>9s} {'rederiv':>9s} {'hit|pool':>10s}")
+    for arm in arms:
+        s = stats[arm]
+        hp = f"{s['hit_pool']}/{in_pool}" if arm != "generate" else "—"
+        print(f"{arm:10s} {s['exact']:5d}/{n:<4d} {100*s['exact']/n:5.1f}% "
+              f"{100*s['f1']/n:8.1f}% {100*s['rederiv']/n:8.1f}% {hp:>10s}")
+
+    nx, tx, sx = (stats[a]["exact"] for a in ("neural", "trigram", "symbolic"))
+    nf, tf, sf = (stats[a]["f1"] for a in ("neural", "trigram", "symbolic"))
+    print(f"\nneural beats trigram baseline:  "
+          f"exact {'YES' if nx > tx else 'NO'} ({nx} vs {tx}), "
+          f"F1 {'YES' if nf > tf else 'NO'} ({100*nf/n:.1f} vs {100*tf/n:.1f})")
+    print(f"neural beats pure-symbolic:     "
+          f"exact {'YES' if nx > sx else 'NO'} ({nx} vs {sx}), "
+          f"F1 {'YES' if nf > sf else 'NO'} ({100*nf/n:.1f} vs {100*sf/n:.1f})")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--n", type=int, default=200, help="cap examples per task")
+    ap.add_argument("--ab", action="store_true",
+                    help="A/B gate: neural vs trigram vs symbolic seg ranking")
     args = ap.parse_args()
+    if args.ab:
+        ab_main(args.n)
+        return
 
     device = pick_device()
     tok = SLP1Tokenizer.load(ROOT / "tokenizer" / "slp1_vocab.json")
