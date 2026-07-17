@@ -21,8 +21,24 @@ Run:  uv run python -m slm.pipeline
 """
 from __future__ import annotations
 
+import math
+
 from slm import corpus
 from slm.infer import Inference
+
+
+def _pausa(word: str) -> str:
+    """Pausa (utterance-final) form of a pada: word-final s or r -> visarga H
+    (8.3.15 kharavasAnayor visarjanIyaH). split() returns pada-finals in
+    Paninian *underlying* form (rAmas, prApnuyur) because that is how
+    sandhi-rules-full.csv encodes them; the corpus vocabulary stores the
+    *surface/pausa* form (rAmaH). Every pada is by construction utterance-
+    final within its candidate, so this rewrite is always the licensed one.
+    Words already ending in a vowel / anusvAra / H / other consonant are
+    returned unchanged."""
+    if word.endswith(("s", "r")):
+        return word[:-1] + "H"
+    return word
 
 
 class Analyzer:
@@ -30,12 +46,32 @@ class Analyzer:
         self.inf = Inference()
         c = corpus.load_corpus()
         self.vocab: dict[str, int] = {w: n for w, n in c["vocab"].items() if n >= min_count}
+        # normaliser for log-frequency credit (see _lex_weight)
+        self._log_max = math.log1p(max(self.vocab.values())) if self.vocab else 1.0
 
     # -- ranking helpers ------------------------------------------------------
+    def _freq(self, pada: str) -> int:
+        """Corpus frequency of a pada, trying its pausa (surface-visarga)
+        form so an underlying-form pada from split() matches surface vocab."""
+        return max(self.vocab.get(pada, 0), self.vocab.get(_pausa(pada), 0))
+
     def _lex_coverage(self, padas: list[str]) -> float:
+        """Fraction of padas attested in the corpus (pausa-normalised). This
+        is the binary symbolic GATE — it drives the dominant score term."""
         if not padas:
             return 0.0
-        return sum(1 for p in padas if p in self.vocab) / len(padas)
+        return sum(1 for p in padas if self._freq(p) > 0) / len(padas)
+
+    def _lex_weight(self, padas: list[str]) -> float:
+        """Mean log-frequency of the padas, normalised to [0, 1]. A finer
+        signal than coverage: among splits with EQUAL coverage it favours the
+        one built from high-frequency real words, so a junk hapax that merely
+        happens to be in vocab (e.g. 'tadDi', freq 4) cannot tie a genuine
+        high-frequency split ('tat' 1137 + 'hitam' 74). Replaces the model's
+        copy-biased logprob as the primary tie-breaker."""
+        if not padas:
+            return 0.0
+        return sum(math.log1p(self._freq(p)) for p in padas) / (len(padas) * self._log_max)
 
     def _candidates(self, text: str, k_lattice: int = 20) -> list[list[str]]:
         cands = list(self.inf.sandhi.split(text, max_results=k_lattice))
@@ -58,15 +94,21 @@ class Analyzer:
         scored = []
         for padas in cands:
             lex = self._lex_coverage(padas)
-            oov = sum(1 for p in padas if p not in self.vocab)
+            freqw = self._lex_weight(padas)
+            oov = sum(1 for p in padas if self._freq(p) == 0)
             model = self.inf.logprob(f"<seg>{text}", " | ".join(padas))
-            # Lexicon coverage DOMINATES (symbolic gate); each out-of-vocab pada
-            # takes a hard hit so a whole-string non-word can't win on the
-            # model's love of copying its input; model_logprob only breaks ties
-            # among lexically-comparable splits; small penalty vs over-splitting.
-            combined = 4.0 * lex - 0.6 * oov + 0.3 * model - 0.05 * len(padas)
+            # Lexicon coverage DOMINATES (symbolic gate, 4.0); each out-of-vocab
+            # pada takes a hard hit so a whole-string non-word can't win on the
+            # model's love of copying its input. Among coverage-equal splits,
+            # log-frequency (0.5) is the primary tie-break -- it outranks the
+            # model (0.15) so a genuine high-frequency split beats a junk-hapax
+            # one instead of deferring to the net's copy bias. Small penalty vs
+            # over-splitting.
+            combined = (4.0 * lex + 0.5 * freqw - 0.6 * oov
+                        + 0.15 * model - 0.05 * len(padas))
             scored.append({"padas": padas, "lex_coverage": round(lex, 3),
-                           "oov": oov, "model_logprob": round(model, 3),
+                           "lex_weight": round(freqw, 3), "oov": oov,
+                           "model_logprob": round(model, 3),
                            "score": round(combined, 3)})
         scored.sort(key=lambda s: -s["score"])
         return {"input": text, "n_candidates": len(scored),
