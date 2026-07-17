@@ -1,0 +1,1469 @@
+first_slp1,second_slp1,result_slp1,first_iast,second_iast,result_iast,category,sandhi_name,sutra
+a,a,A,a,a,ā,ac-sandhi (vowel),savarRadIrGa,6.1.101 akaH savarRe dIrGaH
+a,A,A,a,ā,ā,ac-sandhi (vowel),savarRadIrGa,6.1.101 akaH savarRe dIrGaH
+a,i,e,a,i,e,ac-sandhi (vowel),guRa,6.1.87 AdguRaH
+a,I,e,a,ī,e,ac-sandhi (vowel),guRa,6.1.87 AdguRaH
+a,u,o,a,u,o,ac-sandhi (vowel),guRa,6.1.87 AdguRaH
+a,U,o,a,ū,o,ac-sandhi (vowel),guRa,6.1.87 AdguRaH
+a,f,ar,a,ṛ,ar,ac-sandhi (vowel),guRa,6.1.87 AdguRaH
+a,F,ar,a,ṝ,ar,ac-sandhi (vowel),guRa,6.1.87 AdguRaH
+a,x,al,a,ḷ,al,ac-sandhi (vowel),guRa,6.1.87 AdguRaH
+a,X,al,a,ḹ,al,ac-sandhi (vowel),guRa,6.1.87 AdguRaH
+a,e,E,a,e,ai,ac-sandhi (vowel),vfdDi,6.1.88 vfdDireci
+a,E,E,a,ai,ai,ac-sandhi (vowel),vfdDi,6.1.88 vfdDireci
+a,o,O,a,o,au,ac-sandhi (vowel),vfdDi,6.1.88 vfdDireci
+a,O,O,a,au,au,ac-sandhi (vowel),vfdDi,6.1.88 vfdDireci
+A,a,A,ā,a,ā,ac-sandhi (vowel),savarRadIrGa,6.1.101 akaH savarRe dIrGaH
+A,A,A,ā,ā,ā,ac-sandhi (vowel),savarRadIrGa,6.1.101 akaH savarRe dIrGaH
+A,i,e,ā,i,e,ac-sandhi (vowel),guRa,6.1.87 AdguRaH
+A,I,e,ā,ī,e,ac-sandhi (vowel),guRa,6.1.87 AdguRaH
+A,u,o,ā,u,o,ac-sandhi (vowel),guRa,6.1.87 AdguRaH
+A,U,o,ā,ū,o,ac-sandhi (vowel),guRa,6.1.87 AdguRaH
+A,f,ar,ā,ṛ,ar,ac-sandhi (vowel),guRa,6.1.87 AdguRaH
+A,F,ar,ā,ṝ,ar,ac-sandhi (vowel),guRa,6.1.87 AdguRaH
+A,x,al,ā,ḷ,al,ac-sandhi (vowel),guRa,6.1.87 AdguRaH
+A,X,al,ā,ḹ,al,ac-sandhi (vowel),guRa,6.1.87 AdguRaH
+A,e,E,ā,e,ai,ac-sandhi (vowel),vfdDi,6.1.88 vfdDireci
+A,E,E,ā,ai,ai,ac-sandhi (vowel),vfdDi,6.1.88 vfdDireci
+A,o,O,ā,o,au,ac-sandhi (vowel),vfdDi,6.1.88 vfdDireci
+A,O,O,ā,au,au,ac-sandhi (vowel),vfdDi,6.1.88 vfdDireci
+i,a,y a,i,a,y a,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+i,A,y A,i,ā,y ā,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+i,i,I,i,i,ī,ac-sandhi (vowel),savarRadIrGa,6.1.101 akaH savarRe dIrGaH
+i,I,I,i,ī,ī,ac-sandhi (vowel),savarRadIrGa,6.1.101 akaH savarRe dIrGaH
+i,u,y u,i,u,y u,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+i,U,y U,i,ū,y ū,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+i,f,y f,i,ṛ,y ṛ,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+i,F,y F,i,ṝ,y ṝ,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+i,x,y x,i,ḷ,y ḷ,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+i,X,y X,i,ḹ,y ḹ,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+i,e,y e,i,e,y e,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+i,E,y E,i,ai,y ai,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+i,o,y o,i,o,y o,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+i,O,y O,i,au,y au,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+I,a,y a,ī,a,y a,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+I,A,y A,ī,ā,y ā,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+I,i,I,ī,i,ī,ac-sandhi (vowel),savarRadIrGa,6.1.101 akaH savarRe dIrGaH
+I,I,I,ī,ī,ī,ac-sandhi (vowel),savarRadIrGa,6.1.101 akaH savarRe dIrGaH
+I,u,y u,ī,u,y u,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+I,U,y U,ī,ū,y ū,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+I,f,y f,ī,ṛ,y ṛ,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+I,F,y F,ī,ṝ,y ṝ,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+I,x,y x,ī,ḷ,y ḷ,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+I,X,y X,ī,ḹ,y ḹ,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+I,e,y e,ī,e,y e,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+I,E,y E,ī,ai,y ai,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+I,o,y o,ī,o,y o,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+I,O,y O,ī,au,y au,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+u,a,v a,u,a,v a,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+u,A,v A,u,ā,v ā,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+u,i,v i,u,i,v i,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+u,I,v I,u,ī,v ī,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+u,u,U,u,u,ū,ac-sandhi (vowel),savarRadIrGa,6.1.101 akaH savarRe dIrGaH
+u,U,U,u,ū,ū,ac-sandhi (vowel),savarRadIrGa,6.1.101 akaH savarRe dIrGaH
+u,f,v f,u,ṛ,v ṛ,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+u,F,v F,u,ṝ,v ṝ,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+u,x,v x,u,ḷ,v ḷ,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+u,X,v X,u,ḹ,v ḹ,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+u,e,v e,u,e,v e,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+u,E,v E,u,ai,v ai,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+u,o,v o,u,o,v o,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+u,O,v O,u,au,v au,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+U,a,v a,ū,a,v a,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+U,A,v A,ū,ā,v ā,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+U,i,v i,ū,i,v i,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+U,I,v I,ū,ī,v ī,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+U,u,U,ū,u,ū,ac-sandhi (vowel),savarRadIrGa,6.1.101 akaH savarRe dIrGaH
+U,U,U,ū,ū,ū,ac-sandhi (vowel),savarRadIrGa,6.1.101 akaH savarRe dIrGaH
+U,f,v f,ū,ṛ,v ṛ,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+U,F,v F,ū,ṝ,v ṝ,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+U,x,v x,ū,ḷ,v ḷ,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+U,X,v X,ū,ḹ,v ḹ,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+U,e,v e,ū,e,v e,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+U,E,v E,ū,ai,v ai,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+U,o,v o,ū,o,v o,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+U,O,v O,ū,au,v au,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+f,a,r a,ṛ,a,r a,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+f,A,r A,ṛ,ā,r ā,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+f,i,r i,ṛ,i,r i,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+f,I,r I,ṛ,ī,r ī,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+f,u,r u,ṛ,u,r u,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+f,U,r U,ṛ,ū,r ū,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+f,f,F,ṛ,ṛ,ṝ,ac-sandhi (vowel),savarRadIrGa,6.1.101 akaH savarRe dIrGaH
+f,F,F,ṛ,ṝ,ṝ,ac-sandhi (vowel),savarRadIrGa,6.1.101 akaH savarRe dIrGaH
+f,x,r x,ṛ,ḷ,r ḷ,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+f,X,r X,ṛ,ḹ,r ḹ,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+f,e,r e,ṛ,e,r e,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+f,E,r E,ṛ,ai,r ai,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+f,o,r o,ṛ,o,r o,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+f,O,r O,ṛ,au,r au,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+F,a,r a,ṝ,a,r a,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+F,A,r A,ṝ,ā,r ā,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+F,i,r i,ṝ,i,r i,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+F,I,r I,ṝ,ī,r ī,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+F,u,r u,ṝ,u,r u,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+F,U,r U,ṝ,ū,r ū,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+F,f,F,ṝ,ṛ,ṝ,ac-sandhi (vowel),savarRadIrGa,6.1.101 akaH savarRe dIrGaH
+F,F,F,ṝ,ṝ,ṝ,ac-sandhi (vowel),savarRadIrGa,6.1.101 akaH savarRe dIrGaH
+F,x,r x,ṝ,ḷ,r ḷ,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+F,X,r X,ṝ,ḹ,r ḹ,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+F,e,r e,ṝ,e,r e,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+F,E,r E,ṝ,ai,r ai,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+F,o,r o,ṝ,o,r o,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+F,O,r O,ṝ,au,r au,ac-sandhi (vowel),yaR,6.1.77 iko yaRaci
+e,a,e ',e,a,e ',ac-sandhi (vowel),pUrvarUpa,6.1.109 eNaH padAntAdati
+e,A,a A,e,ā,a ā,ac-sandhi (vowel),ayAdi+ya/va-lopa (padAnta),6.1.78 + 8.3.19–20
+e,i,a i,e,i,a i,ac-sandhi (vowel),ayAdi+ya/va-lopa (padAnta),6.1.78 + 8.3.19–20
+e,I,a I,e,ī,a ī,ac-sandhi (vowel),ayAdi+ya/va-lopa (padAnta),6.1.78 + 8.3.19–20
+e,u,a u,e,u,a u,ac-sandhi (vowel),ayAdi+ya/va-lopa (padAnta),6.1.78 + 8.3.19–20
+e,U,a U,e,ū,a ū,ac-sandhi (vowel),ayAdi+ya/va-lopa (padAnta),6.1.78 + 8.3.19–20
+e,f,a f,e,ṛ,a ṛ,ac-sandhi (vowel),ayAdi+ya/va-lopa (padAnta),6.1.78 + 8.3.19–20
+e,F,a F,e,ṝ,a ṝ,ac-sandhi (vowel),ayAdi+ya/va-lopa (padAnta),6.1.78 + 8.3.19–20
+e,x,a x,e,ḷ,a ḷ,ac-sandhi (vowel),ayAdi+ya/va-lopa (padAnta),6.1.78 + 8.3.19–20
+e,X,a X,e,ḹ,a ḹ,ac-sandhi (vowel),ayAdi+ya/va-lopa (padAnta),6.1.78 + 8.3.19–20
+e,e,a e,e,e,a e,ac-sandhi (vowel),ayAdi+ya/va-lopa (padAnta),6.1.78 + 8.3.19–20
+e,E,a E,e,ai,a ai,ac-sandhi (vowel),ayAdi+ya/va-lopa (padAnta),6.1.78 + 8.3.19–20
+e,o,a o,e,o,a o,ac-sandhi (vowel),ayAdi+ya/va-lopa (padAnta),6.1.78 + 8.3.19–20
+e,O,a O,e,au,a au,ac-sandhi (vowel),ayAdi+ya/va-lopa (padAnta),6.1.78 + 8.3.19–20
+E,a,A a,ai,a,ā a,ac-sandhi (vowel),ayAdi+ya/va-lopa (padAnta),6.1.78 + 8.3.19–20
+E,A,A A,ai,ā,ā ā,ac-sandhi (vowel),ayAdi+ya/va-lopa (padAnta),6.1.78 + 8.3.19–20
+E,i,A i,ai,i,ā i,ac-sandhi (vowel),ayAdi+ya/va-lopa (padAnta),6.1.78 + 8.3.19–20
+E,I,A I,ai,ī,ā ī,ac-sandhi (vowel),ayAdi+ya/va-lopa (padAnta),6.1.78 + 8.3.19–20
+E,u,A u,ai,u,ā u,ac-sandhi (vowel),ayAdi+ya/va-lopa (padAnta),6.1.78 + 8.3.19–20
+E,U,A U,ai,ū,ā ū,ac-sandhi (vowel),ayAdi+ya/va-lopa (padAnta),6.1.78 + 8.3.19–20
+E,f,A f,ai,ṛ,ā ṛ,ac-sandhi (vowel),ayAdi+ya/va-lopa (padAnta),6.1.78 + 8.3.19–20
+E,F,A F,ai,ṝ,ā ṝ,ac-sandhi (vowel),ayAdi+ya/va-lopa (padAnta),6.1.78 + 8.3.19–20
+E,x,A x,ai,ḷ,ā ḷ,ac-sandhi (vowel),ayAdi+ya/va-lopa (padAnta),6.1.78 + 8.3.19–20
+E,X,A X,ai,ḹ,ā ḹ,ac-sandhi (vowel),ayAdi+ya/va-lopa (padAnta),6.1.78 + 8.3.19–20
+E,e,A e,ai,e,ā e,ac-sandhi (vowel),ayAdi+ya/va-lopa (padAnta),6.1.78 + 8.3.19–20
+E,E,A E,ai,ai,ā ai,ac-sandhi (vowel),ayAdi+ya/va-lopa (padAnta),6.1.78 + 8.3.19–20
+E,o,A o,ai,o,ā o,ac-sandhi (vowel),ayAdi+ya/va-lopa (padAnta),6.1.78 + 8.3.19–20
+E,O,A O,ai,au,ā au,ac-sandhi (vowel),ayAdi+ya/va-lopa (padAnta),6.1.78 + 8.3.19–20
+O,a,Av a,au,a,āv a,ac-sandhi (vowel),ayAdi,6.1.78 eco_yavAyAvaH
+O,A,Av A,au,ā,āv ā,ac-sandhi (vowel),ayAdi,6.1.78 eco_yavAyAvaH
+O,i,Av i,au,i,āv i,ac-sandhi (vowel),ayAdi,6.1.78 eco_yavAyAvaH
+O,I,Av I,au,ī,āv ī,ac-sandhi (vowel),ayAdi,6.1.78 eco_yavAyAvaH
+O,u,Av u,au,u,āv u,ac-sandhi (vowel),ayAdi,6.1.78 eco_yavAyAvaH
+O,U,Av U,au,ū,āv ū,ac-sandhi (vowel),ayAdi,6.1.78 eco_yavAyAvaH
+O,f,Av f,au,ṛ,āv ṛ,ac-sandhi (vowel),ayAdi,6.1.78 eco_yavAyAvaH
+O,F,Av F,au,ṝ,āv ṝ,ac-sandhi (vowel),ayAdi,6.1.78 eco_yavAyAvaH
+O,x,Av x,au,ḷ,āv ḷ,ac-sandhi (vowel),ayAdi,6.1.78 eco_yavAyAvaH
+O,X,Av X,au,ḹ,āv ḹ,ac-sandhi (vowel),ayAdi,6.1.78 eco_yavAyAvaH
+O,e,Av e,au,e,āv e,ac-sandhi (vowel),ayAdi,6.1.78 eco_yavAyAvaH
+O,E,Av E,au,ai,āv ai,ac-sandhi (vowel),ayAdi,6.1.78 eco_yavAyAvaH
+O,o,Av o,au,o,āv o,ac-sandhi (vowel),ayAdi,6.1.78 eco_yavAyAvaH
+O,O,Av O,au,au,āv au,ac-sandhi (vowel),ayAdi,6.1.78 eco_yavAyAvaH
+a,C,a cC,a,ch,a cch,ac+hal boundary,tuk-Agama,6.1.73 Ce ca
+i,C,i cC,i,ch,i cch,ac+hal boundary,tuk-Agama,6.1.73 Ce ca
+u,C,u cC,u,ch,u cch,ac+hal boundary,tuk-Agama,6.1.73 Ce ca
+f,C,f cC,ṛ,ch,ṛ cch,ac+hal boundary,tuk-Agama,6.1.73 Ce ca
+x,C,x cC,ḷ,ch,ḷ cch,ac+hal boundary,tuk-Agama,6.1.73 Ce ca
+as,a,o ',as,a,o ',hal+ac boundary,utva+guRa (aH→o),6.1.113 ato ror aplutAdaplute + 6.1.87
+as,A,a A,as,ā,a ā,hal+ac boundary,visarga-lopa,8.3.19–22 lopaH SAkalyasya etc.
+as,i,a i,as,i,a i,hal+ac boundary,visarga-lopa,8.3.19–22 lopaH SAkalyasya etc.
+as,I,a I,as,ī,a ī,hal+ac boundary,visarga-lopa,8.3.19–22 lopaH SAkalyasya etc.
+as,u,a u,as,u,a u,hal+ac boundary,visarga-lopa,8.3.19–22 lopaH SAkalyasya etc.
+as,U,a U,as,ū,a ū,hal+ac boundary,visarga-lopa,8.3.19–22 lopaH SAkalyasya etc.
+as,f,a f,as,ṛ,a ṛ,hal+ac boundary,visarga-lopa,8.3.19–22 lopaH SAkalyasya etc.
+as,F,a F,as,ṝ,a ṝ,hal+ac boundary,visarga-lopa,8.3.19–22 lopaH SAkalyasya etc.
+as,x,a x,as,ḷ,a ḷ,hal+ac boundary,visarga-lopa,8.3.19–22 lopaH SAkalyasya etc.
+as,X,a X,as,ḹ,a ḹ,hal+ac boundary,visarga-lopa,8.3.19–22 lopaH SAkalyasya etc.
+as,e,a e,as,e,a e,hal+ac boundary,visarga-lopa,8.3.19–22 lopaH SAkalyasya etc.
+as,E,a E,as,ai,a ai,hal+ac boundary,visarga-lopa,8.3.19–22 lopaH SAkalyasya etc.
+as,o,a o,as,o,a o,hal+ac boundary,visarga-lopa,8.3.19–22 lopaH SAkalyasya etc.
+as,O,a O,as,au,a au,hal+ac boundary,visarga-lopa,8.3.19–22 lopaH SAkalyasya etc.
+as,k,aH k,as,k,aḥ k,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+as,K,aH K,as,kh,aḥ kh,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+as,g,o g,as,g,o g,hal-sandhi (consonant),utva+guRa (aH→o),6.1.113–114 + 6.1.87
+as,G,o G,as,gh,o gh,hal-sandhi (consonant),utva+guRa (aH→o),6.1.113–114 + 6.1.87
+as,N,o N,as,ṅ,o ṅ,hal-sandhi (consonant),utva+guRa (aH→o),6.1.113–114 + 6.1.87
+as,c,aS c,as,c,aś c,hal-sandhi (consonant),visarga→Scutva (S),8.3.34 + 8.4.40
+as,C,aS C,as,ch,aś ch,hal-sandhi (consonant),visarga→Scutva (S),8.3.34 + 8.4.40
+as,j,o j,as,j,o j,hal-sandhi (consonant),utva+guRa (aH→o),6.1.113–114 + 6.1.87
+as,J,o J,as,jh,o jh,hal-sandhi (consonant),utva+guRa (aH→o),6.1.113–114 + 6.1.87
+as,Y,o Y,as,ñ,o ñ,hal-sandhi (consonant),utva+guRa (aH→o),6.1.113–114 + 6.1.87
+as,w,az w,as,ṭ,aṣ ṭ,hal-sandhi (consonant),visarga→zwutva (z),8.3.34 + 8.4.41
+as,W,az W,as,ṭh,aṣ ṭh,hal-sandhi (consonant),visarga→zwutva (z),8.3.34 + 8.4.41
+as,q,o q,as,ḍ,o ḍ,hal-sandhi (consonant),utva+guRa (aH→o),6.1.113–114 + 6.1.87
+as,Q,o Q,as,ḍh,o ḍh,hal-sandhi (consonant),utva+guRa (aH→o),6.1.113–114 + 6.1.87
+as,R,o R,as,ṇ,o ṇ,hal-sandhi (consonant),utva+guRa (aH→o),6.1.113–114 + 6.1.87
+as,t,as t,as,t,as t,hal-sandhi (consonant),satva (s retained),8.3.34 visarjanIyasya saH
+as,T,as T,as,th,as th,hal-sandhi (consonant),satva (s retained),8.3.34 visarjanIyasya saH
+as,d,o d,as,d,o d,hal-sandhi (consonant),utva+guRa (aH→o),6.1.113–114 + 6.1.87
+as,D,o D,as,dh,o dh,hal-sandhi (consonant),utva+guRa (aH→o),6.1.113–114 + 6.1.87
+as,n,o n,as,n,o n,hal-sandhi (consonant),utva+guRa (aH→o),6.1.113–114 + 6.1.87
+as,p,aH p,as,p,aḥ p,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+as,P,aH P,as,ph,aḥ ph,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+as,b,o b,as,b,o b,hal-sandhi (consonant),utva+guRa (aH→o),6.1.113–114 + 6.1.87
+as,B,o B,as,bh,o bh,hal-sandhi (consonant),utva+guRa (aH→o),6.1.113–114 + 6.1.87
+as,m,o m,as,m,o m,hal-sandhi (consonant),utva+guRa (aH→o),6.1.113–114 + 6.1.87
+as,y,o y,as,y,o y,hal-sandhi (consonant),utva+guRa (aH→o),6.1.113–114 + 6.1.87
+as,r,o r,as,r,o r,hal-sandhi (consonant),utva+guRa (aH→o),6.1.113–114 + 6.1.87
+as,l,o l,as,l,o l,hal-sandhi (consonant),utva+guRa (aH→o),6.1.113–114 + 6.1.87
+as,v,o v,as,v,o v,hal-sandhi (consonant),utva+guRa (aH→o),6.1.113–114 + 6.1.87
+as,S,aH S,as,ś,aḥ ś,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+as,z,aH z,as,ṣ,aḥ ṣ,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+as,s,aH s,as,s,aḥ s,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+as,h,o h,as,h,o h,hal-sandhi (consonant),utva+guRa (aH→o),6.1.113–114 + 6.1.87
+As,a,A a,ās,a,ā a,hal+ac boundary,visarga-lopa,8.3.19–22 lopaH SAkalyasya etc.
+As,A,A A,ās,ā,ā ā,hal+ac boundary,visarga-lopa,8.3.19–22 lopaH SAkalyasya etc.
+As,i,A i,ās,i,ā i,hal+ac boundary,visarga-lopa,8.3.19–22 lopaH SAkalyasya etc.
+As,I,A I,ās,ī,ā ī,hal+ac boundary,visarga-lopa,8.3.19–22 lopaH SAkalyasya etc.
+As,u,A u,ās,u,ā u,hal+ac boundary,visarga-lopa,8.3.19–22 lopaH SAkalyasya etc.
+As,U,A U,ās,ū,ā ū,hal+ac boundary,visarga-lopa,8.3.19–22 lopaH SAkalyasya etc.
+As,f,A f,ās,ṛ,ā ṛ,hal+ac boundary,visarga-lopa,8.3.19–22 lopaH SAkalyasya etc.
+As,F,A F,ās,ṝ,ā ṝ,hal+ac boundary,visarga-lopa,8.3.19–22 lopaH SAkalyasya etc.
+As,x,A x,ās,ḷ,ā ḷ,hal+ac boundary,visarga-lopa,8.3.19–22 lopaH SAkalyasya etc.
+As,X,A X,ās,ḹ,ā ḹ,hal+ac boundary,visarga-lopa,8.3.19–22 lopaH SAkalyasya etc.
+As,e,A e,ās,e,ā e,hal+ac boundary,visarga-lopa,8.3.19–22 lopaH SAkalyasya etc.
+As,E,A E,ās,ai,ā ai,hal+ac boundary,visarga-lopa,8.3.19–22 lopaH SAkalyasya etc.
+As,o,A o,ās,o,ā o,hal+ac boundary,visarga-lopa,8.3.19–22 lopaH SAkalyasya etc.
+As,O,A O,ās,au,ā au,hal+ac boundary,visarga-lopa,8.3.19–22 lopaH SAkalyasya etc.
+As,k,AH k,ās,k,āḥ k,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+As,K,AH K,ās,kh,āḥ kh,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+As,g,A g,ās,g,ā g,hal-sandhi (consonant),visarga-lopa,8.3.19–22 lopaH SAkalyasya etc.
+As,G,A G,ās,gh,ā gh,hal-sandhi (consonant),visarga-lopa,8.3.19–22 lopaH SAkalyasya etc.
+As,N,A N,ās,ṅ,ā ṅ,hal-sandhi (consonant),visarga-lopa,8.3.19–22 lopaH SAkalyasya etc.
+As,c,AS c,ās,c,āś c,hal-sandhi (consonant),visarga→Scutva (S),8.3.34 + 8.4.40
+As,C,AS C,ās,ch,āś ch,hal-sandhi (consonant),visarga→Scutva (S),8.3.34 + 8.4.40
+As,j,A j,ās,j,ā j,hal-sandhi (consonant),visarga-lopa,8.3.19–22 lopaH SAkalyasya etc.
+As,J,A J,ās,jh,ā jh,hal-sandhi (consonant),visarga-lopa,8.3.19–22 lopaH SAkalyasya etc.
+As,Y,A Y,ās,ñ,ā ñ,hal-sandhi (consonant),visarga-lopa,8.3.19–22 lopaH SAkalyasya etc.
+As,w,Az w,ās,ṭ,āṣ ṭ,hal-sandhi (consonant),visarga→zwutva (z),8.3.34 + 8.4.41
+As,W,Az W,ās,ṭh,āṣ ṭh,hal-sandhi (consonant),visarga→zwutva (z),8.3.34 + 8.4.41
+As,q,A q,ās,ḍ,ā ḍ,hal-sandhi (consonant),visarga-lopa,8.3.19–22 lopaH SAkalyasya etc.
+As,Q,A Q,ās,ḍh,ā ḍh,hal-sandhi (consonant),visarga-lopa,8.3.19–22 lopaH SAkalyasya etc.
+As,R,A R,ās,ṇ,ā ṇ,hal-sandhi (consonant),visarga-lopa,8.3.19–22 lopaH SAkalyasya etc.
+As,t,As t,ās,t,ās t,hal-sandhi (consonant),satva (s retained),8.3.34 visarjanIyasya saH
+As,T,As T,ās,th,ās th,hal-sandhi (consonant),satva (s retained),8.3.34 visarjanIyasya saH
+As,d,A d,ās,d,ā d,hal-sandhi (consonant),visarga-lopa,8.3.19–22 lopaH SAkalyasya etc.
+As,D,A D,ās,dh,ā dh,hal-sandhi (consonant),visarga-lopa,8.3.19–22 lopaH SAkalyasya etc.
+As,n,A n,ās,n,ā n,hal-sandhi (consonant),visarga-lopa,8.3.19–22 lopaH SAkalyasya etc.
+As,p,AH p,ās,p,āḥ p,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+As,P,AH P,ās,ph,āḥ ph,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+As,b,A b,ās,b,ā b,hal-sandhi (consonant),visarga-lopa,8.3.19–22 lopaH SAkalyasya etc.
+As,B,A B,ās,bh,ā bh,hal-sandhi (consonant),visarga-lopa,8.3.19–22 lopaH SAkalyasya etc.
+As,m,A m,ās,m,ā m,hal-sandhi (consonant),visarga-lopa,8.3.19–22 lopaH SAkalyasya etc.
+As,y,A y,ās,y,ā y,hal-sandhi (consonant),visarga-lopa,8.3.19–22 lopaH SAkalyasya etc.
+As,r,A r,ās,r,ā r,hal-sandhi (consonant),repha-lopa (ro ri),8.3.14 ro ri
+As,l,A l,ās,l,ā l,hal-sandhi (consonant),visarga-lopa,8.3.19–22 lopaH SAkalyasya etc.
+As,v,A v,ās,v,ā v,hal-sandhi (consonant),visarga-lopa,8.3.19–22 lopaH SAkalyasya etc.
+As,S,AH S,ās,ś,āḥ ś,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+As,z,AH z,ās,ṣ,āḥ ṣ,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+As,s,AH s,ās,s,āḥ s,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+As,h,A h,ās,h,ā h,hal-sandhi (consonant),visarga-lopa,8.3.19–22 lopaH SAkalyasya etc.
+ar,a,ar a,ar,a,ar a,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ar,A,ar A,ar,ā,ar ā,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ar,i,ar i,ar,i,ar i,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ar,I,ar I,ar,ī,ar ī,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ar,u,ar u,ar,u,ar u,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ar,U,ar U,ar,ū,ar ū,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ar,f,ar f,ar,ṛ,ar ṛ,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ar,F,ar F,ar,ṝ,ar ṝ,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ar,x,ar x,ar,ḷ,ar ḷ,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ar,X,ar X,ar,ḹ,ar ḹ,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ar,e,ar e,ar,e,ar e,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ar,E,ar E,ar,ai,ar ai,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ar,o,ar o,ar,o,ar o,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ar,O,ar O,ar,au,ar au,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ar,k,aH k,ar,k,aḥ k,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+ar,K,aH K,ar,kh,aḥ kh,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+ar,g,ar g,ar,g,ar g,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ar,G,ar G,ar,gh,ar gh,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ar,N,ar N,ar,ṅ,ar ṅ,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ar,c,aS c,ar,c,aś c,hal-sandhi (consonant),visarga→Scutva (S),8.3.34 + 8.4.40
+ar,C,aS C,ar,ch,aś ch,hal-sandhi (consonant),visarga→Scutva (S),8.3.34 + 8.4.40
+ar,j,ar j,ar,j,ar j,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ar,J,ar J,ar,jh,ar jh,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ar,Y,ar Y,ar,ñ,ar ñ,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ar,w,az w,ar,ṭ,aṣ ṭ,hal-sandhi (consonant),visarga→zwutva (z),8.3.34 + 8.4.41
+ar,W,az W,ar,ṭh,aṣ ṭh,hal-sandhi (consonant),visarga→zwutva (z),8.3.34 + 8.4.41
+ar,q,ar q,ar,ḍ,ar ḍ,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ar,Q,ar Q,ar,ḍh,ar ḍh,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ar,R,ar R,ar,ṇ,ar ṇ,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ar,t,as t,ar,t,as t,hal-sandhi (consonant),satva (s retained),8.3.34 visarjanIyasya saH
+ar,T,as T,ar,th,as th,hal-sandhi (consonant),satva (s retained),8.3.34 visarjanIyasya saH
+ar,d,ar d,ar,d,ar d,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ar,D,ar D,ar,dh,ar dh,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ar,n,ar n,ar,n,ar n,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ar,p,aH p,ar,p,aḥ p,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+ar,P,aH P,ar,ph,aḥ ph,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+ar,b,ar b,ar,b,ar b,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ar,B,ar B,ar,bh,ar bh,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ar,m,ar m,ar,m,ar m,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ar,y,ar y,ar,y,ar y,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ar,r,A r,ar,r,ā r,hal-sandhi (consonant),repha-lopa (ro ri),8.3.14 ro ri
+ar,l,ar l,ar,l,ar l,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ar,v,ar v,ar,v,ar v,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ar,S,aH S,ar,ś,aḥ ś,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+ar,z,aH z,ar,ṣ,aḥ ṣ,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+ar,s,aH s,ar,s,aḥ s,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+ar,h,ar h,ar,h,ar h,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ar,a,Ar a,ār,a,ār a,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ar,A,Ar A,ār,ā,ār ā,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ar,i,Ar i,ār,i,ār i,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ar,I,Ar I,ār,ī,ār ī,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ar,u,Ar u,ār,u,ār u,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ar,U,Ar U,ār,ū,ār ū,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ar,f,Ar f,ār,ṛ,ār ṛ,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ar,F,Ar F,ār,ṝ,ār ṝ,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ar,x,Ar x,ār,ḷ,ār ḷ,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ar,X,Ar X,ār,ḹ,ār ḹ,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ar,e,Ar e,ār,e,ār e,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ar,E,Ar E,ār,ai,ār ai,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ar,o,Ar o,ār,o,ār o,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ar,O,Ar O,ār,au,ār au,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ar,k,AH k,ār,k,āḥ k,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Ar,K,AH K,ār,kh,āḥ kh,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Ar,g,Ar g,ār,g,ār g,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ar,G,Ar G,ār,gh,ār gh,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ar,N,Ar N,ār,ṅ,ār ṅ,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ar,c,AS c,ār,c,āś c,hal-sandhi (consonant),visarga→Scutva (S),8.3.34 + 8.4.40
+Ar,C,AS C,ār,ch,āś ch,hal-sandhi (consonant),visarga→Scutva (S),8.3.34 + 8.4.40
+Ar,j,Ar j,ār,j,ār j,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ar,J,Ar J,ār,jh,ār jh,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ar,Y,Ar Y,ār,ñ,ār ñ,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ar,w,Az w,ār,ṭ,āṣ ṭ,hal-sandhi (consonant),visarga→zwutva (z),8.3.34 + 8.4.41
+Ar,W,Az W,ār,ṭh,āṣ ṭh,hal-sandhi (consonant),visarga→zwutva (z),8.3.34 + 8.4.41
+Ar,q,Ar q,ār,ḍ,ār ḍ,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ar,Q,Ar Q,ār,ḍh,ār ḍh,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ar,R,Ar R,ār,ṇ,ār ṇ,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ar,t,As t,ār,t,ās t,hal-sandhi (consonant),satva (s retained),8.3.34 visarjanIyasya saH
+Ar,T,As T,ār,th,ās th,hal-sandhi (consonant),satva (s retained),8.3.34 visarjanIyasya saH
+Ar,d,Ar d,ār,d,ār d,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ar,D,Ar D,ār,dh,ār dh,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ar,n,Ar n,ār,n,ār n,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ar,p,AH p,ār,p,āḥ p,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Ar,P,AH P,ār,ph,āḥ ph,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Ar,b,Ar b,ār,b,ār b,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ar,B,Ar B,ār,bh,ār bh,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ar,m,Ar m,ār,m,ār m,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ar,y,Ar y,ār,y,ār y,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ar,r,A r,ār,r,ā r,hal-sandhi (consonant),repha-lopa (ro ri),8.3.14 ro ri
+Ar,l,Ar l,ār,l,ār l,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ar,v,Ar v,ār,v,ār v,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ar,S,AH S,ār,ś,āḥ ś,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Ar,z,AH z,ār,ṣ,āḥ ṣ,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Ar,s,AH s,ār,s,āḥ s,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Ar,h,Ar h,ār,h,ār h,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ir,a,ir a,ir,a,ir a,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ir,A,ir A,ir,ā,ir ā,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ir,i,ir i,ir,i,ir i,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ir,I,ir I,ir,ī,ir ī,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ir,u,ir u,ir,u,ir u,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ir,U,ir U,ir,ū,ir ū,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ir,f,ir f,ir,ṛ,ir ṛ,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ir,F,ir F,ir,ṝ,ir ṝ,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ir,x,ir x,ir,ḷ,ir ḷ,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ir,X,ir X,ir,ḹ,ir ḹ,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ir,e,ir e,ir,e,ir e,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ir,E,ir E,ir,ai,ir ai,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ir,o,ir o,ir,o,ir o,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ir,O,ir O,ir,au,ir au,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ir,k,iH k,ir,k,iḥ k,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+ir,K,iH K,ir,kh,iḥ kh,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+ir,g,ir g,ir,g,ir g,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ir,G,ir G,ir,gh,ir gh,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ir,N,ir N,ir,ṅ,ir ṅ,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ir,c,iS c,ir,c,iś c,hal-sandhi (consonant),visarga→Scutva (S),8.3.34 + 8.4.40
+ir,C,iS C,ir,ch,iś ch,hal-sandhi (consonant),visarga→Scutva (S),8.3.34 + 8.4.40
+ir,j,ir j,ir,j,ir j,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ir,J,ir J,ir,jh,ir jh,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ir,Y,ir Y,ir,ñ,ir ñ,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ir,w,iz w,ir,ṭ,iṣ ṭ,hal-sandhi (consonant),visarga→zwutva (z),8.3.34 + 8.4.41
+ir,W,iz W,ir,ṭh,iṣ ṭh,hal-sandhi (consonant),visarga→zwutva (z),8.3.34 + 8.4.41
+ir,q,ir q,ir,ḍ,ir ḍ,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ir,Q,ir Q,ir,ḍh,ir ḍh,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ir,R,ir R,ir,ṇ,ir ṇ,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ir,t,is t,ir,t,is t,hal-sandhi (consonant),satva (s retained),8.3.34 visarjanIyasya saH
+ir,T,is T,ir,th,is th,hal-sandhi (consonant),satva (s retained),8.3.34 visarjanIyasya saH
+ir,d,ir d,ir,d,ir d,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ir,D,ir D,ir,dh,ir dh,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ir,n,ir n,ir,n,ir n,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ir,p,iH p,ir,p,iḥ p,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+ir,P,iH P,ir,ph,iḥ ph,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+ir,b,ir b,ir,b,ir b,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ir,B,ir B,ir,bh,ir bh,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ir,m,ir m,ir,m,ir m,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ir,y,ir y,ir,y,ir y,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ir,r,I r,ir,r,ī r,hal-sandhi (consonant),repha-lopa (ro ri),8.3.14 ro ri
+ir,l,ir l,ir,l,ir l,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ir,v,ir v,ir,v,ir v,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ir,S,iH S,ir,ś,iḥ ś,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+ir,z,iH z,ir,ṣ,iḥ ṣ,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+ir,s,iH s,ir,s,iḥ s,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+ir,h,ir h,ir,h,ir h,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+is,a,ir a,is,a,ir a,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+is,A,ir A,is,ā,ir ā,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+is,i,ir i,is,i,ir i,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+is,I,ir I,is,ī,ir ī,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+is,u,ir u,is,u,ir u,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+is,U,ir U,is,ū,ir ū,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+is,f,ir f,is,ṛ,ir ṛ,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+is,F,ir F,is,ṝ,ir ṝ,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+is,x,ir x,is,ḷ,ir ḷ,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+is,X,ir X,is,ḹ,ir ḹ,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+is,e,ir e,is,e,ir e,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+is,E,ir E,is,ai,ir ai,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+is,o,ir o,is,o,ir o,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+is,O,ir O,is,au,ir au,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+is,k,iH k,is,k,iḥ k,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+is,K,iH K,is,kh,iḥ kh,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+is,g,ir g,is,g,ir g,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+is,G,ir G,is,gh,ir gh,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+is,N,ir N,is,ṅ,ir ṅ,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+is,c,iS c,is,c,iś c,hal-sandhi (consonant),visarga→Scutva (S),8.3.34 + 8.4.40
+is,C,iS C,is,ch,iś ch,hal-sandhi (consonant),visarga→Scutva (S),8.3.34 + 8.4.40
+is,j,ir j,is,j,ir j,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+is,J,ir J,is,jh,ir jh,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+is,Y,ir Y,is,ñ,ir ñ,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+is,w,iz w,is,ṭ,iṣ ṭ,hal-sandhi (consonant),visarga→zwutva (z),8.3.34 + 8.4.41
+is,W,iz W,is,ṭh,iṣ ṭh,hal-sandhi (consonant),visarga→zwutva (z),8.3.34 + 8.4.41
+is,q,ir q,is,ḍ,ir ḍ,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+is,Q,ir Q,is,ḍh,ir ḍh,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+is,R,ir R,is,ṇ,ir ṇ,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+is,t,is t,is,t,is t,hal-sandhi (consonant),satva (s retained),8.3.34 visarjanIyasya saH
+is,T,is T,is,th,is th,hal-sandhi (consonant),satva (s retained),8.3.34 visarjanIyasya saH
+is,d,ir d,is,d,ir d,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+is,D,ir D,is,dh,ir dh,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+is,n,ir n,is,n,ir n,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+is,p,iH p,is,p,iḥ p,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+is,P,iH P,is,ph,iḥ ph,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+is,b,ir b,is,b,ir b,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+is,B,ir B,is,bh,ir bh,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+is,m,ir m,is,m,ir m,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+is,y,ir y,is,y,ir y,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+is,r,I r,is,r,ī r,hal-sandhi (consonant),repha-lopa (ro ri),8.3.14 ro ri
+is,l,ir l,is,l,ir l,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+is,v,ir v,is,v,ir v,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+is,S,iH S,is,ś,iḥ ś,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+is,z,iH z,is,ṣ,iḥ ṣ,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+is,s,iH s,is,s,iḥ s,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+is,h,ir h,is,h,ir h,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Ir,a,Ir a,īr,a,īr a,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ir,A,Ir A,īr,ā,īr ā,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ir,i,Ir i,īr,i,īr i,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ir,I,Ir I,īr,ī,īr ī,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ir,u,Ir u,īr,u,īr u,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ir,U,Ir U,īr,ū,īr ū,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ir,f,Ir f,īr,ṛ,īr ṛ,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ir,F,Ir F,īr,ṝ,īr ṝ,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ir,x,Ir x,īr,ḷ,īr ḷ,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ir,X,Ir X,īr,ḹ,īr ḹ,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ir,e,Ir e,īr,e,īr e,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ir,E,Ir E,īr,ai,īr ai,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ir,o,Ir o,īr,o,īr o,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ir,O,Ir O,īr,au,īr au,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ir,k,IH k,īr,k,īḥ k,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Ir,K,IH K,īr,kh,īḥ kh,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Ir,g,Ir g,īr,g,īr g,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ir,G,Ir G,īr,gh,īr gh,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ir,N,Ir N,īr,ṅ,īr ṅ,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ir,c,IS c,īr,c,īś c,hal-sandhi (consonant),visarga→Scutva (S),8.3.34 + 8.4.40
+Ir,C,IS C,īr,ch,īś ch,hal-sandhi (consonant),visarga→Scutva (S),8.3.34 + 8.4.40
+Ir,j,Ir j,īr,j,īr j,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ir,J,Ir J,īr,jh,īr jh,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ir,Y,Ir Y,īr,ñ,īr ñ,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ir,w,Iz w,īr,ṭ,īṣ ṭ,hal-sandhi (consonant),visarga→zwutva (z),8.3.34 + 8.4.41
+Ir,W,Iz W,īr,ṭh,īṣ ṭh,hal-sandhi (consonant),visarga→zwutva (z),8.3.34 + 8.4.41
+Ir,q,Ir q,īr,ḍ,īr ḍ,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ir,Q,Ir Q,īr,ḍh,īr ḍh,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ir,R,Ir R,īr,ṇ,īr ṇ,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ir,t,Is t,īr,t,īs t,hal-sandhi (consonant),satva (s retained),8.3.34 visarjanIyasya saH
+Ir,T,Is T,īr,th,īs th,hal-sandhi (consonant),satva (s retained),8.3.34 visarjanIyasya saH
+Ir,d,Ir d,īr,d,īr d,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ir,D,Ir D,īr,dh,īr dh,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ir,n,Ir n,īr,n,īr n,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ir,p,IH p,īr,p,īḥ p,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Ir,P,IH P,īr,ph,īḥ ph,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Ir,b,Ir b,īr,b,īr b,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ir,B,Ir B,īr,bh,īr bh,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ir,m,Ir m,īr,m,īr m,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ir,y,Ir y,īr,y,īr y,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ir,r,I r,īr,r,ī r,hal-sandhi (consonant),repha-lopa (ro ri),8.3.14 ro ri
+Ir,l,Ir l,īr,l,īr l,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ir,v,Ir v,īr,v,īr v,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ir,S,IH S,īr,ś,īḥ ś,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Ir,z,IH z,īr,ṣ,īḥ ṣ,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Ir,s,IH s,īr,s,īḥ s,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Ir,h,Ir h,īr,h,īr h,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Is,a,Ir a,īs,a,īr a,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Is,A,Ir A,īs,ā,īr ā,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Is,i,Ir i,īs,i,īr i,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Is,I,Ir I,īs,ī,īr ī,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Is,u,Ir u,īs,u,īr u,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Is,U,Ir U,īs,ū,īr ū,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Is,f,Ir f,īs,ṛ,īr ṛ,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Is,F,Ir F,īs,ṝ,īr ṝ,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Is,x,Ir x,īs,ḷ,īr ḷ,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Is,X,Ir X,īs,ḹ,īr ḹ,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Is,e,Ir e,īs,e,īr e,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Is,E,Ir E,īs,ai,īr ai,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Is,o,Ir o,īs,o,īr o,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Is,O,Ir O,īs,au,īr au,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Is,k,IH k,īs,k,īḥ k,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Is,K,IH K,īs,kh,īḥ kh,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Is,g,Ir g,īs,g,īr g,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Is,G,Ir G,īs,gh,īr gh,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Is,N,Ir N,īs,ṅ,īr ṅ,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Is,c,IS c,īs,c,īś c,hal-sandhi (consonant),visarga→Scutva (S),8.3.34 + 8.4.40
+Is,C,IS C,īs,ch,īś ch,hal-sandhi (consonant),visarga→Scutva (S),8.3.34 + 8.4.40
+Is,j,Ir j,īs,j,īr j,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Is,J,Ir J,īs,jh,īr jh,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Is,Y,Ir Y,īs,ñ,īr ñ,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Is,w,Iz w,īs,ṭ,īṣ ṭ,hal-sandhi (consonant),visarga→zwutva (z),8.3.34 + 8.4.41
+Is,W,Iz W,īs,ṭh,īṣ ṭh,hal-sandhi (consonant),visarga→zwutva (z),8.3.34 + 8.4.41
+Is,q,Ir q,īs,ḍ,īr ḍ,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Is,Q,Ir Q,īs,ḍh,īr ḍh,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Is,R,Ir R,īs,ṇ,īr ṇ,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Is,t,Is t,īs,t,īs t,hal-sandhi (consonant),satva (s retained),8.3.34 visarjanIyasya saH
+Is,T,Is T,īs,th,īs th,hal-sandhi (consonant),satva (s retained),8.3.34 visarjanIyasya saH
+Is,d,Ir d,īs,d,īr d,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Is,D,Ir D,īs,dh,īr dh,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Is,n,Ir n,īs,n,īr n,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Is,p,IH p,īs,p,īḥ p,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Is,P,IH P,īs,ph,īḥ ph,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Is,b,Ir b,īs,b,īr b,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Is,B,Ir B,īs,bh,īr bh,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Is,m,Ir m,īs,m,īr m,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Is,y,Ir y,īs,y,īr y,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Is,r,I r,īs,r,ī r,hal-sandhi (consonant),repha-lopa (ro ri),8.3.14 ro ri
+Is,l,Ir l,īs,l,īr l,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Is,v,Ir v,īs,v,īr v,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Is,S,IH S,īs,ś,īḥ ś,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Is,z,IH z,īs,ṣ,īḥ ṣ,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Is,s,IH s,īs,s,īḥ s,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Is,h,Ir h,īs,h,īr h,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+ur,a,ur a,ur,a,ur a,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ur,A,ur A,ur,ā,ur ā,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ur,i,ur i,ur,i,ur i,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ur,I,ur I,ur,ī,ur ī,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ur,u,ur u,ur,u,ur u,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ur,U,ur U,ur,ū,ur ū,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ur,f,ur f,ur,ṛ,ur ṛ,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ur,F,ur F,ur,ṝ,ur ṝ,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ur,x,ur x,ur,ḷ,ur ḷ,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ur,X,ur X,ur,ḹ,ur ḹ,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ur,e,ur e,ur,e,ur e,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ur,E,ur E,ur,ai,ur ai,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ur,o,ur o,ur,o,ur o,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ur,O,ur O,ur,au,ur au,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ur,k,uH k,ur,k,uḥ k,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+ur,K,uH K,ur,kh,uḥ kh,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+ur,g,ur g,ur,g,ur g,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ur,G,ur G,ur,gh,ur gh,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ur,N,ur N,ur,ṅ,ur ṅ,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ur,c,uS c,ur,c,uś c,hal-sandhi (consonant),visarga→Scutva (S),8.3.34 + 8.4.40
+ur,C,uS C,ur,ch,uś ch,hal-sandhi (consonant),visarga→Scutva (S),8.3.34 + 8.4.40
+ur,j,ur j,ur,j,ur j,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ur,J,ur J,ur,jh,ur jh,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ur,Y,ur Y,ur,ñ,ur ñ,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ur,w,uz w,ur,ṭ,uṣ ṭ,hal-sandhi (consonant),visarga→zwutva (z),8.3.34 + 8.4.41
+ur,W,uz W,ur,ṭh,uṣ ṭh,hal-sandhi (consonant),visarga→zwutva (z),8.3.34 + 8.4.41
+ur,q,ur q,ur,ḍ,ur ḍ,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ur,Q,ur Q,ur,ḍh,ur ḍh,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ur,R,ur R,ur,ṇ,ur ṇ,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ur,t,us t,ur,t,us t,hal-sandhi (consonant),satva (s retained),8.3.34 visarjanIyasya saH
+ur,T,us T,ur,th,us th,hal-sandhi (consonant),satva (s retained),8.3.34 visarjanIyasya saH
+ur,d,ur d,ur,d,ur d,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ur,D,ur D,ur,dh,ur dh,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ur,n,ur n,ur,n,ur n,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ur,p,uH p,ur,p,uḥ p,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+ur,P,uH P,ur,ph,uḥ ph,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+ur,b,ur b,ur,b,ur b,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ur,B,ur B,ur,bh,ur bh,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ur,m,ur m,ur,m,ur m,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ur,y,ur y,ur,y,ur y,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ur,r,U r,ur,r,ū r,hal-sandhi (consonant),repha-lopa (ro ri),8.3.14 ro ri
+ur,l,ur l,ur,l,ur l,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ur,v,ur v,ur,v,ur v,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+ur,S,uH S,ur,ś,uḥ ś,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+ur,z,uH z,ur,ṣ,uḥ ṣ,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+ur,s,uH s,ur,s,uḥ s,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+ur,h,ur h,ur,h,ur h,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+us,a,ur a,us,a,ur a,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+us,A,ur A,us,ā,ur ā,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+us,i,ur i,us,i,ur i,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+us,I,ur I,us,ī,ur ī,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+us,u,ur u,us,u,ur u,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+us,U,ur U,us,ū,ur ū,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+us,f,ur f,us,ṛ,ur ṛ,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+us,F,ur F,us,ṝ,ur ṝ,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+us,x,ur x,us,ḷ,ur ḷ,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+us,X,ur X,us,ḹ,ur ḹ,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+us,e,ur e,us,e,ur e,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+us,E,ur E,us,ai,ur ai,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+us,o,ur o,us,o,ur o,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+us,O,ur O,us,au,ur au,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+us,k,uH k,us,k,uḥ k,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+us,K,uH K,us,kh,uḥ kh,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+us,g,ur g,us,g,ur g,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+us,G,ur G,us,gh,ur gh,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+us,N,ur N,us,ṅ,ur ṅ,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+us,c,uS c,us,c,uś c,hal-sandhi (consonant),visarga→Scutva (S),8.3.34 + 8.4.40
+us,C,uS C,us,ch,uś ch,hal-sandhi (consonant),visarga→Scutva (S),8.3.34 + 8.4.40
+us,j,ur j,us,j,ur j,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+us,J,ur J,us,jh,ur jh,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+us,Y,ur Y,us,ñ,ur ñ,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+us,w,uz w,us,ṭ,uṣ ṭ,hal-sandhi (consonant),visarga→zwutva (z),8.3.34 + 8.4.41
+us,W,uz W,us,ṭh,uṣ ṭh,hal-sandhi (consonant),visarga→zwutva (z),8.3.34 + 8.4.41
+us,q,ur q,us,ḍ,ur ḍ,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+us,Q,ur Q,us,ḍh,ur ḍh,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+us,R,ur R,us,ṇ,ur ṇ,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+us,t,us t,us,t,us t,hal-sandhi (consonant),satva (s retained),8.3.34 visarjanIyasya saH
+us,T,us T,us,th,us th,hal-sandhi (consonant),satva (s retained),8.3.34 visarjanIyasya saH
+us,d,ur d,us,d,ur d,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+us,D,ur D,us,dh,ur dh,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+us,n,ur n,us,n,ur n,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+us,p,uH p,us,p,uḥ p,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+us,P,uH P,us,ph,uḥ ph,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+us,b,ur b,us,b,ur b,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+us,B,ur B,us,bh,ur bh,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+us,m,ur m,us,m,ur m,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+us,y,ur y,us,y,ur y,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+us,r,U r,us,r,ū r,hal-sandhi (consonant),repha-lopa (ro ri),8.3.14 ro ri
+us,l,ur l,us,l,ur l,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+us,v,ur v,us,v,ur v,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+us,S,uH S,us,ś,uḥ ś,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+us,z,uH z,us,ṣ,uḥ ṣ,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+us,s,uH s,us,s,uḥ s,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+us,h,ur h,us,h,ur h,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Ur,a,Ur a,ūr,a,ūr a,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ur,A,Ur A,ūr,ā,ūr ā,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ur,i,Ur i,ūr,i,ūr i,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ur,I,Ur I,ūr,ī,ūr ī,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ur,u,Ur u,ūr,u,ūr u,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ur,U,Ur U,ūr,ū,ūr ū,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ur,f,Ur f,ūr,ṛ,ūr ṛ,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ur,F,Ur F,ūr,ṝ,ūr ṝ,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ur,x,Ur x,ūr,ḷ,ūr ḷ,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ur,X,Ur X,ūr,ḹ,ūr ḹ,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ur,e,Ur e,ūr,e,ūr e,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ur,E,Ur E,ūr,ai,ūr ai,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ur,o,Ur o,ūr,o,ūr o,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ur,O,Ur O,ūr,au,ūr au,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ur,k,UH k,ūr,k,ūḥ k,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Ur,K,UH K,ūr,kh,ūḥ kh,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Ur,g,Ur g,ūr,g,ūr g,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ur,G,Ur G,ūr,gh,ūr gh,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ur,N,Ur N,ūr,ṅ,ūr ṅ,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ur,c,US c,ūr,c,ūś c,hal-sandhi (consonant),visarga→Scutva (S),8.3.34 + 8.4.40
+Ur,C,US C,ūr,ch,ūś ch,hal-sandhi (consonant),visarga→Scutva (S),8.3.34 + 8.4.40
+Ur,j,Ur j,ūr,j,ūr j,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ur,J,Ur J,ūr,jh,ūr jh,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ur,Y,Ur Y,ūr,ñ,ūr ñ,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ur,w,Uz w,ūr,ṭ,ūṣ ṭ,hal-sandhi (consonant),visarga→zwutva (z),8.3.34 + 8.4.41
+Ur,W,Uz W,ūr,ṭh,ūṣ ṭh,hal-sandhi (consonant),visarga→zwutva (z),8.3.34 + 8.4.41
+Ur,q,Ur q,ūr,ḍ,ūr ḍ,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ur,Q,Ur Q,ūr,ḍh,ūr ḍh,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ur,R,Ur R,ūr,ṇ,ūr ṇ,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ur,t,Us t,ūr,t,ūs t,hal-sandhi (consonant),satva (s retained),8.3.34 visarjanIyasya saH
+Ur,T,Us T,ūr,th,ūs th,hal-sandhi (consonant),satva (s retained),8.3.34 visarjanIyasya saH
+Ur,d,Ur d,ūr,d,ūr d,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ur,D,Ur D,ūr,dh,ūr dh,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ur,n,Ur n,ūr,n,ūr n,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ur,p,UH p,ūr,p,ūḥ p,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Ur,P,UH P,ūr,ph,ūḥ ph,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Ur,b,Ur b,ūr,b,ūr b,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ur,B,Ur B,ūr,bh,ūr bh,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ur,m,Ur m,ūr,m,ūr m,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ur,y,Ur y,ūr,y,ūr y,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ur,r,U r,ūr,r,ū r,hal-sandhi (consonant),repha-lopa (ro ri),8.3.14 ro ri
+Ur,l,Ur l,ūr,l,ūr l,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ur,v,Ur v,ūr,v,ūr v,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Ur,S,UH S,ūr,ś,ūḥ ś,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Ur,z,UH z,ūr,ṣ,ūḥ ṣ,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Ur,s,UH s,ūr,s,ūḥ s,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Ur,h,Ur h,ūr,h,ūr h,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Us,a,Ur a,ūs,a,ūr a,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Us,A,Ur A,ūs,ā,ūr ā,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Us,i,Ur i,ūs,i,ūr i,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Us,I,Ur I,ūs,ī,ūr ī,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Us,u,Ur u,ūs,u,ūr u,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Us,U,Ur U,ūs,ū,ūr ū,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Us,f,Ur f,ūs,ṛ,ūr ṛ,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Us,F,Ur F,ūs,ṝ,ūr ṝ,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Us,x,Ur x,ūs,ḷ,ūr ḷ,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Us,X,Ur X,ūs,ḹ,ūr ḹ,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Us,e,Ur e,ūs,e,ūr e,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Us,E,Ur E,ūs,ai,ūr ai,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Us,o,Ur o,ūs,o,ūr o,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Us,O,Ur O,ūs,au,ūr au,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Us,k,UH k,ūs,k,ūḥ k,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Us,K,UH K,ūs,kh,ūḥ kh,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Us,g,Ur g,ūs,g,ūr g,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Us,G,Ur G,ūs,gh,ūr gh,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Us,N,Ur N,ūs,ṅ,ūr ṅ,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Us,c,US c,ūs,c,ūś c,hal-sandhi (consonant),visarga→Scutva (S),8.3.34 + 8.4.40
+Us,C,US C,ūs,ch,ūś ch,hal-sandhi (consonant),visarga→Scutva (S),8.3.34 + 8.4.40
+Us,j,Ur j,ūs,j,ūr j,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Us,J,Ur J,ūs,jh,ūr jh,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Us,Y,Ur Y,ūs,ñ,ūr ñ,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Us,w,Uz w,ūs,ṭ,ūṣ ṭ,hal-sandhi (consonant),visarga→zwutva (z),8.3.34 + 8.4.41
+Us,W,Uz W,ūs,ṭh,ūṣ ṭh,hal-sandhi (consonant),visarga→zwutva (z),8.3.34 + 8.4.41
+Us,q,Ur q,ūs,ḍ,ūr ḍ,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Us,Q,Ur Q,ūs,ḍh,ūr ḍh,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Us,R,Ur R,ūs,ṇ,ūr ṇ,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Us,t,Us t,ūs,t,ūs t,hal-sandhi (consonant),satva (s retained),8.3.34 visarjanIyasya saH
+Us,T,Us T,ūs,th,ūs th,hal-sandhi (consonant),satva (s retained),8.3.34 visarjanIyasya saH
+Us,d,Ur d,ūs,d,ūr d,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Us,D,Ur D,ūs,dh,ūr dh,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Us,n,Ur n,ūs,n,ūr n,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Us,p,UH p,ūs,p,ūḥ p,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Us,P,UH P,ūs,ph,ūḥ ph,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Us,b,Ur b,ūs,b,ūr b,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Us,B,Ur B,ūs,bh,ūr bh,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Us,m,Ur m,ūs,m,ūr m,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Us,y,Ur y,ūs,y,ūr y,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Us,r,U r,ūs,r,ū r,hal-sandhi (consonant),repha-lopa (ro ri),8.3.14 ro ri
+Us,l,Ur l,ūs,l,ūr l,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Us,v,Ur v,ūs,v,ūr v,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Us,S,UH S,ūs,ś,ūḥ ś,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Us,z,UH z,ūs,ṣ,ūḥ ṣ,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Us,s,UH s,ūs,s,ūḥ s,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Us,h,Ur h,ūs,h,ūr h,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+fr,a,fr a,ṛr,a,ṛr a,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+fr,A,fr A,ṛr,ā,ṛr ā,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+fr,i,fr i,ṛr,i,ṛr i,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+fr,I,fr I,ṛr,ī,ṛr ī,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+fr,u,fr u,ṛr,u,ṛr u,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+fr,U,fr U,ṛr,ū,ṛr ū,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+fr,f,fr f,ṛr,ṛ,ṛr ṛ,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+fr,F,fr F,ṛr,ṝ,ṛr ṝ,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+fr,x,fr x,ṛr,ḷ,ṛr ḷ,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+fr,X,fr X,ṛr,ḹ,ṛr ḹ,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+fr,e,fr e,ṛr,e,ṛr e,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+fr,E,fr E,ṛr,ai,ṛr ai,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+fr,o,fr o,ṛr,o,ṛr o,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+fr,O,fr O,ṛr,au,ṛr au,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+fr,k,fH k,ṛr,k,ṛḥ k,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+fr,K,fH K,ṛr,kh,ṛḥ kh,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+fr,g,fr g,ṛr,g,ṛr g,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+fr,G,fr G,ṛr,gh,ṛr gh,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+fr,N,fr N,ṛr,ṅ,ṛr ṅ,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+fr,c,fS c,ṛr,c,ṛś c,hal-sandhi (consonant),visarga→Scutva (S),8.3.34 + 8.4.40
+fr,C,fS C,ṛr,ch,ṛś ch,hal-sandhi (consonant),visarga→Scutva (S),8.3.34 + 8.4.40
+fr,j,fr j,ṛr,j,ṛr j,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+fr,J,fr J,ṛr,jh,ṛr jh,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+fr,Y,fr Y,ṛr,ñ,ṛr ñ,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+fr,w,fz w,ṛr,ṭ,ṛṣ ṭ,hal-sandhi (consonant),visarga→zwutva (z),8.3.34 + 8.4.41
+fr,W,fz W,ṛr,ṭh,ṛṣ ṭh,hal-sandhi (consonant),visarga→zwutva (z),8.3.34 + 8.4.41
+fr,q,fr q,ṛr,ḍ,ṛr ḍ,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+fr,Q,fr Q,ṛr,ḍh,ṛr ḍh,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+fr,R,fr R,ṛr,ṇ,ṛr ṇ,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+fr,t,fs t,ṛr,t,ṛs t,hal-sandhi (consonant),satva (s retained),8.3.34 visarjanIyasya saH
+fr,T,fs T,ṛr,th,ṛs th,hal-sandhi (consonant),satva (s retained),8.3.34 visarjanIyasya saH
+fr,d,fr d,ṛr,d,ṛr d,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+fr,D,fr D,ṛr,dh,ṛr dh,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+fr,n,fr n,ṛr,n,ṛr n,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+fr,p,fH p,ṛr,p,ṛḥ p,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+fr,P,fH P,ṛr,ph,ṛḥ ph,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+fr,b,fr b,ṛr,b,ṛr b,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+fr,B,fr B,ṛr,bh,ṛr bh,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+fr,m,fr m,ṛr,m,ṛr m,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+fr,y,fr y,ṛr,y,ṛr y,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+fr,r,F r,ṛr,r,ṝ r,hal-sandhi (consonant),repha-lopa (ro ri),8.3.14 ro ri
+fr,l,fr l,ṛr,l,ṛr l,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+fr,v,fr v,ṛr,v,ṛr v,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+fr,S,fH S,ṛr,ś,ṛḥ ś,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+fr,z,fH z,ṛr,ṣ,ṛḥ ṣ,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+fr,s,fH s,ṛr,s,ṛḥ s,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+fr,h,fr h,ṛr,h,ṛr h,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+fs,a,fr a,ṛs,a,ṛr a,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+fs,A,fr A,ṛs,ā,ṛr ā,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+fs,i,fr i,ṛs,i,ṛr i,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+fs,I,fr I,ṛs,ī,ṛr ī,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+fs,u,fr u,ṛs,u,ṛr u,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+fs,U,fr U,ṛs,ū,ṛr ū,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+fs,f,fr f,ṛs,ṛ,ṛr ṛ,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+fs,F,fr F,ṛs,ṝ,ṛr ṝ,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+fs,x,fr x,ṛs,ḷ,ṛr ḷ,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+fs,X,fr X,ṛs,ḹ,ṛr ḹ,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+fs,e,fr e,ṛs,e,ṛr e,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+fs,E,fr E,ṛs,ai,ṛr ai,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+fs,o,fr o,ṛs,o,ṛr o,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+fs,O,fr O,ṛs,au,ṛr au,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+fs,k,fH k,ṛs,k,ṛḥ k,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+fs,K,fH K,ṛs,kh,ṛḥ kh,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+fs,g,fr g,ṛs,g,ṛr g,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+fs,G,fr G,ṛs,gh,ṛr gh,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+fs,N,fr N,ṛs,ṅ,ṛr ṅ,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+fs,c,fS c,ṛs,c,ṛś c,hal-sandhi (consonant),visarga→Scutva (S),8.3.34 + 8.4.40
+fs,C,fS C,ṛs,ch,ṛś ch,hal-sandhi (consonant),visarga→Scutva (S),8.3.34 + 8.4.40
+fs,j,fr j,ṛs,j,ṛr j,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+fs,J,fr J,ṛs,jh,ṛr jh,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+fs,Y,fr Y,ṛs,ñ,ṛr ñ,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+fs,w,fz w,ṛs,ṭ,ṛṣ ṭ,hal-sandhi (consonant),visarga→zwutva (z),8.3.34 + 8.4.41
+fs,W,fz W,ṛs,ṭh,ṛṣ ṭh,hal-sandhi (consonant),visarga→zwutva (z),8.3.34 + 8.4.41
+fs,q,fr q,ṛs,ḍ,ṛr ḍ,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+fs,Q,fr Q,ṛs,ḍh,ṛr ḍh,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+fs,R,fr R,ṛs,ṇ,ṛr ṇ,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+fs,t,fs t,ṛs,t,ṛs t,hal-sandhi (consonant),satva (s retained),8.3.34 visarjanIyasya saH
+fs,T,fs T,ṛs,th,ṛs th,hal-sandhi (consonant),satva (s retained),8.3.34 visarjanIyasya saH
+fs,d,fr d,ṛs,d,ṛr d,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+fs,D,fr D,ṛs,dh,ṛr dh,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+fs,n,fr n,ṛs,n,ṛr n,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+fs,p,fH p,ṛs,p,ṛḥ p,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+fs,P,fH P,ṛs,ph,ṛḥ ph,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+fs,b,fr b,ṛs,b,ṛr b,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+fs,B,fr B,ṛs,bh,ṛr bh,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+fs,m,fr m,ṛs,m,ṛr m,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+fs,y,fr y,ṛs,y,ṛr y,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+fs,r,F r,ṛs,r,ṝ r,hal-sandhi (consonant),repha-lopa (ro ri),8.3.14 ro ri
+fs,l,fr l,ṛs,l,ṛr l,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+fs,v,fr v,ṛs,v,ṛr v,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+fs,S,fH S,ṛs,ś,ṛḥ ś,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+fs,z,fH z,ṛs,ṣ,ṛḥ ṣ,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+fs,s,fH s,ṛs,s,ṛḥ s,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+fs,h,fr h,ṛs,h,ṛr h,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Fr,a,Fr a,ṝr,a,ṝr a,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Fr,A,Fr A,ṝr,ā,ṝr ā,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Fr,i,Fr i,ṝr,i,ṝr i,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Fr,I,Fr I,ṝr,ī,ṝr ī,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Fr,u,Fr u,ṝr,u,ṝr u,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Fr,U,Fr U,ṝr,ū,ṝr ū,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Fr,f,Fr f,ṝr,ṛ,ṝr ṛ,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Fr,F,Fr F,ṝr,ṝ,ṝr ṝ,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Fr,x,Fr x,ṝr,ḷ,ṝr ḷ,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Fr,X,Fr X,ṝr,ḹ,ṝr ḹ,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Fr,e,Fr e,ṝr,e,ṝr e,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Fr,E,Fr E,ṝr,ai,ṝr ai,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Fr,o,Fr o,ṝr,o,ṝr o,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Fr,O,Fr O,ṝr,au,ṝr au,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Fr,k,FH k,ṝr,k,ṝḥ k,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Fr,K,FH K,ṝr,kh,ṝḥ kh,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Fr,g,Fr g,ṝr,g,ṝr g,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Fr,G,Fr G,ṝr,gh,ṝr gh,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Fr,N,Fr N,ṝr,ṅ,ṝr ṅ,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Fr,c,FS c,ṝr,c,ṝś c,hal-sandhi (consonant),visarga→Scutva (S),8.3.34 + 8.4.40
+Fr,C,FS C,ṝr,ch,ṝś ch,hal-sandhi (consonant),visarga→Scutva (S),8.3.34 + 8.4.40
+Fr,j,Fr j,ṝr,j,ṝr j,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Fr,J,Fr J,ṝr,jh,ṝr jh,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Fr,Y,Fr Y,ṝr,ñ,ṝr ñ,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Fr,w,Fz w,ṝr,ṭ,ṝṣ ṭ,hal-sandhi (consonant),visarga→zwutva (z),8.3.34 + 8.4.41
+Fr,W,Fz W,ṝr,ṭh,ṝṣ ṭh,hal-sandhi (consonant),visarga→zwutva (z),8.3.34 + 8.4.41
+Fr,q,Fr q,ṝr,ḍ,ṝr ḍ,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Fr,Q,Fr Q,ṝr,ḍh,ṝr ḍh,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Fr,R,Fr R,ṝr,ṇ,ṝr ṇ,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Fr,t,Fs t,ṝr,t,ṝs t,hal-sandhi (consonant),satva (s retained),8.3.34 visarjanIyasya saH
+Fr,T,Fs T,ṝr,th,ṝs th,hal-sandhi (consonant),satva (s retained),8.3.34 visarjanIyasya saH
+Fr,d,Fr d,ṝr,d,ṝr d,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Fr,D,Fr D,ṝr,dh,ṝr dh,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Fr,n,Fr n,ṝr,n,ṝr n,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Fr,p,FH p,ṝr,p,ṝḥ p,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Fr,P,FH P,ṝr,ph,ṝḥ ph,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Fr,b,Fr b,ṝr,b,ṝr b,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Fr,B,Fr B,ṝr,bh,ṝr bh,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Fr,m,Fr m,ṝr,m,ṝr m,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Fr,y,Fr y,ṝr,y,ṝr y,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Fr,r,F r,ṝr,r,ṝ r,hal-sandhi (consonant),repha-lopa (ro ri),8.3.14 ro ri
+Fr,l,Fr l,ṝr,l,ṝr l,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Fr,v,Fr v,ṝr,v,ṝr v,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Fr,S,FH S,ṝr,ś,ṝḥ ś,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Fr,z,FH z,ṝr,ṣ,ṝḥ ṣ,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Fr,s,FH s,ṝr,s,ṝḥ s,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Fr,h,Fr h,ṝr,h,ṝr h,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Fs,a,Fr a,ṝs,a,ṝr a,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Fs,A,Fr A,ṝs,ā,ṝr ā,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Fs,i,Fr i,ṝs,i,ṝr i,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Fs,I,Fr I,ṝs,ī,ṝr ī,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Fs,u,Fr u,ṝs,u,ṝr u,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Fs,U,Fr U,ṝs,ū,ṝr ū,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Fs,f,Fr f,ṝs,ṛ,ṝr ṛ,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Fs,F,Fr F,ṝs,ṝ,ṝr ṝ,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Fs,x,Fr x,ṝs,ḷ,ṝr ḷ,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Fs,X,Fr X,ṝs,ḹ,ṝr ḹ,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Fs,e,Fr e,ṝs,e,ṝr e,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Fs,E,Fr E,ṝs,ai,ṝr ai,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Fs,o,Fr o,ṝs,o,ṝr o,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Fs,O,Fr O,ṝs,au,ṝr au,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Fs,k,FH k,ṝs,k,ṝḥ k,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Fs,K,FH K,ṝs,kh,ṝḥ kh,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Fs,g,Fr g,ṝs,g,ṝr g,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Fs,G,Fr G,ṝs,gh,ṝr gh,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Fs,N,Fr N,ṝs,ṅ,ṝr ṅ,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Fs,c,FS c,ṝs,c,ṝś c,hal-sandhi (consonant),visarga→Scutva (S),8.3.34 + 8.4.40
+Fs,C,FS C,ṝs,ch,ṝś ch,hal-sandhi (consonant),visarga→Scutva (S),8.3.34 + 8.4.40
+Fs,j,Fr j,ṝs,j,ṝr j,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Fs,J,Fr J,ṝs,jh,ṝr jh,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Fs,Y,Fr Y,ṝs,ñ,ṝr ñ,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Fs,w,Fz w,ṝs,ṭ,ṝṣ ṭ,hal-sandhi (consonant),visarga→zwutva (z),8.3.34 + 8.4.41
+Fs,W,Fz W,ṝs,ṭh,ṝṣ ṭh,hal-sandhi (consonant),visarga→zwutva (z),8.3.34 + 8.4.41
+Fs,q,Fr q,ṝs,ḍ,ṝr ḍ,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Fs,Q,Fr Q,ṝs,ḍh,ṝr ḍh,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Fs,R,Fr R,ṝs,ṇ,ṝr ṇ,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Fs,t,Fs t,ṝs,t,ṝs t,hal-sandhi (consonant),satva (s retained),8.3.34 visarjanIyasya saH
+Fs,T,Fs T,ṝs,th,ṝs th,hal-sandhi (consonant),satva (s retained),8.3.34 visarjanIyasya saH
+Fs,d,Fr d,ṝs,d,ṝr d,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Fs,D,Fr D,ṝs,dh,ṝr dh,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Fs,n,Fr n,ṝs,n,ṝr n,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Fs,p,FH p,ṝs,p,ṝḥ p,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Fs,P,FH P,ṝs,ph,ṝḥ ph,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Fs,b,Fr b,ṝs,b,ṝr b,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Fs,B,Fr B,ṝs,bh,ṝr bh,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Fs,m,Fr m,ṝs,m,ṝr m,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Fs,y,Fr y,ṝs,y,ṝr y,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Fs,r,F r,ṝs,r,ṝ r,hal-sandhi (consonant),repha-lopa (ro ri),8.3.14 ro ri
+Fs,l,Fr l,ṝs,l,ṝr l,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Fs,v,Fr v,ṝs,v,ṝr v,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Fs,S,FH S,ṝs,ś,ṝḥ ś,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Fs,z,FH z,ṝs,ṣ,ṝḥ ṣ,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Fs,s,FH s,ṝs,s,ṝḥ s,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Fs,h,Fr h,ṝs,h,ṝr h,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+er,a,er a,er,a,er a,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+er,A,er A,er,ā,er ā,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+er,i,er i,er,i,er i,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+er,I,er I,er,ī,er ī,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+er,u,er u,er,u,er u,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+er,U,er U,er,ū,er ū,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+er,f,er f,er,ṛ,er ṛ,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+er,F,er F,er,ṝ,er ṝ,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+er,x,er x,er,ḷ,er ḷ,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+er,X,er X,er,ḹ,er ḹ,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+er,e,er e,er,e,er e,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+er,E,er E,er,ai,er ai,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+er,o,er o,er,o,er o,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+er,O,er O,er,au,er au,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+er,k,eH k,er,k,eḥ k,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+er,K,eH K,er,kh,eḥ kh,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+er,g,er g,er,g,er g,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+er,G,er G,er,gh,er gh,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+er,N,er N,er,ṅ,er ṅ,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+er,c,eS c,er,c,eś c,hal-sandhi (consonant),visarga→Scutva (S),8.3.34 + 8.4.40
+er,C,eS C,er,ch,eś ch,hal-sandhi (consonant),visarga→Scutva (S),8.3.34 + 8.4.40
+er,j,er j,er,j,er j,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+er,J,er J,er,jh,er jh,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+er,Y,er Y,er,ñ,er ñ,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+er,w,ez w,er,ṭ,eṣ ṭ,hal-sandhi (consonant),visarga→zwutva (z),8.3.34 + 8.4.41
+er,W,ez W,er,ṭh,eṣ ṭh,hal-sandhi (consonant),visarga→zwutva (z),8.3.34 + 8.4.41
+er,q,er q,er,ḍ,er ḍ,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+er,Q,er Q,er,ḍh,er ḍh,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+er,R,er R,er,ṇ,er ṇ,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+er,t,es t,er,t,es t,hal-sandhi (consonant),satva (s retained),8.3.34 visarjanIyasya saH
+er,T,es T,er,th,es th,hal-sandhi (consonant),satva (s retained),8.3.34 visarjanIyasya saH
+er,d,er d,er,d,er d,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+er,D,er D,er,dh,er dh,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+er,n,er n,er,n,er n,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+er,p,eH p,er,p,eḥ p,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+er,P,eH P,er,ph,eḥ ph,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+er,b,er b,er,b,er b,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+er,B,er B,er,bh,er bh,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+er,m,er m,er,m,er m,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+er,y,er y,er,y,er y,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+er,r,e r,er,r,e r,hal-sandhi (consonant),repha-lopa (ro ri),8.3.14 ro ri
+er,l,er l,er,l,er l,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+er,v,er v,er,v,er v,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+er,S,eH S,er,ś,eḥ ś,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+er,z,eH z,er,ṣ,eḥ ṣ,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+er,s,eH s,er,s,eḥ s,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+er,h,er h,er,h,er h,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+es,a,er a,es,a,er a,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+es,A,er A,es,ā,er ā,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+es,i,er i,es,i,er i,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+es,I,er I,es,ī,er ī,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+es,u,er u,es,u,er u,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+es,U,er U,es,ū,er ū,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+es,f,er f,es,ṛ,er ṛ,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+es,F,er F,es,ṝ,er ṝ,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+es,x,er x,es,ḷ,er ḷ,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+es,X,er X,es,ḹ,er ḹ,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+es,e,er e,es,e,er e,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+es,E,er E,es,ai,er ai,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+es,o,er o,es,o,er o,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+es,O,er O,es,au,er au,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+es,k,eH k,es,k,eḥ k,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+es,K,eH K,es,kh,eḥ kh,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+es,g,er g,es,g,er g,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+es,G,er G,es,gh,er gh,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+es,N,er N,es,ṅ,er ṅ,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+es,c,eS c,es,c,eś c,hal-sandhi (consonant),visarga→Scutva (S),8.3.34 + 8.4.40
+es,C,eS C,es,ch,eś ch,hal-sandhi (consonant),visarga→Scutva (S),8.3.34 + 8.4.40
+es,j,er j,es,j,er j,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+es,J,er J,es,jh,er jh,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+es,Y,er Y,es,ñ,er ñ,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+es,w,ez w,es,ṭ,eṣ ṭ,hal-sandhi (consonant),visarga→zwutva (z),8.3.34 + 8.4.41
+es,W,ez W,es,ṭh,eṣ ṭh,hal-sandhi (consonant),visarga→zwutva (z),8.3.34 + 8.4.41
+es,q,er q,es,ḍ,er ḍ,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+es,Q,er Q,es,ḍh,er ḍh,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+es,R,er R,es,ṇ,er ṇ,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+es,t,es t,es,t,es t,hal-sandhi (consonant),satva (s retained),8.3.34 visarjanIyasya saH
+es,T,es T,es,th,es th,hal-sandhi (consonant),satva (s retained),8.3.34 visarjanIyasya saH
+es,d,er d,es,d,er d,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+es,D,er D,es,dh,er dh,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+es,n,er n,es,n,er n,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+es,p,eH p,es,p,eḥ p,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+es,P,eH P,es,ph,eḥ ph,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+es,b,er b,es,b,er b,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+es,B,er B,es,bh,er bh,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+es,m,er m,es,m,er m,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+es,y,er y,es,y,er y,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+es,r,e r,es,r,e r,hal-sandhi (consonant),repha-lopa (ro ri),8.3.14 ro ri
+es,l,er l,es,l,er l,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+es,v,er v,es,v,er v,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+es,S,eH S,es,ś,eḥ ś,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+es,z,eH z,es,ṣ,eḥ ṣ,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+es,s,eH s,es,s,eḥ s,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+es,h,er h,es,h,er h,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Er,a,Er a,air,a,air a,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Er,A,Er A,air,ā,air ā,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Er,i,Er i,air,i,air i,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Er,I,Er I,air,ī,air ī,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Er,u,Er u,air,u,air u,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Er,U,Er U,air,ū,air ū,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Er,f,Er f,air,ṛ,air ṛ,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Er,F,Er F,air,ṝ,air ṝ,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Er,x,Er x,air,ḷ,air ḷ,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Er,X,Er X,air,ḹ,air ḹ,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Er,e,Er e,air,e,air e,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Er,E,Er E,air,ai,air ai,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Er,o,Er o,air,o,air o,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Er,O,Er O,air,au,air au,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Er,k,EH k,air,k,aiḥ k,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Er,K,EH K,air,kh,aiḥ kh,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Er,g,Er g,air,g,air g,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Er,G,Er G,air,gh,air gh,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Er,N,Er N,air,ṅ,air ṅ,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Er,c,ES c,air,c,aiś c,hal-sandhi (consonant),visarga→Scutva (S),8.3.34 + 8.4.40
+Er,C,ES C,air,ch,aiś ch,hal-sandhi (consonant),visarga→Scutva (S),8.3.34 + 8.4.40
+Er,j,Er j,air,j,air j,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Er,J,Er J,air,jh,air jh,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Er,Y,Er Y,air,ñ,air ñ,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Er,w,Ez w,air,ṭ,aiṣ ṭ,hal-sandhi (consonant),visarga→zwutva (z),8.3.34 + 8.4.41
+Er,W,Ez W,air,ṭh,aiṣ ṭh,hal-sandhi (consonant),visarga→zwutva (z),8.3.34 + 8.4.41
+Er,q,Er q,air,ḍ,air ḍ,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Er,Q,Er Q,air,ḍh,air ḍh,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Er,R,Er R,air,ṇ,air ṇ,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Er,t,Es t,air,t,ais t,hal-sandhi (consonant),satva (s retained),8.3.34 visarjanIyasya saH
+Er,T,Es T,air,th,ais th,hal-sandhi (consonant),satva (s retained),8.3.34 visarjanIyasya saH
+Er,d,Er d,air,d,air d,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Er,D,Er D,air,dh,air dh,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Er,n,Er n,air,n,air n,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Er,p,EH p,air,p,aiḥ p,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Er,P,EH P,air,ph,aiḥ ph,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Er,b,Er b,air,b,air b,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Er,B,Er B,air,bh,air bh,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Er,m,Er m,air,m,air m,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Er,y,Er y,air,y,air y,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Er,r,E r,air,r,ai r,hal-sandhi (consonant),repha-lopa (ro ri),8.3.14 ro ri
+Er,l,Er l,air,l,air l,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Er,v,Er v,air,v,air v,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Er,S,EH S,air,ś,aiḥ ś,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Er,z,EH z,air,ṣ,aiḥ ṣ,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Er,s,EH s,air,s,aiḥ s,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Er,h,Er h,air,h,air h,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Es,a,Er a,ais,a,air a,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Es,A,Er A,ais,ā,air ā,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Es,i,Er i,ais,i,air i,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Es,I,Er I,ais,ī,air ī,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Es,u,Er u,ais,u,air u,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Es,U,Er U,ais,ū,air ū,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Es,f,Er f,ais,ṛ,air ṛ,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Es,F,Er F,ais,ṝ,air ṝ,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Es,x,Er x,ais,ḷ,air ḷ,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Es,X,Er X,ais,ḹ,air ḹ,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Es,e,Er e,ais,e,air e,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Es,E,Er E,ais,ai,air ai,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Es,o,Er o,ais,o,air o,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Es,O,Er O,ais,au,air au,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Es,k,EH k,ais,k,aiḥ k,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Es,K,EH K,ais,kh,aiḥ kh,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Es,g,Er g,ais,g,air g,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Es,G,Er G,ais,gh,air gh,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Es,N,Er N,ais,ṅ,air ṅ,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Es,c,ES c,ais,c,aiś c,hal-sandhi (consonant),visarga→Scutva (S),8.3.34 + 8.4.40
+Es,C,ES C,ais,ch,aiś ch,hal-sandhi (consonant),visarga→Scutva (S),8.3.34 + 8.4.40
+Es,j,Er j,ais,j,air j,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Es,J,Er J,ais,jh,air jh,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Es,Y,Er Y,ais,ñ,air ñ,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Es,w,Ez w,ais,ṭ,aiṣ ṭ,hal-sandhi (consonant),visarga→zwutva (z),8.3.34 + 8.4.41
+Es,W,Ez W,ais,ṭh,aiṣ ṭh,hal-sandhi (consonant),visarga→zwutva (z),8.3.34 + 8.4.41
+Es,q,Er q,ais,ḍ,air ḍ,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Es,Q,Er Q,ais,ḍh,air ḍh,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Es,R,Er R,ais,ṇ,air ṇ,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Es,t,Es t,ais,t,ais t,hal-sandhi (consonant),satva (s retained),8.3.34 visarjanIyasya saH
+Es,T,Es T,ais,th,ais th,hal-sandhi (consonant),satva (s retained),8.3.34 visarjanIyasya saH
+Es,d,Er d,ais,d,air d,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Es,D,Er D,ais,dh,air dh,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Es,n,Er n,ais,n,air n,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Es,p,EH p,ais,p,aiḥ p,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Es,P,EH P,ais,ph,aiḥ ph,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Es,b,Er b,ais,b,air b,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Es,B,Er B,ais,bh,air bh,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Es,m,Er m,ais,m,air m,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Es,y,Er y,ais,y,air y,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Es,r,E r,ais,r,ai r,hal-sandhi (consonant),repha-lopa (ro ri),8.3.14 ro ri
+Es,l,Er l,ais,l,air l,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Es,v,Er v,ais,v,air v,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Es,S,EH S,ais,ś,aiḥ ś,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Es,z,EH z,ais,ṣ,aiḥ ṣ,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Es,s,EH s,ais,s,aiḥ s,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Es,h,Er h,ais,h,air h,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+or,a,or a,or,a,or a,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+or,A,or A,or,ā,or ā,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+or,i,or i,or,i,or i,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+or,I,or I,or,ī,or ī,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+or,u,or u,or,u,or u,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+or,U,or U,or,ū,or ū,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+or,f,or f,or,ṛ,or ṛ,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+or,F,or F,or,ṝ,or ṝ,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+or,x,or x,or,ḷ,or ḷ,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+or,X,or X,or,ḹ,or ḹ,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+or,e,or e,or,e,or e,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+or,E,or E,or,ai,or ai,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+or,o,or o,or,o,or o,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+or,O,or O,or,au,or au,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+or,k,oH k,or,k,oḥ k,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+or,K,oH K,or,kh,oḥ kh,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+or,g,or g,or,g,or g,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+or,G,or G,or,gh,or gh,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+or,N,or N,or,ṅ,or ṅ,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+or,c,oS c,or,c,oś c,hal-sandhi (consonant),visarga→Scutva (S),8.3.34 + 8.4.40
+or,C,oS C,or,ch,oś ch,hal-sandhi (consonant),visarga→Scutva (S),8.3.34 + 8.4.40
+or,j,or j,or,j,or j,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+or,J,or J,or,jh,or jh,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+or,Y,or Y,or,ñ,or ñ,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+or,w,oz w,or,ṭ,oṣ ṭ,hal-sandhi (consonant),visarga→zwutva (z),8.3.34 + 8.4.41
+or,W,oz W,or,ṭh,oṣ ṭh,hal-sandhi (consonant),visarga→zwutva (z),8.3.34 + 8.4.41
+or,q,or q,or,ḍ,or ḍ,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+or,Q,or Q,or,ḍh,or ḍh,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+or,R,or R,or,ṇ,or ṇ,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+or,t,os t,or,t,os t,hal-sandhi (consonant),satva (s retained),8.3.34 visarjanIyasya saH
+or,T,os T,or,th,os th,hal-sandhi (consonant),satva (s retained),8.3.34 visarjanIyasya saH
+or,d,or d,or,d,or d,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+or,D,or D,or,dh,or dh,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+or,n,or n,or,n,or n,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+or,p,oH p,or,p,oḥ p,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+or,P,oH P,or,ph,oḥ ph,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+or,b,or b,or,b,or b,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+or,B,or B,or,bh,or bh,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+or,m,or m,or,m,or m,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+or,y,or y,or,y,or y,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+or,r,o r,or,r,o r,hal-sandhi (consonant),repha-lopa (ro ri),8.3.14 ro ri
+or,l,or l,or,l,or l,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+or,v,or v,or,v,or v,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+or,S,oH S,or,ś,oḥ ś,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+or,z,oH z,or,ṣ,oḥ ṣ,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+or,s,oH s,or,s,oḥ s,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+or,h,or h,or,h,or h,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+os,a,or a,os,a,or a,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+os,A,or A,os,ā,or ā,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+os,i,or i,os,i,or i,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+os,I,or I,os,ī,or ī,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+os,u,or u,os,u,or u,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+os,U,or U,os,ū,or ū,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+os,f,or f,os,ṛ,or ṛ,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+os,F,or F,os,ṝ,or ṝ,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+os,x,or x,os,ḷ,or ḷ,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+os,X,or X,os,ḹ,or ḹ,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+os,e,or e,os,e,or e,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+os,E,or E,os,ai,or ai,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+os,o,or o,os,o,or o,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+os,O,or O,os,au,or au,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+os,k,oH k,os,k,oḥ k,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+os,K,oH K,os,kh,oḥ kh,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+os,g,or g,os,g,or g,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+os,G,or G,os,gh,or gh,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+os,N,or N,os,ṅ,or ṅ,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+os,c,oS c,os,c,oś c,hal-sandhi (consonant),visarga→Scutva (S),8.3.34 + 8.4.40
+os,C,oS C,os,ch,oś ch,hal-sandhi (consonant),visarga→Scutva (S),8.3.34 + 8.4.40
+os,j,or j,os,j,or j,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+os,J,or J,os,jh,or jh,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+os,Y,or Y,os,ñ,or ñ,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+os,w,oz w,os,ṭ,oṣ ṭ,hal-sandhi (consonant),visarga→zwutva (z),8.3.34 + 8.4.41
+os,W,oz W,os,ṭh,oṣ ṭh,hal-sandhi (consonant),visarga→zwutva (z),8.3.34 + 8.4.41
+os,q,or q,os,ḍ,or ḍ,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+os,Q,or Q,os,ḍh,or ḍh,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+os,R,or R,os,ṇ,or ṇ,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+os,t,os t,os,t,os t,hal-sandhi (consonant),satva (s retained),8.3.34 visarjanIyasya saH
+os,T,os T,os,th,os th,hal-sandhi (consonant),satva (s retained),8.3.34 visarjanIyasya saH
+os,d,or d,os,d,or d,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+os,D,or D,os,dh,or dh,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+os,n,or n,os,n,or n,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+os,p,oH p,os,p,oḥ p,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+os,P,oH P,os,ph,oḥ ph,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+os,b,or b,os,b,or b,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+os,B,or B,os,bh,or bh,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+os,m,or m,os,m,or m,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+os,y,or y,os,y,or y,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+os,r,o r,os,r,o r,hal-sandhi (consonant),repha-lopa (ro ri),8.3.14 ro ri
+os,l,or l,os,l,or l,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+os,v,or v,os,v,or v,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+os,S,oH S,os,ś,oḥ ś,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+os,z,oH z,os,ṣ,oḥ ṣ,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+os,s,oH s,os,s,oḥ s,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+os,h,or h,os,h,or h,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Or,a,Or a,aur,a,aur a,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Or,A,Or A,aur,ā,aur ā,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Or,i,Or i,aur,i,aur i,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Or,I,Or I,aur,ī,aur ī,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Or,u,Or u,aur,u,aur u,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Or,U,Or U,aur,ū,aur ū,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Or,f,Or f,aur,ṛ,aur ṛ,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Or,F,Or F,aur,ṝ,aur ṝ,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Or,x,Or x,aur,ḷ,aur ḷ,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Or,X,Or X,aur,ḹ,aur ḹ,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Or,e,Or e,aur,e,aur e,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Or,E,Or E,aur,ai,aur ai,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Or,o,Or o,aur,o,aur o,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Or,O,Or O,aur,au,aur au,hal+ac boundary,repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Or,k,OH k,aur,k,auḥ k,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Or,K,OH K,aur,kh,auḥ kh,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Or,g,Or g,aur,g,aur g,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Or,G,Or G,aur,gh,aur gh,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Or,N,Or N,aur,ṅ,aur ṅ,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Or,c,OS c,aur,c,auś c,hal-sandhi (consonant),visarga→Scutva (S),8.3.34 + 8.4.40
+Or,C,OS C,aur,ch,auś ch,hal-sandhi (consonant),visarga→Scutva (S),8.3.34 + 8.4.40
+Or,j,Or j,aur,j,aur j,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Or,J,Or J,aur,jh,aur jh,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Or,Y,Or Y,aur,ñ,aur ñ,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Or,w,Oz w,aur,ṭ,auṣ ṭ,hal-sandhi (consonant),visarga→zwutva (z),8.3.34 + 8.4.41
+Or,W,Oz W,aur,ṭh,auṣ ṭh,hal-sandhi (consonant),visarga→zwutva (z),8.3.34 + 8.4.41
+Or,q,Or q,aur,ḍ,aur ḍ,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Or,Q,Or Q,aur,ḍh,aur ḍh,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Or,R,Or R,aur,ṇ,aur ṇ,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Or,t,Os t,aur,t,aus t,hal-sandhi (consonant),satva (s retained),8.3.34 visarjanIyasya saH
+Or,T,Os T,aur,th,aus th,hal-sandhi (consonant),satva (s retained),8.3.34 visarjanIyasya saH
+Or,d,Or d,aur,d,aur d,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Or,D,Or D,aur,dh,aur dh,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Or,n,Or n,aur,n,aur n,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Or,p,OH p,aur,p,auḥ p,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Or,P,OH P,aur,ph,auḥ ph,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Or,b,Or b,aur,b,aur b,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Or,B,Or B,aur,bh,aur bh,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Or,m,Or m,aur,m,aur m,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Or,y,Or y,aur,y,aur y,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Or,r,O r,aur,r,au r,hal-sandhi (consonant),repha-lopa (ro ri),8.3.14 ro ri
+Or,l,Or l,aur,l,aur l,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Or,v,Or v,aur,v,aur v,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Or,S,OH S,aur,ś,auḥ ś,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Or,z,OH z,aur,ṣ,auḥ ṣ,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Or,s,OH s,aur,s,auḥ s,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Or,h,Or h,aur,h,aur h,hal-sandhi (consonant),repha-prakfti (r retained),8.3.15 na (KaravasAna); r stays before voiced
+Os,a,Or a,aus,a,aur a,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Os,A,Or A,aus,ā,aur ā,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Os,i,Or i,aus,i,aur i,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Os,I,Or I,aus,ī,aur ī,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Os,u,Or u,aus,u,aur u,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Os,U,Or U,aus,ū,aur ū,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Os,f,Or f,aus,ṛ,aur ṛ,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Os,F,Or F,aus,ṝ,aur ṝ,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Os,x,Or x,aus,ḷ,aur ḷ,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Os,X,Or X,aus,ḹ,aur ḹ,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Os,e,Or e,aus,e,aur e,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Os,E,Or E,aus,ai,aur ai,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Os,o,Or o,aus,o,aur o,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Os,O,Or O,aus,au,aur au,hal+ac boundary,rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Os,k,OH k,aus,k,auḥ k,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Os,K,OH K,aus,kh,auḥ kh,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Os,g,Or g,aus,g,aur g,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Os,G,Or G,aus,gh,aur gh,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Os,N,Or N,aus,ṅ,aur ṅ,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Os,c,OS c,aus,c,auś c,hal-sandhi (consonant),visarga→Scutva (S),8.3.34 + 8.4.40
+Os,C,OS C,aus,ch,auś ch,hal-sandhi (consonant),visarga→Scutva (S),8.3.34 + 8.4.40
+Os,j,Or j,aus,j,aur j,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Os,J,Or J,aus,jh,aur jh,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Os,Y,Or Y,aus,ñ,aur ñ,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Os,w,Oz w,aus,ṭ,auṣ ṭ,hal-sandhi (consonant),visarga→zwutva (z),8.3.34 + 8.4.41
+Os,W,Oz W,aus,ṭh,auṣ ṭh,hal-sandhi (consonant),visarga→zwutva (z),8.3.34 + 8.4.41
+Os,q,Or q,aus,ḍ,aur ḍ,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Os,Q,Or Q,aus,ḍh,aur ḍh,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Os,R,Or R,aus,ṇ,aur ṇ,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Os,t,Os t,aus,t,aus t,hal-sandhi (consonant),satva (s retained),8.3.34 visarjanIyasya saH
+Os,T,Os T,aus,th,aus th,hal-sandhi (consonant),satva (s retained),8.3.34 visarjanIyasya saH
+Os,d,Or d,aus,d,aur d,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Os,D,Or D,aus,dh,aur dh,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Os,n,Or n,aus,n,aur n,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Os,p,OH p,aus,p,auḥ p,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Os,P,OH P,aus,ph,auḥ ph,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Os,b,Or b,aus,b,aur b,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Os,B,Or B,aus,bh,aur bh,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Os,m,Or m,aus,m,aur m,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Os,y,Or y,aus,y,aur y,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Os,r,O r,aus,r,au r,hal-sandhi (consonant),repha-lopa (ro ri),8.3.14 ro ri
+Os,l,Or l,aus,l,aur l,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Os,v,Or v,aus,v,aur v,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+Os,S,OH S,aus,ś,auḥ ś,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Os,z,OH z,aus,ṣ,auḥ ṣ,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Os,s,OH s,aus,s,auḥ s,hal-sandhi (consonant),visarga,8.3.15 KaravasAnayor visarjanIyaH
+Os,h,Or h,aus,h,aur h,hal-sandhi (consonant),rutva (repha),8.2.66 sasajuzo ruH; 8.3.2ff
+s,,H,s,,ḥ,hal-sandhi (consonant),visarga (avasAne),8.3.15 KaravasAnayor visarjanIyaH
+t,a,d a,t,a,d a,hal+ac boundary,jaStva,8.2.39 JalAM jaSo_nte
+t,A,d A,t,ā,d ā,hal+ac boundary,jaStva,8.2.39 JalAM jaSo_nte
+t,i,d i,t,i,d i,hal+ac boundary,jaStva,8.2.39 JalAM jaSo_nte
+t,I,d I,t,ī,d ī,hal+ac boundary,jaStva,8.2.39 JalAM jaSo_nte
+t,u,d u,t,u,d u,hal+ac boundary,jaStva,8.2.39 JalAM jaSo_nte
+t,U,d U,t,ū,d ū,hal+ac boundary,jaStva,8.2.39 JalAM jaSo_nte
+t,f,d f,t,ṛ,d ṛ,hal+ac boundary,jaStva,8.2.39 JalAM jaSo_nte
+t,F,d F,t,ṝ,d ṝ,hal+ac boundary,jaStva,8.2.39 JalAM jaSo_nte
+t,x,d x,t,ḷ,d ḷ,hal+ac boundary,jaStva,8.2.39 JalAM jaSo_nte
+t,X,d X,t,ḹ,d ḹ,hal+ac boundary,jaStva,8.2.39 JalAM jaSo_nte
+t,e,d e,t,e,d e,hal+ac boundary,jaStva,8.2.39 JalAM jaSo_nte
+t,E,d E,t,ai,d ai,hal+ac boundary,jaStva,8.2.39 JalAM jaSo_nte
+t,o,d o,t,o,d o,hal+ac boundary,jaStva,8.2.39 JalAM jaSo_nte
+t,O,d O,t,au,d au,hal+ac boundary,jaStva,8.2.39 JalAM jaSo_nte
+t,S,c C,t,ś,c ch,hal-sandhi (consonant),Scutva+Catva,8.4.40 + 8.4.63 SaSCo_wi
+t,h,d D,t,h,d dh,hal-sandhi (consonant),jaStva+pUrvasavarRa (hakAra),8.2.39 + 8.4.62 Jayo ho_nyatarasyAm
+t,N,n N,t,ṅ,n ṅ,hal-sandhi (consonant),anunAsika,8.4.45 yaro_nunAsike_nunAsiko vA
+t,Y,n Y,t,ñ,n ñ,hal-sandhi (consonant),anunAsika,8.4.45 yaro_nunAsike_nunAsiko vA
+t,R,n R,t,ṇ,n ṇ,hal-sandhi (consonant),anunAsika,8.4.45 yaro_nunAsike_nunAsiko vA
+t,n,n n,t,n,n n,hal-sandhi (consonant),anunAsika,8.4.45 yaro_nunAsike_nunAsiko vA
+t,m,n m,t,m,n m,hal-sandhi (consonant),anunAsika,8.4.45 yaro_nunAsike_nunAsiko vA
+t,g,d g,t,g,d g,hal-sandhi (consonant),jaStva,8.2.39 JalAM jaSo_nte
+t,G,d G,t,gh,d gh,hal-sandhi (consonant),jaStva,8.2.39 JalAM jaSo_nte
+t,c,c c,t,c,c c,hal-sandhi (consonant),Scutva,8.4.40 stoH ScunA ScuH
+t,C,c C,t,ch,c ch,hal-sandhi (consonant),Scutva,8.4.40 stoH ScunA ScuH
+t,j,j j,t,j,j j,hal-sandhi (consonant),Scutva,8.4.40 stoH ScunA ScuH
+t,J,j J,t,jh,j jh,hal-sandhi (consonant),Scutva,8.4.40 stoH ScunA ScuH
+t,w,w w,t,ṭ,ṭ ṭ,hal-sandhi (consonant),zwutva,8.4.41 zwunA zwuH
+t,W,w W,t,ṭh,ṭ ṭh,hal-sandhi (consonant),zwutva,8.4.41 zwunA zwuH
+t,q,q q,t,ḍ,ḍ ḍ,hal-sandhi (consonant),zwutva,8.4.41 zwunA zwuH
+t,Q,q Q,t,ḍh,ḍ ḍh,hal-sandhi (consonant),zwutva,8.4.41 zwunA zwuH
+t,d,d d,t,d,d d,hal-sandhi (consonant),jaStva,8.2.39 JalAM jaSo_nte
+t,D,d D,t,dh,d dh,hal-sandhi (consonant),jaStva,8.2.39 JalAM jaSo_nte
+t,b,d b,t,b,d b,hal-sandhi (consonant),jaStva,8.2.39 JalAM jaSo_nte
+t,B,d B,t,bh,d bh,hal-sandhi (consonant),jaStva,8.2.39 JalAM jaSo_nte
+t,y,d y,t,y,d y,hal-sandhi (consonant),jaStva,8.2.39 JalAM jaSo_nte
+t,r,d r,t,r,d r,hal-sandhi (consonant),jaStva,8.2.39 JalAM jaSo_nte
+t,l,l l,t,l,l l,hal-sandhi (consonant),parasavarRa (latva),8.4.60 torli
+t,v,d v,t,v,d v,hal-sandhi (consonant),jaStva,8.2.39 JalAM jaSo_nte
+an,a,ann a,an,a,ann a,hal+ac boundary,Namuq-Agama (dvitva),8.3.32 Namo hrasvAdaci NamuRnityam
+an,A,ann A,an,ā,ann ā,hal+ac boundary,Namuq-Agama (dvitva),8.3.32 Namo hrasvAdaci NamuRnityam
+an,i,ann i,an,i,ann i,hal+ac boundary,Namuq-Agama (dvitva),8.3.32 Namo hrasvAdaci NamuRnityam
+an,I,ann I,an,ī,ann ī,hal+ac boundary,Namuq-Agama (dvitva),8.3.32 Namo hrasvAdaci NamuRnityam
+an,u,ann u,an,u,ann u,hal+ac boundary,Namuq-Agama (dvitva),8.3.32 Namo hrasvAdaci NamuRnityam
+an,U,ann U,an,ū,ann ū,hal+ac boundary,Namuq-Agama (dvitva),8.3.32 Namo hrasvAdaci NamuRnityam
+an,f,ann f,an,ṛ,ann ṛ,hal+ac boundary,Namuq-Agama (dvitva),8.3.32 Namo hrasvAdaci NamuRnityam
+an,F,ann F,an,ṝ,ann ṝ,hal+ac boundary,Namuq-Agama (dvitva),8.3.32 Namo hrasvAdaci NamuRnityam
+an,x,ann x,an,ḷ,ann ḷ,hal+ac boundary,Namuq-Agama (dvitva),8.3.32 Namo hrasvAdaci NamuRnityam
+an,X,ann X,an,ḹ,ann ḹ,hal+ac boundary,Namuq-Agama (dvitva),8.3.32 Namo hrasvAdaci NamuRnityam
+an,e,ann e,an,e,ann e,hal+ac boundary,Namuq-Agama (dvitva),8.3.32 Namo hrasvAdaci NamuRnityam
+an,E,ann E,an,ai,ann ai,hal+ac boundary,Namuq-Agama (dvitva),8.3.32 Namo hrasvAdaci NamuRnityam
+an,o,ann o,an,o,ann o,hal+ac boundary,Namuq-Agama (dvitva),8.3.32 Namo hrasvAdaci NamuRnityam
+an,O,ann O,an,au,ann au,hal+ac boundary,Namuq-Agama (dvitva),8.3.32 Namo hrasvAdaci NamuRnityam
+in,a,inn a,in,a,inn a,hal+ac boundary,Namuq-Agama (dvitva),8.3.32 Namo hrasvAdaci NamuRnityam
+in,A,inn A,in,ā,inn ā,hal+ac boundary,Namuq-Agama (dvitva),8.3.32 Namo hrasvAdaci NamuRnityam
+in,i,inn i,in,i,inn i,hal+ac boundary,Namuq-Agama (dvitva),8.3.32 Namo hrasvAdaci NamuRnityam
+in,I,inn I,in,ī,inn ī,hal+ac boundary,Namuq-Agama (dvitva),8.3.32 Namo hrasvAdaci NamuRnityam
+in,u,inn u,in,u,inn u,hal+ac boundary,Namuq-Agama (dvitva),8.3.32 Namo hrasvAdaci NamuRnityam
+in,U,inn U,in,ū,inn ū,hal+ac boundary,Namuq-Agama (dvitva),8.3.32 Namo hrasvAdaci NamuRnityam
+in,f,inn f,in,ṛ,inn ṛ,hal+ac boundary,Namuq-Agama (dvitva),8.3.32 Namo hrasvAdaci NamuRnityam
+in,F,inn F,in,ṝ,inn ṝ,hal+ac boundary,Namuq-Agama (dvitva),8.3.32 Namo hrasvAdaci NamuRnityam
+in,x,inn x,in,ḷ,inn ḷ,hal+ac boundary,Namuq-Agama (dvitva),8.3.32 Namo hrasvAdaci NamuRnityam
+in,X,inn X,in,ḹ,inn ḹ,hal+ac boundary,Namuq-Agama (dvitva),8.3.32 Namo hrasvAdaci NamuRnityam
+in,e,inn e,in,e,inn e,hal+ac boundary,Namuq-Agama (dvitva),8.3.32 Namo hrasvAdaci NamuRnityam
+in,E,inn E,in,ai,inn ai,hal+ac boundary,Namuq-Agama (dvitva),8.3.32 Namo hrasvAdaci NamuRnityam
+in,o,inn o,in,o,inn o,hal+ac boundary,Namuq-Agama (dvitva),8.3.32 Namo hrasvAdaci NamuRnityam
+in,O,inn O,in,au,inn au,hal+ac boundary,Namuq-Agama (dvitva),8.3.32 Namo hrasvAdaci NamuRnityam
+n,c,MS c,n,c,ṃś c,hal-sandhi (consonant),naSCavi (n→M+sAgama),8.3.7 naSCavyapraSAn + 8.3.23
+n,C,MS C,n,ch,ṃś ch,hal-sandhi (consonant),naSCavi (n→M+sAgama),8.3.7 naSCavyapraSAn + 8.3.23
+n,j,Y j,n,j,ñ j,hal-sandhi (consonant),Scutva,8.4.40 stoH ScunA ScuH
+n,J,Y J,n,jh,ñ jh,hal-sandhi (consonant),Scutva,8.4.40 stoH ScunA ScuH
+n,w,Mz w,n,ṭ,ṃṣ ṭ,hal-sandhi (consonant),naSCavi+zwutva (n→Mz),8.3.7 + 8.4.41
+n,W,Mz W,n,ṭh,ṃṣ ṭh,hal-sandhi (consonant),naSCavi+zwutva (n→Mz),8.3.7 + 8.4.41
+n,q,R q,n,ḍ,ṇ ḍ,hal-sandhi (consonant),zwutva,8.4.41 zwunA zwuH
+n,Q,R Q,n,ḍh,ṇ ḍh,hal-sandhi (consonant),zwutva,8.4.41 zwunA zwuH
+n,t,Ms t,n,t,ṃs t,hal-sandhi (consonant),naSCavi (n→M+sAgama),8.3.7 naSCavyapraSAn + 8.3.23
+n,T,Ms T,n,th,ṃs th,hal-sandhi (consonant),naSCavi (n→M+sAgama),8.3.7 naSCavyapraSAn + 8.3.23
+n,l,~l l,n,l,l l,hal-sandhi (consonant),"parasavarRa (latva, anunAsika l)",8.4.60 torli
+n,S,Y S,n,ś,ñ ś,hal-sandhi (consonant),Scutva,8.4.40 (nkAra); cf. 8.4.63
+n,l,Ml l,n,l,ṃl l,hal-sandhi (consonant),"parasavarRa (latva, anunAsika l)",8.4.60 torli
+n,S,c C,n,ś,c ch,hal-sandhi (consonant),Scutva,8.4.40 (nkAra); cf. 8.4.63
+n,h,d D,n,h,d dh,hal-sandhi (consonant),n-sandhi (anya),8.3–8.4
+n,N,n N,n,ṅ,n ṅ,hal-sandhi (consonant),prakftiBAva (no change),—
+n,Y,n Y,n,ñ,n ñ,hal-sandhi (consonant),prakftiBAva (no change),—
+n,R,n R,n,ṇ,n ṇ,hal-sandhi (consonant),prakftiBAva (no change),—
+n,n,n n,n,n,n n,hal-sandhi (consonant),prakftiBAva (no change),—
+n,m,n m,n,m,n m,hal-sandhi (consonant),prakftiBAva (no change),—
+m,k,M k,m,k,ṃ k,hal-sandhi (consonant),anusvAra,8.3.23 mo_nusvAraH
+m,K,M K,m,kh,ṃ kh,hal-sandhi (consonant),anusvAra,8.3.23 mo_nusvAraH
+m,g,M g,m,g,ṃ g,hal-sandhi (consonant),anusvAra,8.3.23 mo_nusvAraH
+m,G,M G,m,gh,ṃ gh,hal-sandhi (consonant),anusvAra,8.3.23 mo_nusvAraH
+m,N,M N,m,ṅ,ṃ ṅ,hal-sandhi (consonant),anusvAra,8.3.23 mo_nusvAraH
+m,c,M c,m,c,ṃ c,hal-sandhi (consonant),anusvAra,8.3.23 mo_nusvAraH
+m,C,M C,m,ch,ṃ ch,hal-sandhi (consonant),anusvAra,8.3.23 mo_nusvAraH
+m,j,M j,m,j,ṃ j,hal-sandhi (consonant),anusvAra,8.3.23 mo_nusvAraH
+m,J,M J,m,jh,ṃ jh,hal-sandhi (consonant),anusvAra,8.3.23 mo_nusvAraH
+m,Y,M Y,m,ñ,ṃ ñ,hal-sandhi (consonant),anusvAra,8.3.23 mo_nusvAraH
+m,w,M w,m,ṭ,ṃ ṭ,hal-sandhi (consonant),anusvAra,8.3.23 mo_nusvAraH
+m,W,M W,m,ṭh,ṃ ṭh,hal-sandhi (consonant),anusvAra,8.3.23 mo_nusvAraH
+m,q,M q,m,ḍ,ṃ ḍ,hal-sandhi (consonant),anusvAra,8.3.23 mo_nusvAraH
+m,Q,M Q,m,ḍh,ṃ ḍh,hal-sandhi (consonant),anusvAra,8.3.23 mo_nusvAraH
+m,R,M R,m,ṇ,ṃ ṇ,hal-sandhi (consonant),anusvAra,8.3.23 mo_nusvAraH
+m,t,M t,m,t,ṃ t,hal-sandhi (consonant),anusvAra,8.3.23 mo_nusvAraH
+m,T,M T,m,th,ṃ th,hal-sandhi (consonant),anusvAra,8.3.23 mo_nusvAraH
+m,d,M d,m,d,ṃ d,hal-sandhi (consonant),anusvAra,8.3.23 mo_nusvAraH
+m,D,M D,m,dh,ṃ dh,hal-sandhi (consonant),anusvAra,8.3.23 mo_nusvAraH
+m,n,M n,m,n,ṃ n,hal-sandhi (consonant),anusvAra,8.3.23 mo_nusvAraH
+m,p,M p,m,p,ṃ p,hal-sandhi (consonant),anusvAra,8.3.23 mo_nusvAraH
+m,P,M P,m,ph,ṃ ph,hal-sandhi (consonant),anusvAra,8.3.23 mo_nusvAraH
+m,b,M b,m,b,ṃ b,hal-sandhi (consonant),anusvAra,8.3.23 mo_nusvAraH
+m,B,M B,m,bh,ṃ bh,hal-sandhi (consonant),anusvAra,8.3.23 mo_nusvAraH
+m,m,M m,m,m,ṃ m,hal-sandhi (consonant),anusvAra,8.3.23 mo_nusvAraH
+m,y,M y,m,y,ṃ y,hal-sandhi (consonant),anusvAra,8.3.23 mo_nusvAraH
+m,r,M r,m,r,ṃ r,hal-sandhi (consonant),anusvAra,8.3.23 mo_nusvAraH
+m,l,M l,m,l,ṃ l,hal-sandhi (consonant),anusvAra,8.3.23 mo_nusvAraH
+m,v,M v,m,v,ṃ v,hal-sandhi (consonant),anusvAra,8.3.23 mo_nusvAraH
+m,S,M S,m,ś,ṃ ś,hal-sandhi (consonant),anusvAra,8.3.23 mo_nusvAraH
+m,z,M z,m,ṣ,ṃ ṣ,hal-sandhi (consonant),anusvAra,8.3.23 mo_nusvAraH
+m,s,M s,m,s,ṃ s,hal-sandhi (consonant),anusvAra,8.3.23 mo_nusvAraH
+m,h,M h,m,h,ṃ h,hal-sandhi (consonant),anusvAra,8.3.23 mo_nusvAraH
+k,g,g g,k,g,g g,hal-sandhi (consonant),jaStva,8.2.39 JalAM jaSo_nte
+k,G,g G,k,gh,g gh,hal-sandhi (consonant),jaStva,8.2.39 JalAM jaSo_nte
+k,N,N N,k,ṅ,ṅ ṅ,hal-sandhi (consonant),anunAsika,8.4.45 yaro_nunAsike_nunAsiko vA
+k,j,g j,k,j,g j,hal-sandhi (consonant),jaStva,8.2.39 JalAM jaSo_nte
+k,J,g J,k,jh,g jh,hal-sandhi (consonant),jaStva,8.2.39 JalAM jaSo_nte
+k,Y,N Y,k,ñ,ṅ ñ,hal-sandhi (consonant),anunAsika,8.4.45 yaro_nunAsike_nunAsiko vA
+k,q,g q,k,ḍ,g ḍ,hal-sandhi (consonant),jaStva,8.2.39 JalAM jaSo_nte
+k,Q,g Q,k,ḍh,g ḍh,hal-sandhi (consonant),jaStva,8.2.39 JalAM jaSo_nte
+k,R,N R,k,ṇ,ṅ ṇ,hal-sandhi (consonant),anunAsika,8.4.45 yaro_nunAsike_nunAsiko vA
+k,d,g d,k,d,g d,hal-sandhi (consonant),jaStva,8.2.39 JalAM jaSo_nte
+k,D,g D,k,dh,g dh,hal-sandhi (consonant),jaStva,8.2.39 JalAM jaSo_nte
+k,n,N n,k,n,ṅ n,hal-sandhi (consonant),anunAsika,8.4.45 yaro_nunAsike_nunAsiko vA
+k,b,g b,k,b,g b,hal-sandhi (consonant),jaStva,8.2.39 JalAM jaSo_nte
+k,B,g B,k,bh,g bh,hal-sandhi (consonant),jaStva,8.2.39 JalAM jaSo_nte
+k,m,N m,k,m,ṅ m,hal-sandhi (consonant),anunAsika,8.4.45 yaro_nunAsike_nunAsiko vA
+k,y,g y,k,y,g y,hal-sandhi (consonant),jaStva,8.2.39 JalAM jaSo_nte
+k,r,g r,k,r,g r,hal-sandhi (consonant),jaStva,8.2.39 JalAM jaSo_nte
+k,l,g l,k,l,g l,hal-sandhi (consonant),jaStva,8.2.39 JalAM jaSo_nte
+k,v,g v,k,v,g v,hal-sandhi (consonant),jaStva,8.2.39 JalAM jaSo_nte
+k,h,g G,k,h,g gh,hal-sandhi (consonant),jaStva+pUrvasavarRa (hakAra),8.2.39 + 8.4.62 Jayo ho_nyatarasyAm
+w,g,q g,ṭ,g,ḍ g,hal-sandhi (consonant),jaStva,8.2.39 JalAM jaSo_nte
+w,G,q G,ṭ,gh,ḍ gh,hal-sandhi (consonant),jaStva,8.2.39 JalAM jaSo_nte
+w,N,R N,ṭ,ṅ,ṇ ṅ,hal-sandhi (consonant),anunAsika,8.4.45 yaro_nunAsike_nunAsiko vA
+w,j,q j,ṭ,j,ḍ j,hal-sandhi (consonant),jaStva,8.2.39 JalAM jaSo_nte
+w,J,q J,ṭ,jh,ḍ jh,hal-sandhi (consonant),jaStva,8.2.39 JalAM jaSo_nte
+w,Y,R Y,ṭ,ñ,ṇ ñ,hal-sandhi (consonant),anunAsika,8.4.45 yaro_nunAsike_nunAsiko vA
+w,q,q q,ṭ,ḍ,ḍ ḍ,hal-sandhi (consonant),zwutva,8.4.41 zwunA zwuH
+w,Q,q Q,ṭ,ḍh,ḍ ḍh,hal-sandhi (consonant),zwutva,8.4.41 zwunA zwuH
+w,R,R R,ṭ,ṇ,ṇ ṇ,hal-sandhi (consonant),zwutva,8.4.41 zwunA zwuH
+w,d,q d,ṭ,d,ḍ d,hal-sandhi (consonant),jaStva,8.2.39 JalAM jaSo_nte
+w,D,q D,ṭ,dh,ḍ dh,hal-sandhi (consonant),jaStva,8.2.39 JalAM jaSo_nte
+w,n,R n,ṭ,n,ṇ n,hal-sandhi (consonant),anunAsika,8.4.45 yaro_nunAsike_nunAsiko vA
+w,b,q b,ṭ,b,ḍ b,hal-sandhi (consonant),jaStva,8.2.39 JalAM jaSo_nte
+w,B,q B,ṭ,bh,ḍ bh,hal-sandhi (consonant),jaStva,8.2.39 JalAM jaSo_nte
+w,m,R m,ṭ,m,ṇ m,hal-sandhi (consonant),anunAsika,8.4.45 yaro_nunAsike_nunAsiko vA
+w,y,q y,ṭ,y,ḍ y,hal-sandhi (consonant),jaStva,8.2.39 JalAM jaSo_nte
+w,r,q r,ṭ,r,ḍ r,hal-sandhi (consonant),jaStva,8.2.39 JalAM jaSo_nte
+w,l,q l,ṭ,l,ḍ l,hal-sandhi (consonant),jaStva,8.2.39 JalAM jaSo_nte
+w,v,q v,ṭ,v,ḍ v,hal-sandhi (consonant),jaStva,8.2.39 JalAM jaSo_nte
+w,h,q Q,ṭ,h,ḍ ḍh,hal-sandhi (consonant),jaStva,8.2.39 JalAM jaSo_nte
+p,g,b g,p,g,b g,hal-sandhi (consonant),jaStva,8.2.39 JalAM jaSo_nte
+p,G,b G,p,gh,b gh,hal-sandhi (consonant),jaStva,8.2.39 JalAM jaSo_nte
+p,N,m N,p,ṅ,m ṅ,hal-sandhi (consonant),anunAsika,8.4.45 yaro_nunAsike_nunAsiko vA
+p,j,b j,p,j,b j,hal-sandhi (consonant),jaStva,8.2.39 JalAM jaSo_nte
+p,J,b J,p,jh,b jh,hal-sandhi (consonant),jaStva,8.2.39 JalAM jaSo_nte
+p,Y,m Y,p,ñ,m ñ,hal-sandhi (consonant),anunAsika,8.4.45 yaro_nunAsike_nunAsiko vA
+p,q,b q,p,ḍ,b ḍ,hal-sandhi (consonant),jaStva,8.2.39 JalAM jaSo_nte
+p,Q,b Q,p,ḍh,b ḍh,hal-sandhi (consonant),jaStva,8.2.39 JalAM jaSo_nte
+p,R,m R,p,ṇ,m ṇ,hal-sandhi (consonant),anunAsika,8.4.45 yaro_nunAsike_nunAsiko vA
+p,d,b d,p,d,b d,hal-sandhi (consonant),jaStva,8.2.39 JalAM jaSo_nte
+p,D,b D,p,dh,b dh,hal-sandhi (consonant),jaStva,8.2.39 JalAM jaSo_nte
+p,n,m n,p,n,m n,hal-sandhi (consonant),anunAsika,8.4.45 yaro_nunAsike_nunAsiko vA
+p,b,b b,p,b,b b,hal-sandhi (consonant),jaStva,8.2.39 JalAM jaSo_nte
+p,B,b B,p,bh,b bh,hal-sandhi (consonant),jaStva,8.2.39 JalAM jaSo_nte
+p,m,m m,p,m,m m,hal-sandhi (consonant),anunAsika,8.4.45 yaro_nunAsike_nunAsiko vA
+p,y,b y,p,y,b y,hal-sandhi (consonant),jaStva,8.2.39 JalAM jaSo_nte
+p,r,b r,p,r,b r,hal-sandhi (consonant),jaStva,8.2.39 JalAM jaSo_nte
+p,l,b l,p,l,b l,hal-sandhi (consonant),jaStva,8.2.39 JalAM jaSo_nte
+p,v,b v,p,v,b v,hal-sandhi (consonant),jaStva,8.2.39 JalAM jaSo_nte
+p,h,b B,p,h,b bh,hal-sandhi (consonant),jaStva+pUrvasavarRa (hakAra),8.2.39 + 8.4.62 Jayo ho_nyatarasyAm

@@ -1,0 +1,8 @@
+.venv/
+__pycache__/
+*.pyc
+uv.lock
+tokenizer/slp1_vocab.json
+.serena/
+.remember/
+data/

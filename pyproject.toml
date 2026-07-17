@@ -1,0 +1,16 @@
+[project]
+name = "sanskrit-lm"
+version = "0.1.0"
+description = "Path A — char-level SLP1 Sanskrit specialist model (autoresearch-style harness). Neural proposes, Panini disposes."
+requires-python = ">=3.11,<3.13"
+dependencies = [
+    "torch>=2.2",
+    "numpy>=1.26",
+    "indic-transliteration>=2.3.82",
+]
+
+[tool.uv]
+# CPU/MPS build is fine on Apple Silicon; default PyPI wheels ship MPS support.
+
+[tool.setuptools]
+packages = ["slm"]
