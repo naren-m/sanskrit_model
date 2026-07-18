@@ -96,6 +96,50 @@ class Inference:
         padas = [p.strip() for p in pred.split("|") if p.strip()]
         return {"task": "seg", "input": text, "model": pred, "padas": padas}
 
+    @torch.no_grad()
+    def seg_constrained(self, text: str) -> dict:
+        """Copy-constrained segmentation decode (spec §4 hard guarantee,
+        jm8.9): the decoder must replay the input's characters verbatim and
+        may only INSERT ' | ' boundary markers between them, so the output
+        always concatenates back to the input — re-derivability 100% by
+        construction, killing the ~30% hallucination rate of free decode.
+
+        At each position the model's next-token distribution is consulted
+        only to compare P(' ') (opening a boundary) against P(next input
+        char) (continuing the word); everything else is masked. After a
+        boundary, '|' and ' ' are forced and an immediate second boundary is
+        forbidden (no empty padas).
+
+        Deliberately NOT restricted to sandhi-lattice-licensed junctures:
+        the A/B ablation (evals/eval.py --ab) measured the lattice pool
+        ceiling at 6.8% because most real boundaries are zero-change word
+        abutments no rewrite rule licenses. Copy-constraint is the licensing
+        that matters — every emitted split is re-derivable."""
+        tok = self.tok
+        prompt = [tok.bos_id] + tok.encode(f"<seg>{text}") + [tok.sep_id]
+        space_id, pipe_id = tok.stoi[" "], tok.stoi["|"]
+        block = self.model.cfg.block_size
+        out: list[int] = []
+        ptr, n = 0, len(text)
+        last_boundary = True  # no boundary before the first char
+        while ptr < n:
+            ids = (prompt + out)[-block:]
+            x = torch.tensor([ids], dtype=torch.long, device=self.device)
+            logits, _ = self.model(x)
+            lp = logits[0, -1]
+            copy_id = tok.stoi.get(text[ptr], tok.unk_id)
+            if not last_boundary and 0 < ptr and lp[space_id] > lp[copy_id]:
+                out += [space_id, pipe_id, space_id]
+                last_boundary = True
+                continue
+            out.append(copy_id)
+            ptr += 1
+            last_boundary = False
+        pred = tok.decode(out, skip_special=False)
+        padas = [p.strip() for p in pred.split("|") if p.strip()]
+        return {"task": "seg", "input": text, "model": pred, "padas": padas,
+                "constrained": True}
+
     def meter(self, line: str) -> dict:
         # scan() transliterates IAST/Devanagari/loose-roman -> SLP1, splits
         # padas, and applies the Anustubh rules before the vrtta table.

@@ -90,7 +90,7 @@ def ab_main(n_cap: int):
 
     val = json.loads((DATA / "val.json").read_text())
     rows = [e for e in val if e["task"] == "seg"][:n_cap]
-    arms = ["symbolic", "trigram", "neural", "generate"]
+    arms = ["symbolic", "trigram", "neural", "generate", "constrained"]
     stats = {a: {"exact": 0, "f1": 0.0, "rederiv": 0, "hit_pool": 0} for a in arms}
     in_pool = 0  # oracle ceiling: gold present in the shared candidate pool
 
@@ -109,6 +109,8 @@ def ab_main(n_cap: int):
             if arm == "generate":
                 pred = [p.strip() for p in
                         decode(inf.model, tok, inf.device, src).split("|") if p.strip()]
+            elif arm == "constrained":
+                pred = inf.seg_constrained(text)["padas"]
             else:
                 pred = ranker.rank(text, arm, cands)
             s = stats[arm]
@@ -126,7 +128,7 @@ def ab_main(n_cap: int):
     print(f"{'arm':10s} {'exact':>12s} {'word-F1':>9s} {'rederiv':>9s} {'hit|pool':>10s}")
     for arm in arms:
         s = stats[arm]
-        hp = f"{s['hit_pool']}/{in_pool}" if arm != "generate" else "—"
+        hp = f"{s['hit_pool']}/{in_pool}" if arm not in ("generate", "constrained") else "—"
         print(f"{arm:10s} {s['exact']:5d}/{n:<4d} {100*s['exact']/n:5.1f}% "
               f"{100*s['f1']/n:8.1f}% {100*s['rederiv']/n:8.1f}% {hp:>10s}")
 
