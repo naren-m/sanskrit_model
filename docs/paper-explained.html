@@ -1,0 +1,500 @@
+<title>Neural Proposes, Pāṇini Disposes — a first-principles walkthrough</title>
+<style>
+  :root {
+    --ink: #17131f;
+    --parchment: #ECE6D8;
+    --parchment-2: #E4DCC9;
+    --rule: #cdc3ac;
+    --muted: #5d5647;
+    --rubric: #ae2b1b;
+    --rubric-soft: #b8503f;
+    --neural: #375e8c;
+    --neural-soft: #4f7bad;
+    --turmeric: #b5820f;
+    --ground: var(--parchment);
+    --fg: var(--ink);
+    --card: #f2eddf;
+    --serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, "Sitka Text", Georgia, serif;
+    --sans: ui-sans-serif, "Segoe UI", "Helvetica Neue", system-ui, sans-serif;
+    --mono: ui-monospace, "SF Mono", "Cascadia Code", "Roboto Mono", Menlo, Consolas, monospace;
+    --deva: "Noto Serif Devanagari", "Kohinoor Devanagari", "Nirmala UI", "Sanskrit 2003", var(--serif);
+    --measure: 40rem;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ink: #e8e1d2; --parchment: #16131c; --parchment-2: #1e1a26;
+      --rule: #342f3d; --muted: #9a917f;
+      --rubric: #e0705e; --rubric-soft: #c9564a;
+      --neural: #7ba6d4; --neural-soft: #5f89bb; --turmeric: #d6a533;
+      --ground: var(--parchment); --fg: var(--ink); --card: #201b29;
+    }
+  }
+  :root[data-theme="light"] {
+    --ink: #17131f; --parchment: #ECE6D8; --parchment-2: #E4DCC9;
+    --rule: #cdc3ac; --muted: #5d5647; --rubric: #ae2b1b; --rubric-soft: #b8503f;
+    --neural: #375e8c; --neural-soft: #4f7bad; --turmeric: #b5820f;
+    --ground: var(--parchment); --fg: var(--ink); --card: #f2eddf;
+  }
+  :root[data-theme="dark"] {
+    --ink: #e8e1d2; --parchment: #16131c; --parchment-2: #1e1a26;
+    --rule: #342f3d; --muted: #9a917f; --rubric: #e0705e; --rubric-soft: #c9564a;
+    --neural: #7ba6d4; --neural-soft: #5f89bb; --turmeric: #d6a533;
+    --ground: var(--parchment); --fg: var(--ink); --card: #201b29;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--ground); color: var(--fg);
+    font-family: var(--serif); font-size: 1.0625rem; line-height: 1.62;
+    font-feature-settings: "liga" 1, "onum" 1, "kern" 1;
+  }
+  .frame { max-width: 64rem; margin: 0 auto; padding: 0 1.5rem; }
+
+  /* ---- hero ---- */
+  header.hero {
+    border-bottom: 1px solid var(--rule);
+    padding: clamp(3rem, 8vw, 6rem) 0 clamp(2rem, 5vw, 3.5rem);
+  }
+  .eyebrow {
+    font-family: var(--sans); font-size: .72rem; letter-spacing: .18em;
+    text-transform: uppercase; color: var(--rubric); font-weight: 600;
+    margin: 0 0 1.4rem;
+  }
+  h1 {
+    font-size: clamp(2.1rem, 6vw, 3.7rem); line-height: 1.04; font-weight: 600;
+    margin: 0 0 1.1rem; letter-spacing: -.01em; text-wrap: balance; max-width: 20ch;
+  }
+  h1 .prop { color: var(--neural); }
+  h1 .disp { color: var(--rubric); }
+  .standfirst {
+    max-width: 46ch; font-size: 1.2rem; color: var(--muted); margin: 0;
+    line-height: 1.5; text-wrap: pretty;
+  }
+  .sanskrit-strip {
+    font-family: var(--deva); font-size: 1.35rem; color: var(--fg);
+    margin: 2.2rem 0 0; padding-top: 1.6rem; border-top: 1px dotted var(--rule);
+    opacity: .82; letter-spacing: .01em;
+  }
+  .sanskrit-strip small { display:block; font-family: var(--sans); font-size:.75rem; color: var(--muted); letter-spacing:.04em; margin-top:.5rem; }
+
+  /* ---- reading column w/ margin glosses (Tufte) ---- */
+  main { padding: clamp(2rem, 5vw, 3.5rem) 0 4rem; }
+  .prose { max-width: var(--measure); }
+  section { margin: 0 0 3.2rem; }
+  h2 {
+    font-size: 1.7rem; font-weight: 600; line-height: 1.15; margin: 3rem 0 1rem;
+    letter-spacing: -.005em; text-wrap: balance;
+  }
+  h2 .num {
+    font-family: var(--mono); font-size: .8rem; color: var(--rubric);
+    font-weight: 700; letter-spacing: .05em; display:block; margin-bottom:.35rem;
+  }
+  h3 { font-size: 1.18rem; font-weight: 600; margin: 2rem 0 .6rem; }
+  p { margin: 0 0 1.05rem; }
+  a { color: var(--neural); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  strong { font-weight: 600; }
+  em.term { font-style: normal; color: var(--rubric); font-variant: small-caps; letter-spacing:.03em; font-weight:600; }
+  code, .mono { font-family: var(--mono); font-size: .88em; }
+  .dv { font-family: var(--deva); }
+
+  .sidenote {
+    font-family: var(--sans); font-size: .82rem; line-height: 1.5; color: var(--muted);
+  }
+  @media (min-width: 1080px) {
+    .sidenote {
+      float: right; clear: right; width: 14.5rem; margin-right: -16.5rem;
+      margin-top: .3rem; margin-bottom: 1rem; position: relative;
+    }
+    .sidenote::before {
+      content: ""; position:absolute; left: -1rem; top: .15rem; bottom:.15rem;
+      width: 2px; background: var(--rubric); opacity:.5;
+    }
+  }
+  @media (max-width: 1079px) {
+    .sidenote {
+      display:block; margin: 1rem 0; padding: .75rem 1rem; background: var(--card);
+      border-left: 3px solid var(--rubric); border-radius: 0 4px 4px 0;
+    }
+  }
+  .sidenote b { color: var(--fg); font-weight: 600; }
+
+  /* ---- lede drop ---- */
+  .lede::first-letter {
+    font-size: 3.3rem; line-height: .8; float: left; font-weight: 600;
+    color: var(--rubric); margin: .1rem .5rem 0 0; font-family: var(--serif);
+  }
+
+  /* ---- callout / key claim ---- */
+  .claim {
+    border: 1px solid var(--rule); border-left: 4px solid var(--turmeric);
+    background: var(--card); padding: 1.1rem 1.3rem; margin: 1.6rem 0;
+    border-radius: 0 6px 6px 0;
+  }
+  .claim .lbl { font-family: var(--sans); font-size:.7rem; letter-spacing:.14em; text-transform:uppercase; color: var(--turmeric); font-weight:700; display:block; margin-bottom:.4rem; }
+  .claim p { margin: 0; font-size: 1.08rem; }
+
+  /* ---- sandhi fusion visual ---- */
+  .fuse {
+    display:flex; align-items:center; gap:1rem; flex-wrap:wrap; justify-content:center;
+    background: var(--card); border:1px solid var(--rule); border-radius:8px;
+    padding:1.4rem 1rem; margin:1.5rem 0; text-align:center;
+  }
+  .fuse .word { font-family: var(--deva); font-size:1.5rem; }
+  .fuse .rom { display:block; font-family: var(--mono); font-size:.75rem; color:var(--muted); margin-top:.25rem; }
+  .fuse .op { font-family: var(--sans); font-size:1.3rem; color:var(--muted); }
+  .fuse .arrow { color: var(--rubric); font-size:1.4rem; }
+  .fuse .result { color: var(--rubric); }
+
+  /* ---- pipeline ---- */
+  .pipe { display:grid; gap:.6rem; margin:1.5rem 0; }
+  @media (min-width:620px){ .pipe{ grid-template-columns: repeat(4,1fr); } }
+  .stage {
+    border:1px solid var(--rule); border-radius:8px; padding:.9rem .8rem; background:var(--card);
+    position:relative;
+  }
+  .stage .k { font-family:var(--mono); font-size:.7rem; letter-spacing:.08em; text-transform:uppercase; font-weight:700; }
+  .stage.sym .k { color: var(--rubric); }
+  .stage.neu .k { color: var(--neural); }
+  .stage .t { font-weight:600; font-size:1rem; margin:.3rem 0 .2rem; }
+  .stage .d { font-family:var(--sans); font-size:.8rem; color:var(--muted); line-height:1.4; }
+
+  /* ---- apparatus / ablation table ---- */
+  .apparatus { margin:1.8rem 0; }
+  .apparatus .cap { font-family:var(--sans); font-size:.78rem; color:var(--muted); margin-bottom:.5rem; letter-spacing:.02em; }
+  .tbl-wrap { overflow-x:auto; border:1px solid var(--rule); border-radius:8px; }
+  table { border-collapse:collapse; width:100%; font-size:.92rem; min-width:34rem; }
+  th, td { padding:.6rem .8rem; text-align:right; border-bottom:1px solid var(--rule); font-variant-numeric: tabular-nums; }
+  th:first-child, td:first-child { text-align:left; }
+  thead th { font-family:var(--sans); font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); font-weight:600; background:var(--parchment-2); }
+  tbody tr:last-child td { border-bottom:none; }
+  tr.sym td:first-child { border-left:3px solid var(--rubric); }
+  tr.neu td:first-child { border-left:3px solid var(--neural); }
+  tr.win { background: color-mix(in srgb, var(--turmeric) 12%, transparent); }
+  tr.win td:first-child { border-left:3px solid var(--turmeric); font-weight:600; }
+  tr.ceil td { color:var(--muted); font-style:italic; }
+  .big { font-weight:700; }
+  .tag { font-family:var(--sans); font-size:.68rem; padding:.1rem .4rem; border-radius:4px; vertical-align:middle; margin-left:.4rem; letter-spacing:.03em; }
+  .tag.sym { color:var(--rubric); border:1px solid var(--rubric); }
+  .tag.neu { color:var(--neural); border:1px solid var(--neural); }
+
+  /* ---- bar comparison ---- */
+  .bars { display:grid; gap:.7rem; margin:1.5rem 0; }
+  .bar-row { display:grid; grid-template-columns: 8.5rem 1fr; align-items:center; gap:.8rem; }
+  .bar-row .lab { font-family:var(--sans); font-size:.8rem; color:var(--fg); }
+  .bar-track { background:var(--parchment-2); border-radius:4px; height:1.7rem; position:relative; overflow:hidden; }
+  .bar-fill { height:100%; border-radius:4px; display:flex; align-items:center; justify-content:flex-end; padding-right:.5rem; font-family:var(--mono); font-size:.78rem; color:#fff; font-weight:600; min-width:2.5rem; }
+  .bar-fill.sym { background: var(--rubric); }
+  .bar-fill.neu { background: var(--neural); }
+  .bar-fill.win { background: var(--turmeric); }
+  @media (max-width:520px){ .bar-row{ grid-template-columns:1fr; gap:.2rem; } }
+
+  /* ---- stat grid ---- */
+  .stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(9rem,1fr)); gap:1px; background:var(--rule); border:1px solid var(--rule); border-radius:8px; overflow:hidden; margin:1.6rem 0; }
+  .stat { background:var(--card); padding:1rem; }
+  .stat .v { font-family:var(--mono); font-size:1.5rem; font-weight:700; letter-spacing:-.01em; }
+  .stat .v.sym{ color:var(--rubric);} .stat .v.neu{ color:var(--neural);} .stat .v.win{ color:var(--turmeric);}
+  .stat .l { font-family:var(--sans); font-size:.74rem; color:var(--muted); line-height:1.35; margin-top:.3rem; }
+
+  /* ---- arc / sequence ---- */
+  .arc { display:grid; gap:.8rem; margin:1.6rem 0; }
+  .arc-step { display:grid; grid-template-columns:auto 1fr; gap:1rem; align-items:start; }
+  .arc-dot { width:2.2rem; height:2.2rem; border-radius:50%; display:grid; place-items:center; font-family:var(--mono); font-weight:700; font-size:.85rem; flex-shrink:0; }
+  .arc-dot.a{ background:var(--rubric); color:#fff;} .arc-dot.b{ background:var(--neural); color:#fff;} .arc-dot.c{ background:var(--turmeric); color:#fff;} .arc-dot.d{ background:transparent; border:2px dashed var(--muted); color:var(--muted);}
+  .arc-step .body h4 { margin:.1rem 0 .2rem; font-size:1.02rem; }
+  .arc-step .body p { margin:0; font-size:.92rem; color:var(--muted); font-family:var(--sans); line-height:1.45; }
+
+  blockquote { margin:1.6rem 0; padding:.2rem 0 .2rem 1.3rem; border-left:3px solid var(--rubric); font-size:1.15rem; line-height:1.45; color:var(--fg); }
+  blockquote cite { display:block; font-size:.8rem; color:var(--muted); font-style:normal; font-family:var(--sans); margin-top:.5rem; }
+
+  hr.sep { border:none; border-top:1px solid var(--rule); margin:3rem 0; }
+  .rubric-mark { text-align:center; color:var(--rubric); font-size:1.3rem; margin:2.5rem 0; letter-spacing:.5rem; }
+
+  footer { border-top:1px solid var(--rule); padding:2.5rem 0 4rem; font-family:var(--sans); font-size:.82rem; color:var(--muted); }
+  footer code { font-size:.9em; color:var(--fg); }
+  footer .repro { background:var(--card); border:1px solid var(--rule); border-radius:6px; padding:.8rem 1rem; margin:1rem 0; overflow-x:auto; }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .fade { animation: rise .7s cubic-bezier(.2,.7,.2,1) both; }
+    @keyframes rise { from { opacity:0; transform: translateY(12px); } to { opacity:1; transform:none; } }
+  }
+  :focus-visible { outline: 2px solid var(--neural); outline-offset: 2px; border-radius:2px; }
+</style>
+
+<header class="hero">
+  <div class="frame fade">
+    <p class="eyebrow">A first-principles walkthrough · Sanskrit LM · Path A</p>
+    <h1>Neural <span class="prop">proposes</span>,<br>Pāṇini <span class="disp">disposes</span></h1>
+    <p class="standfirst">How a 10.7-million-parameter model the size of a rounding error, wrapped in a 2,400-year-old grammar, taught us that the bottleneck in machine Sanskrit was never the model — it was the shape we forced it into.</p>
+    <div class="sanskrit-strip">
+      रामः + अस्ति &nbsp;→&nbsp; रामोऽस्ति
+      <small>rāmaḥ + asti → rāmo'sti · two words fuse into one. Reading Sanskrit means running this backwards.</small>
+    </div>
+  </div>
+</header>
+
+<main>
+<div class="frame">
+<div class="prose">
+
+<section>
+  <p class="lede">This page explains an entire research project, and the paper that came out of it, assuming you know nothing about Sanskrit and nothing about the machinery of language models. We will build up from the single hardest fact about written Sanskrit, arrive at a surprising experimental result, and end on a lesson that has little to do with Sanskrit at all: <strong>when a system underperforms, fix its architecture before you reach for more compute.</strong></p>
+
+  <aside class="sidenote"><b>Why this problem at all?</b> Sanskrit has a vast digitized corpus — epics, philosophy, science — locked behind a preprocessing wall. Machines can't search or translate what they can't first segment into words.</aside>
+
+  <p>Everything below is measured, not asserted. Every number comes from running the code on held-out text. Where the model failed, the page says so and shows the failure.</p>
+</section>
+
+<hr class="sep">
+
+<section>
+  <h2><span class="num">§ 1</span>The problem: a language written without spaces, that also melts its own seams</h2>
+
+  <p>Two facts about classical Sanskrit, stacked, create the whole difficulty.</p>
+
+  <p><strong>First: no spaces.</strong> Sanskrit was a recited, memorized tradition long before a written one. Text runs continuously — <span class="dv">रामोऽस्तिवनम्</span> — with no gaps to mark where one word ends and the next begins. That alone is a segmentation problem, like reading <span class="mono">theskyisblue</span>.</p>
+
+  <p><strong>Second, and worse: <em class="term">sandhi</em>.</strong> At the junction where two words meet, their sounds physically fuse and change, according to strict phonological rules. This is not optional and not cosmetic — it rewrites the characters at the seam.</p>
+
+  <aside class="sidenote"><b>sandhi</b> (संधि) literally "putting together." The euphonic transformation at a sound boundary. English does a faint version — "a" becomes "an" before a vowel — but Sanskrit does it everywhere, obligatorily, and it deletes and merges letters.</aside>
+
+  <div class="fuse">
+    <span><span class="word">रामः</span><span class="rom">rāmaḥ ("Rāma")</span></span>
+    <span class="op">+</span>
+    <span><span class="word">अस्ति</span><span class="rom">asti ("is")</span></span>
+    <span class="arrow">→</span>
+    <span><span class="word result">रामोऽस्ति</span><span class="rom">rāmo'sti</span></span>
+  </div>
+
+  <p>Look at the seam. <span class="mono">rāmaḥ</span> ended in a <span class="mono">-aḥ</span> (a <em class="term">visarga</em>); <span class="mono">asti</span> began with <span class="mono">a-</span>. The two collided and became <span class="mono">-o'-</span>. The letters that told you where the boundary was have <em>dissolved into new letters</em>. To recover the two original words, a reader must run the fusion <strong>backwards</strong> — and that reverse is ambiguous, because several different word-pairs can fuse to the same surface string.</p>
+
+  <p>So the task, called <em class="term">sandhi splitting</em> or word segmentation, is: given the fused, space-free stream, recover the sequence of original words. It is the gateway to every downstream use — search, translation, grammatical analysis. Get this wrong and everything after it is wrong.</p>
+</section>
+
+<hr class="sep">
+
+<section>
+  <h2><span class="num">§ 2</span>Pāṇini: a formal generative grammar, from the 4th century BCE</h2>
+
+  <p>Here is the twist that makes Sanskrit special for computer science. The rules that govern this fusion are not folklore — they were formalized, exhaustively, around 350 BCE by the grammarian <strong>Pāṇini</strong> in a work of roughly 4,000 terse rules called the <em class="term">Aṣṭādhyāyī</em>. It is, in a real sense, the oldest surviving generative grammar: a system of ordered rewrite rules with a metalanguage, recursion, and abbreviation conventions that computer scientists recognize instantly.</p>
+
+  <aside class="sidenote"><b>Why a grammarian matters to an ML project.</b> Pāṇini's rules give us a <i>ground truth generator</i>. We can apply sandhi forward with certainty. The hard direction is undoing it — and that's exactly where a lattice of the rules, run in reverse, helps.</aside>
+
+  <p>This project encodes a large slice of that grammar as executable data. The symbolic core has three parts:</p>
+
+  <div class="pipe">
+    <div class="stage sym"><span class="k">Sandhi</span><div class="t">1,480 rules</div><div class="d">Every junction rule, each carrying its Aṣṭādhyāyī sūtra citation. Runs forward (join) and backward (split).</div></div>
+    <div class="stage sym"><span class="k">Dhātu</span><div class="t">~2,300 roots</div><div class="d">The verbal-root lexicon (dhātukośa). Lets a proposed analysis be checked against real roots Pāṇini knows.</div></div>
+    <div class="stage sym"><span class="k">Chandas</span><div class="t">145 metres</div><div class="d">A metre engine that scans a verse's syllable weights and names its metre — including rule-defined ones.</div></div>
+    <div class="stage sym"><span class="k">Verify</span><div class="t">the gate</div><div class="d">Nothing is asserted the engine cannot re-derive. "Neural proposes, Pāṇini disposes."</div></div>
+  </div>
+
+  <p>That last engine is worth a detour, because it shows the symbolic side working perfectly. Give it a verse and it identifies the metre from first principles — counting <em class="term">guru</em> (heavy) and <em class="term">laghu</em> (light) syllables and matching the pattern.</p>
+
+  <blockquote>
+    किमेकं दैवतं लोके किं वाप्येकं परायणम् …
+    <cite>Opening of the Viṣṇu Sahasranāma. The engine scans it as <b>anuṣṭubh (pathyā)</b> — the 32-syllable śloka — obeying the 5th-light, 6th-heavy law in every quarter. Pure rules, no neural net involved.</cite>
+  </blockquote>
+
+  <p>The metre engine even catches the subtle cases: fed a verse whose third quarter breaks the standard pattern, it can be extended to recognize a <em class="term">vipulā</em> — a licensed variant — rather than mislabeling the verse. The symbolic layer, on its home turf, is exact. Hold that thought: <strong>exactness is the symbolic layer's whole value, and also its trap.</strong></p>
+</section>
+
+<hr class="sep">
+
+<section>
+  <h2><span class="num">§ 3</span>The neural approach: a tiny model that learns the statistics</h2>
+
+  <p>The opposite strategy makes no reference to rules. Take a plain character-level transformer — a <span class="mono">GPT</span>, the same architecture as the large ones, just minuscule — and train it to predict the next character of Sanskrit text. It learns, from exposure alone, what fused strings tend to split into.</p>
+
+  <div class="stats">
+    <div class="stat"><div class="v neu">10.7M</div><div class="l">parameters (6 layers, 6 heads, 384 dim)</div></div>
+    <div class="stat"><div class="v neu">~5 min</div><div class="l">total training, on an Apple laptop GPU</div></div>
+    <div class="stat"><div class="v neu">124</div><div class="l">token vocabulary — one per SLP1 character</div></div>
+    <div class="stat"><div class="v neu">0.489</div><div class="l">validation bits-per-byte</div></div>
+  </div>
+
+  <aside class="sidenote"><b>SLP1</b> is a 1-character = 1-phoneme ASCII scheme for Sanskrit. Because sandhi and morphology are <i>character</i> phenomena, a character-level vocabulary is the natural unit — no subword guessing.</aside>
+
+  <p>For scale: published neural Sanskrit segmenters are on the order of <strong>300 million</strong> parameters and train for GPU-days on large corpora. This model is roughly <strong>1/30,000th</strong> of that training cost. That frugality is deliberate — it is the whole point of pairing it with the grammar. The question the project set out to answer was: <em>how small can the neural part be if the symbolic part does the heavy lifting?</em></p>
+
+  <p>But the neural approach has a failure mode the grammar does not: it can <strong>hallucinate</strong>. A statistical model, asked to produce output, will happily emit a fluent, plausible, <em>wrong</em> segmentation — one that doesn't even reconstruct back into the original input. That is unacceptable for a tool meant to preprocess a sacred, exact textual tradition.</p>
+</section>
+
+<hr class="sep">
+
+<section>
+  <h2><span class="num">§ 4</span>The hybrid: four layers, and one guarantee</h2>
+
+  <p>So combine them. The design — the "standard" neuro-symbolic prescription — reads left to right:</p>
+
+  <div class="pipe">
+    <div class="stage sym"><span class="k">1 · Lattice</span><div class="t">propose</div><div class="d">The sandhi rules, run in reverse, enumerate every segmentation the grammar <i>permits</i>. Exhaustive, never illegal — but over-generates.</div></div>
+    <div class="stage sym"><span class="k">2 · Lexicon</span><div class="t">gate</div><div class="d">85,715 real corpus words. A split into attested words beats one into non-words.</div></div>
+    <div class="stage neu"><span class="k">3 · Model</span><div class="t">rank</div><div class="d">The neural net scores the survivors and picks the best. It ranks; it does not invent.</div></div>
+    <div class="stage sym"><span class="k">4 · Verify</span><div class="t">dispose</div><div class="d">The chosen split is round-tripped through the rules. If it doesn't re-derive the input, it's rejected.</div></div>
+  </div>
+
+  <p>The intended division of labor is elegant: the grammar guarantees legality, the lexicon supplies real-word bias, and the neural net contributes the one thing rules and dictionaries lack — <em>judgment</em> about which legal, lexical option is actually right in context. Everyone assumed the model was carrying that step.</p>
+
+  <div class="claim">
+    <span class="lbl">The experiment</span>
+    <p>To find out what the model actually contributes, hold the candidate pool fixed and swap out <em>only</em> the ranker. If the neural ranker is doing real work, it should beat a dumb baseline. If it isn't, it will tie one.</p>
+  </div>
+</section>
+
+<hr class="sep">
+
+<section>
+  <h2><span class="num">§ 5</span>The result that reframed the project</h2>
+
+  <p>Four rankers, scored on the same 400 held-out lines, each choosing from the <em>identical</em> set of grammar-proposed candidates. The only thing that varies is who does the ranking.</p>
+
+  <div class="apparatus">
+    <div class="cap">Table 1 · Segmentation on 400 held-out lines. <span class="tag sym">symbolic</span> <span class="tag neu">neural</span> · "exact" = whole line correct; "re-derivable" = the answer concatenates back to the input.</div>
+    <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Ranking arm</th><th>Exact</th><th>Word-F1</th><th>Re-deriv.</th></tr>
+      </thead>
+      <tbody>
+        <tr class="sym"><td>Lexicon + frequency <span class="tag sym">no model</span></td><td>6.8%</td><td>19.5%</td><td>31.8%</td></tr>
+        <tr class="sym"><td>Char-trigram</td><td>6.2%</td><td>19.1%</td><td>31.8%</td></tr>
+        <tr class="neu"><td>Neural rank (the 10.7M GPT)</td><td>6.8%</td><td>19.6%</td><td>32.0%</td></tr>
+        <tr class="ceil"><td>— oracle pool ceiling —</td><td>6.8%</td><td>—</td><td>—</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <p>Read the top three rows. The neural ranker scores <strong>6.8%</strong>. A scorer with <em>no learned component at all</em> — just "prefer splits into frequent dictionary words" — scores <strong>6.8%</strong>. They are indistinguishable. The expensive, trained model, in the role the architecture assigned it, <strong>adds nothing.</strong></p>
+
+  <aside class="sidenote"><b>The oracle ceiling.</b> 6.8% is the fraction of lines whose correct answer even <i>exists</i> anywhere in the grammar's candidate list. No ranker — however clever — can select an option that was never proposed. All three rankers are pinned against this wall.</aside>
+
+  <p>Every ranker is capped at 6.8% because that is the ceiling of what the grammar proposed in the first place. The bottleneck was never the ranking. It was <strong>proposal</strong> — the candidates the lattice could generate at all.</p>
+
+  <p>Now change the model's job. Instead of ranking a fixed menu, let the <em>same weights</em> freely generate the segmentation, character by character, unconstrained by the lattice:</p>
+
+  <div class="bars">
+    <div class="bar-row"><span class="lab">Neural rank</span><div class="bar-track"><div class="bar-fill neu" style="width:16%">6.8%</div></div></div>
+    <div class="bar-row"><span class="lab">Lexicon only</span><div class="bar-track"><div class="bar-fill sym" style="width:16%">6.8%</div></div></div>
+    <div class="bar-row"><span class="lab">Neural <em>generate</em></span><div class="bar-track"><div class="bar-fill neu" style="width:82%">39.8%</div></div></div>
+  </div>
+
+  <p>Six times the accuracy. The identical model, freed from the lattice, reaches <strong>39.8%</strong> exact — because it can place a word boundary the grammar's rules <em>structurally cannot propose</em>. The knowledge was in the parameters all along. The architecture was throwing it away.</p>
+
+  <div class="claim">
+    <span class="lbl">But — the catch</span>
+    <p>30% of the free model's outputs are <strong>not re-derivable</strong>: concatenating its predicted words does not reproduce the input. This is the hallucination the symbolic gate existed to prevent. Coverage bought at the cost of the guarantee.</p>
+  </div>
+</section>
+
+<hr class="sep">
+
+<section>
+  <h2><span class="num">§ 6</span>Why the grammar is blind — and it's not fixable with more rules</h2>
+
+  <p>Why can't the lattice propose 93% of the right answers? Because of one measured fact about how Sanskrit words actually abut.</p>
+
+  <div class="stats">
+    <div class="stat"><div class="v sym">76.4%</div><div class="l">of real word-boundaries have <b>no sandhi change</b> — the words simply touch, unchanged</div></div>
+    <div class="stat"><div class="v sym">12.6×</div><div class="l">more likely the grammar holds the answer when a real transform <i>did</i> occur</div></div>
+    <div class="stat"><div class="v neu">91.8%</div><div class="l">of the free model's wins are on lines the grammar <b>provably cannot</b> reach</div></div>
+  </div>
+
+  <p>The lattice works by spotting the <em>signature</em> a fusion leaves in the string, then undoing it. But three out of four real boundaries leave <strong>no signature at all</strong> — the two words just sit next to each other, unchanged (like <span class="mono">vana</span> + <span class="mono">idam</span> where nothing melts). With no fusion to detect, the rule engine has nothing to key on, and cannot propose a boundary there. It is, precisely, a <strong>sandhi-transform detector</strong> — excellent when a transform happened, blind when one didn't.</p>
+
+  <aside class="sidenote"><b>"So just add identity rules!"</b> Tempting, and wrong. An identity rule for every letter-pair would license a boundary at <i>nearly every character</i> — over 11× more candidate cut-points than there are real boundaries. That doesn't solve segmentation; it just moves the impossible job back onto the ranker, which we already saw tops out at 6.8%.</aside>
+
+  <p>This is the deep finding, and the source of the project's title claim. <strong>Capacity was never the constraint.</strong> The 10.7M-parameter model already <em>knows</em> the boundaries — 91.8% of its correct answers are ones the grammar's whole apparatus could not even offer as options. The rank-over-a-lattice <em>shape</em> of the system was discarding knowledge the weights already held. The fix had to be architectural, not a bigger model and not more rules.</p>
+</section>
+
+<hr class="sep">
+
+<section>
+  <h2><span class="num">§ 7</span>The synthesis: let it generate, but forbid it to lie</h2>
+
+  <p>The free generator had the coverage; it lacked the guarantee. So constrain the generation — but with the <em>right</em> constraint. Not "only propose lattice-legal boundaries" (that recreates the 6.8% ceiling). Instead: <strong>copy-constrained decoding.</strong></p>
+
+  <blockquote>
+    The decoder must replay the input's characters verbatim, in order. Its only freedom is <em>where to insert a boundary</em> between them. It can never change, drop, or invent a character.
+    <cite>Re-derivability becomes 100% — by construction. The output <i>cannot</i> fail to reconstruct the input, because it <i>is</i> the input plus separators.</cite>
+  </blockquote>
+
+  <p>This is the best of both: the model's learned judgment about where words break, fenced inside a hard structural promise it physically cannot violate. The result:</p>
+
+  <div class="apparatus">
+    <div class="cap">Table 2 · The full arc, same 400 lines. The final row is the synthesis.</div>
+    <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Arm</th><th>Exact</th><th>Word-F1</th><th>Re-deriv.</th></tr></thead>
+      <tbody>
+        <tr class="sym"><td>Best symbolic / neural <b>rank</b></td><td>6.8%</td><td>19.6%</td><td>32%</td></tr>
+        <tr class="neu"><td>Neural free <b>generate</b></td><td>39.8%</td><td>58.0%</td><td>70.0%</td></tr>
+        <tr class="win"><td>Copy-<b>constrained</b> decode</td><td>40.8%</td><td>57.9%</td><td class="big">100.0%</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <p>The constrained decoder <strong>beats free generation on exact match</strong> (40.8 vs 39.8) while raising re-derivability from a leaky 70% to a total <strong>100%</strong>. Forcing the model to keep every character didn't cost accuracy — it slightly <em>improved</em> it, because when the model would have corrupted a character, putting the correct one back into its context repairs the rest of the decode. The constraint is not a tax; it is regularization.</p>
+
+  <div class="arc">
+    <div class="arc-step"><div class="arc-dot a">1</div><div class="body"><h4>Ranker</h4><p>Model picks from grammar's menu → adds nothing over a dictionary; capped at what the grammar proposes (6.8%).</p></div></div>
+    <div class="arc-step"><div class="arc-dot b">2</div><div class="body"><h4>Free generator</h4><p>Model writes the answer itself → 6× coverage (39.8%), because it escapes the grammar's blindness — but 30% is unverifiable.</p></div></div>
+    <div class="arc-step"><div class="arc-dot c">3</div><div class="body"><h4>Constrained generator</h4><p>Model chooses only where to cut → best coverage (40.8%) <em>and</em> a 100% structural guarantee. The synthesis.</p></div></div>
+  </div>
+</section>
+
+<hr class="sep">
+
+<section>
+  <h2><span class="num">§ 8</span>The one honest gap — and why it finally points at data</h2>
+
+  <p>We predicted, before building it, that the constrained decoder could reach 47.9%. It reached 40.8% — a 7.1-point shortfall. Rather than wave it away, the project chased it, and the chase is itself instructive.</p>
+
+  <p>Two suspects for the gap were tested. Maybe the model's greedy "cut here?" decision was miscalibrated — so we swept a threshold across seven settings. It peaked <em>exactly</em> at the shipped setting; every adjustment made it worse. Maybe it needed a wider search — so we ran a beam. It bought <strong>+1 point</strong> at <strong>10× the cost</strong>. Neither the decision rule nor the search was the problem.</p>
+
+  <aside class="sidenote"><b>The decomposition.</b> Split the lines by whether the free model had corrupted them. On "clean" lines the constrained decoder hits 47.9% — the prediction, <i>exactly</i>. On "hard" lines it hits 24.2%. The entire shortfall lives in the hard lines.</aside>
+
+  <p>The decomposition told the real story. On the lines the model handled cleanly, it hit the predicted 47.9% precisely. The shortfall was entirely on the <em>hard</em> lines — where the model both corrupts characters <em>and</em> misplaces boundaries, two symptoms of the same under-modeling. Character corruption and boundary confusion co-occur because those lines are genuinely harder to model.</p>
+
+  <div class="claim">
+    <span class="lbl">Architecture first, then capacity</span>
+    <p>This is the only point in the whole investigation where "train a better model" is the right answer — and it arrives <em>after</em> the architecture is fixed, narrowly, for the hard subset. Had we scaled the model inside the old rank-over-lattice design, we'd have bought nothing: the ranker was pinned at a ceiling no capacity could lift.</p>
+  </div>
+</section>
+
+<hr class="sep">
+
+<section>
+  <h2><span class="num">§ 9</span>What is actually worth publishing here</h2>
+
+  <p>The accuracy numbers (6.8% – 40.8%) are far below leaderboard Sanskrit segmenters, and deliberately so — this is a from-scratch, single-corpus, five-minute model built to isolate an <em>architectural</em> question, not to win a benchmark. The contributions are methodological.</p>
+
+  <div class="arc">
+    <div class="arc-step"><div class="arc-dot d">A</div><div class="body"><h4>A reusable ablation method</h4><p>Hold the candidate pool fixed and swap only the scorer; then remove the pool and let the same weights generate. This cleanly separates "does the model know?" from "can the architecture express what it knows?"</p></div></div>
+    <div class="arc-step"><div class="arc-dot d">B</div><div class="body"><h4>Re-derivability as an anti-hallucination metric</h4><p>A headline number — does the answer reconstruct the input? — that measures faithfulness structurally, connecting to the broader hallucination literature. Copy-constraint drives it to 100% by construction rather than by filtering.</p></div></div>
+    <div class="arc-step"><div class="arc-dot d">C</div><div class="body"><h4>Compute-frugality as a finding, not a footnote</h4><p>A 10.7M model at ~1/30,000th the training cost of a 300M baseline, made viable by the symbolic scaffold — with a measured account of exactly where the small model suffices and where it doesn't.</p></div></div>
+  </div>
+
+  <p>And the transferable lesson, the one that outlives Sanskrit: a negative result on the ranker plus a positive result on the generator, from the <em>same weights</em>, is a precise instrument. It tells you the deficiency is in the system's shape, not its scale — and it tells you that <em>before</em> you spend a single GPU-day on a bigger model.</p>
+
+  <div class="rubric-mark">❦ ❦ ❦</div>
+
+  <blockquote style="border:none; padding-left:0; text-align:center; font-size:1.3rem;">
+    The grammar could not see three-quarters of the answers.<br>The model could see them all along.<br><span style="color:var(--turmeric)">We just had to stop making it choose from the grammar's list.</span>
+  </blockquote>
+</section>
+
+</div><!-- /prose -->
+</div><!-- /frame -->
+</main>
+
+<footer>
+  <div class="frame">
+    <p><strong>Reproduce every number on this page.</strong> The full ablation, including the constrained-decoding arm:</p>
+    <div class="repro mono">uv run python -m evals.eval --ab --n 400</div>
+    <p>Paper draft: <code>docs/paper/draft.md</code> · Supplementary analysis (A1–A5): <code>docs/paper/capacity-vs-architecture.md</code> · Constrained decoder: <code>slm/infer.py → Inference.seg_constrained</code> · Ablation harness: <code>evals/baseline.py</code>, <code>evals/eval.py</code>.</p>
+    <p>Working title: <em>“Neural Proposes, Pāṇini Disposes: An Architecture-Level Ablation of Ranking vs. Generation in Neuro-Symbolic Sanskrit Segmentation.”</em> A Path-A Sanskrit language-model project. All figures measured on 400 held-out Rāmāyaṇa segmentation lines; checkpoint validation bits-per-byte 0.489.</p>
+  </div>
+</footer>

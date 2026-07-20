@@ -140,6 +140,30 @@ class Inference:
         return {"task": "seg", "input": text, "model": pred, "padas": padas,
                 "constrained": True}
 
+    @torch.no_grad()
+    def seg_dp(self, text: str, k: int = 8) -> dict:
+        """Tiered segmentation (jm-improve-5pt): lexicon-anchored sandhi-aware
+        DP proposes k-best full-cover paths; the char-LM breaks ties via the
+        joint score dp + lm_mean_logprob * len(tgt); if no DP path covers the
+        input (OOV text), fall back to the copy-constrained neural decode.
+        Both tiers re-derive the surface by construction."""
+        if not hasattr(self, "_segdp"):
+            from slm.segdp import LexiconSegmenter
+            self._segdp = LexiconSegmenter()
+        cands = self._segdp.kbest(text, k=k)
+        if not cands:
+            out = self.seg_constrained(text)
+            out["tier"] = "constrained-fallback"
+            return out
+        # LM always votes (even a single full-cover path can carry the wrong
+        # licensed spelling variant once variant edges are generated)
+        def joint(sc, padas):
+            tgt = " | ".join(padas)
+            return sc + self.logprob(f"<seg>{text}", tgt) * len(tgt)
+        best = max(cands, key=lambda t: joint(*t))[1] if len(cands) > 1 else cands[0][1]
+        return {"task": "seg", "input": text, "model": " | ".join(best),
+                "padas": best, "constrained": True, "tier": "lexicon-dp"}
+
     def meter(self, line: str) -> dict:
         # scan() transliterates IAST/Devanagari/loose-roman -> SLP1, splits
         # padas, and applies the Anustubh rules before the vrtta table.

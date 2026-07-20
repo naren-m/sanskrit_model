@@ -1,0 +1,492 @@
+<title>Sanskrit LM — A First-Principles Tutorial</title>
+<style>
+  :root {
+    --paper: #FAF8F2;
+    --ink: #1C2321;
+    --ink-soft: #4C5350;
+    --accent: #0E6E6B;
+    --accent-soft: #E3EFEE;
+    --gold: #C7860A;
+    --gold-soft: #F7EDD8;
+    --rule: #D8D4C8;
+    --card: #FFFFFF;
+    --code-bg: #F0EEE6;
+    --bad: #A33B2E;
+    --bad-soft: #F6E4E1;
+    --ok: #2E6E3A;
+    --serif-display: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    --serif-body: Charter, "Bitstream Charter", "Iowan Old Style", Georgia, serif;
+    --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #101615;
+      --ink: #E4E1D6;
+      --ink-soft: #A8ADA6;
+      --accent: #3FBDB8;
+      --accent-soft: #14302E;
+      --gold: #E0A83C;
+      --gold-soft: #2E2513;
+      --rule: #2B3330;
+      --card: #171E1C;
+      --code-bg: #1C2422;
+      --bad: #D9705F;
+      --bad-soft: #33201C;
+      --ok: #6FBF7D;
+    }
+  }
+  :root[data-theme="light"] {
+    --paper: #FAF8F2; --ink: #1C2321; --ink-soft: #4C5350; --accent: #0E6E6B;
+    --accent-soft: #E3EFEE; --gold: #C7860A; --gold-soft: #F7EDD8; --rule: #D8D4C8;
+    --card: #FFFFFF; --code-bg: #F0EEE6; --bad: #A33B2E; --bad-soft: #F6E4E1; --ok: #2E6E3A;
+  }
+  :root[data-theme="dark"] {
+    --paper: #101615; --ink: #E4E1D6; --ink-soft: #A8ADA6; --accent: #3FBDB8;
+    --accent-soft: #14302E; --gold: #E0A83C; --gold-soft: #2E2513; --rule: #2B3330;
+    --card: #171E1C; --code-bg: #1C2422; --bad: #D9705F; --bad-soft: #33201C; --ok: #6FBF7D;
+  }
+
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    background: var(--paper); color: var(--ink);
+    font-family: var(--serif-body); font-size: 1.05rem; line-height: 1.65;
+    margin: 0;
+  }
+  main { max-width: 46rem; margin: 0 auto; padding: 0 1.25rem 6rem; }
+
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: color-mix(in srgb, var(--paper) 92%, transparent);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--rule);
+    font-family: var(--mono); font-size: 0.72rem;
+  }
+  nav .row {
+    max-width: 46rem; margin: 0 auto; padding: 0.55rem 1.25rem;
+    display: flex; gap: 1rem; flex-wrap: wrap; align-items: baseline;
+  }
+  nav a { color: var(--ink-soft); text-decoration: none; letter-spacing: 0.04em; }
+  nav a:hover, nav a:focus-visible { color: var(--accent); }
+  nav a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  nav .brand { color: var(--accent); font-weight: 700; }
+
+  header.hero { padding: 4rem 0 2.5rem; border-bottom: 1px solid var(--rule); }
+  .deva {
+    font-size: 1.05rem; color: var(--gold); letter-spacing: 0.12em;
+    font-family: "Devanagari Sangam MN", "ITF Devanagari", "Noto Sans Devanagari", var(--serif-body);
+  }
+  h1 {
+    font-family: var(--serif-display); font-weight: 600;
+    font-size: clamp(2rem, 5.5vw, 3rem); line-height: 1.12;
+    margin: 0.4rem 0 1rem; text-wrap: balance;
+  }
+  .thesis {
+    font-family: var(--serif-display); font-size: 1.3rem; font-style: italic;
+    color: var(--accent); margin: 0 0 1rem;
+  }
+  .subtitle { color: var(--ink-soft); max-width: 38rem; margin: 0; }
+
+  h2 {
+    font-family: var(--serif-display); font-weight: 600;
+    font-size: 1.65rem; line-height: 1.2; text-wrap: balance;
+    margin: 3.2rem 0 0.4rem; padding-top: 1.6rem;
+  }
+  h2 .chap {
+    display: block; font-family: var(--mono); font-size: 0.7rem; font-weight: 400;
+    color: var(--gold); letter-spacing: 0.18em; text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+  h3 { font-family: var(--serif-display); font-size: 1.15rem; margin: 2rem 0 0.3rem; }
+  p { margin: 0.8rem 0; }
+  a { color: var(--accent); }
+  strong { color: var(--ink); }
+  em.term { color: var(--accent); font-style: normal; font-weight: 700; }
+
+  code {
+    font-family: var(--mono); font-size: 0.86em;
+    background: var(--code-bg); padding: 0.1em 0.35em; border-radius: 3px;
+  }
+  pre {
+    background: var(--code-bg); border: 1px solid var(--rule); border-radius: 6px;
+    padding: 0.9rem 1.1rem; overflow-x: auto; line-height: 1.5;
+  }
+  pre code { background: none; padding: 0; font-size: 0.82rem; }
+
+  .tablewrap { overflow-x: auto; margin: 1.2rem 0; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.92rem; }
+  th {
+    font-family: var(--mono); font-size: 0.68rem; text-transform: uppercase;
+    letter-spacing: 0.08em; color: var(--ink-soft); text-align: left;
+    border-bottom: 2px solid var(--rule); padding: 0.45rem 0.9rem 0.45rem 0;
+  }
+  td { border-bottom: 1px solid var(--rule); padding: 0.5rem 0.9rem 0.5rem 0; vertical-align: top; }
+  td.num { font-family: var(--mono); font-variant-numeric: tabular-nums; font-size: 0.85rem; }
+  td code { white-space: nowrap; }
+
+  .callout {
+    border-left: 3px solid var(--accent); background: var(--accent-soft);
+    padding: 0.85rem 1.1rem; border-radius: 0 6px 6px 0; margin: 1.4rem 0;
+  }
+  .callout.gold { border-left-color: var(--gold); background: var(--gold-soft); }
+  .callout.bad  { border-left-color: var(--bad);  background: var(--bad-soft); }
+  .callout p:first-child { margin-top: 0; }
+  .callout p:last-child { margin-bottom: 0; }
+  .callout .label {
+    font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--ink-soft); display: block; margin-bottom: 0.3rem;
+  }
+
+  /* pipeline diagram */
+  .pipeline { display: flex; flex-direction: column; gap: 0; margin: 1.6rem 0; }
+  .stage {
+    display: grid; grid-template-columns: 5.4rem 1fr; gap: 1rem;
+    background: var(--card); border: 1px solid var(--rule); border-radius: 8px;
+    padding: 0.9rem 1.1rem;
+  }
+  .stage .tag {
+    font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.1em;
+    text-transform: uppercase; font-weight: 700; padding-top: 0.2rem;
+  }
+  .stage.sym .tag { color: var(--gold); }
+  .stage.neu .tag { color: var(--accent); }
+  .stage h4 { margin: 0 0 0.2rem; font-family: var(--serif-display); font-size: 1rem; }
+  .stage p { margin: 0; font-size: 0.9rem; color: var(--ink-soft); }
+  .flow-arrow {
+    text-align: center; color: var(--ink-soft); font-family: var(--mono);
+    font-size: 0.8rem; padding: 0.25rem 0;
+  }
+
+  .verdict {
+    display: grid; grid-template-columns: auto 1fr; gap: 0.3rem 1rem;
+    font-size: 0.95rem; margin: 1rem 0;
+  }
+  .verdict dt { font-family: var(--mono); font-size: 0.78rem; padding-top: 0.15rem; white-space: nowrap; }
+  .verdict dt.yes { color: var(--ok); }
+  .verdict dt.no  { color: var(--bad); }
+  .verdict dd { margin: 0 0 0.5rem; }
+
+  .metric-row { display: flex; gap: 1rem; flex-wrap: wrap; margin: 1.4rem 0; }
+  .metric {
+    flex: 1 1 8.5rem; background: var(--card); border: 1px solid var(--rule);
+    border-radius: 8px; padding: 0.8rem 1rem;
+  }
+  .metric .v {
+    font-family: var(--mono); font-size: 1.5rem; font-weight: 700;
+    font-variant-numeric: tabular-nums; color: var(--accent);
+  }
+  .metric .v.warn { color: var(--bad); }
+  .metric .k { font-size: 0.78rem; color: var(--ink-soft); line-height: 1.3; margin-top: 0.15rem; }
+
+  footer {
+    border-top: 1px solid var(--rule); margin-top: 4rem; padding-top: 1.2rem;
+    font-size: 0.85rem; color: var(--ink-soft);
+  }
+</style>
+
+<nav aria-label="Chapters">
+  <div class="row">
+    <a class="brand" href="#top">sanskrit-lm</a>
+    <a href="#problem">Problem</a>
+    <a href="#panini">Pāṇini</a>
+    <a href="#neural">Neural</a>
+    <a href="#hybrid">Hybrid</a>
+    <a href="#status">Status</a>
+    <a href="#issues">Issues</a>
+    <a href="#next">Next</a>
+    <a href="#publish">Paper?</a>
+  </div>
+</nav>
+
+<main id="top">
+<header class="hero">
+  <div class="deva">संस्कृतम् · saMskftam</div>
+  <h1>Teaching a Tiny Neural Network Sanskrit — and Never Trusting It</h1>
+  <p class="thesis">“Neural proposes, Pāṇini disposes.”</p>
+  <p class="subtitle">A first-principles tour of this project: why Sanskrit is a uniquely
+  good target for a hybrid neural + symbolic system, what we built, what the numbers say,
+  what is broken, and whether there is a paper in it. Written for a reader who knows
+  neither Sanskrit grammar nor machine learning — each is explained from zero.</p>
+</header>
+
+<h2 id="problem"><span class="chap">Chapter 1 · The Problem</span>Why is Sanskrit hard for a computer?</h2>
+
+<p>Take the English sentence <em>“Rama is here.”</em> A computer can split it into words
+by looking for spaces. Sanskrit refuses to give you that. When words meet, their
+boundary sounds <strong>fuse by mandatory phonetic rules</strong> called
+<em class="term">sandhi</em> (“junction”). The two words:</p>
+
+<pre><code>rāma  +  asti      (“Rama” + “is”)</code></pre>
+
+<p>are not written as two words. The final <code>a</code> and initial <code>a</code>
+merge into a long <code>ā</code>, and the text you actually see is:</p>
+
+<pre><code>rāmāsti            (one unbroken string)</code></pre>
+
+<p>Every classical text — the Rāmāyaṇa, the Bhagavad-Gītā — is written this way:
+a continuous stream of fused syllables. To do <em>anything</em> useful (search,
+translate, build a dictionary lookup, teach a student), a machine must first solve
+three problems:</p>
+
+<div class="tablewrap"><table>
+  <tr><th>Problem</th><th>Sanskrit name</th><th>What it means</th></tr>
+  <tr><td><strong>Segmentation</strong></td><td>sandhi-viccheda</td>
+      <td>Undo the fusion: <code>rāmāsti → rāma + asti</code>. Ambiguous — several splits are often phonetically legal.</td></tr>
+  <tr><td><strong>Morphology</strong></td><td>vyākaraṇa</td>
+      <td>For each word, find its root and grammatical features: <code>gacchati</code> → root <code>gam</code> (“to go”), present tense, 3rd person singular.</td></tr>
+  <tr><td><strong>Meter</strong></td><td>chandas</td>
+      <td>Verse follows strict light/heavy syllable patterns (145+ named meters). Identifying the meter validates and dates a verse.</td></tr>
+</table></div>
+
+<p>The killer difficulty is <strong>ambiguity</strong>. <code>rāmāsti</code> could in
+principle split several ways that are all <em>phonetically</em> legal; only one yields
+real words in a sensible sentence. Undoing sandhi is like un-mixing paint — you need
+to know what colors existed before they were combined. That “knowing” is exactly what
+this project is about.</p>
+
+<h2 id="panini"><span class="chap">Chapter 2 · The Symbolic Half</span>Pāṇini: a compiler spec from 500 BCE</h2>
+
+<p>Here is what makes Sanskrit unique among all human languages: around the 5th century
+BCE, the grammarian <strong>Pāṇini</strong> wrote the <em>Aṣṭādhyāyī</em> — roughly
+4,000 terse rules (<em>sūtras</em>) that <strong>generate</strong> the entire language
+mechanically. Given a root and desired features, the rules derive the correct surface
+word step by step, like a compiler. It is the oldest known formal generative grammar —
+predating Chomsky by 2,400 years — and it is <em>complete enough to execute in
+software</em>.</p>
+
+<p>This means Sanskrit is the one natural language where you can build a
+<em class="term">verifier</em>: a program that, handed a claimed analysis
+(“<code>gacchati</code> comes from root <code>gam</code>, class 1, present tense”),
+can <strong>re-derive the word from scratch</strong> and check the claim. Not
+“probably right” — provably right or provably wrong.</p>
+
+<p>The project's symbolic core lives in <code>slm/rules.py</code> (pure Python, no
+dependencies), loaded from machine-readable tables:</p>
+
+<div class="tablewrap"><table>
+  <tr><th>Asset</th><th>Rows</th><th>Engine</th><th>Does</th></tr>
+  <tr><td><code>sandhi-rules-full.csv</code></td><td class="num">~1,468</td>
+      <td><code>SandhiEngine</code></td><td>Join two words correctly; enumerate every legal way to split a fused string.</td></tr>
+  <tr><td><code>dhatus-full.csv</code></td><td class="num">2,259</td>
+      <td><code>DhatuKosha</code></td><td>The Dhātupāṭha — Pāṇini's catalogue of verb roots with class + meaning. The ground truth for verifying root claims.</td></tr>
+  <tr><td><code>meters-full.csv</code></td><td class="num">145</td>
+      <td><code>ChandasEngine</code></td><td>Named meters as light/heavy syllable patterns; identifies a verse's meter.</td></tr>
+</table></div>
+
+<div class="callout gold">
+  <span class="label">Why not symbolic-only, then?</span>
+  <p>Because rules <strong>over-generate</strong>. The sandhi rules can tell you the 20
+  splits of a string that are phonetically <em>legal</em>; they cannot tell you which one a
+  human meant. Ranking by plausibility is a statistical judgment — exactly what rules are
+  worst at and neural networks are best at.</p>
+</div>
+
+<h2 id="neural"><span class="chap">Chapter 3 · The Neural Half</span>What the network is, from zero</h2>
+
+<h3>Character-level language model</h3>
+<p>The neural component is a <strong>GPT</strong> — the same architecture family as
+ChatGPT, but microscopic: <strong>10.7 million parameters</strong> (ChatGPT-class models
+are ~100,000× larger). It does one thing: read a sequence of characters and predict the
+next character, over and over. That's the entire trick. “Understanding” emerges because
+predicting the next character of Sanskrit <em>well</em> forces the network to internalize
+spelling, word shapes, and sandhi statistics.</p>
+
+<h3>SLP1: one letter, one sound</h3>
+<p>We don't feed it Devanagari script (each glyph is 3 UTF-8 bytes and vowels attach as
+diacritics — a mess). Everything is transliterated to <em class="term">SLP1</em>, an
+ASCII scheme where <strong>one character = exactly one phoneme</strong>:
+धर्म → <code>Darma</code>. Since sandhi and morphology are <em>sound-level</em>
+phenomena, this gives the model the cleanest possible view — a vocabulary of only ~120
+symbols instead of the 50,000+ word-pieces English models use.</p>
+
+<h3>One model, five skills</h3>
+<p>Every task is disguised as the same next-character game, using a control token to say
+which skill is wanted (loss is computed only on the answer span):</p>
+
+<div class="tablewrap"><table>
+  <tr><th>Task</th><th>Input → output</th><th>Training data source</th></tr>
+  <tr><td><code>seg</code></td><td>fused text → <code>pada1 | pada2</code></td><td>Rāmāyaṇa, 33k verses with gold word order (~308k words)</td></tr>
+  <tr><td><code>morph</code></td><td>root → class + meaning</td><td>Dhātupāṭha (deterministic)</td></tr>
+  <tr><td><code>sandhi</code></td><td>word + word → fused form</td><td>rules applied forward over real vocabulary — free unlimited data</td></tr>
+  <tr><td><code>meter</code></td><td>light/heavy pattern → meter name</td><td>chandas table</td></tr>
+  <tr><td><code>denoise</code></td><td>text with masked spans → the spans</td><td>Yoga Sūtras + joined Rāmāyaṇa</td></tr>
+</table></div>
+
+<div class="callout">
+  <span class="label">The headline metric: val_bpb</span>
+  <p><strong>Bits per byte</strong> on held-out text: how many bits the model needs, on
+  average, to encode each character it has never seen. Random guessing over our alphabet
+  ≈ 7 bits. Our model: <strong>~0.46</strong>. Compression <em>is</em> understanding —
+  you can only compress what you can predict, and you can only predict Sanskrit
+  characters by knowing Sanskrit. Training runs in <strong>~5 minutes on a Mac</strong>,
+  which is the point: the loop is fast enough to actually experiment
+  (the <a href="https://github.com/karpathy/autoresearch">autoresearch</a> discipline —
+  one editable <code>train.py</code>, fixed wall-clock budget, one metric).</p>
+</div>
+
+<h2 id="hybrid"><span class="chap">Chapter 4 · The Keystone</span>Four layers: why a tiny model suffices</h2>
+
+<p>Neither half works alone. Rules can't rank; a 10.7M network <em>hallucinates</em> —
+it will cheerfully invent a root that doesn't exist, because it predicts plausible
+characters, not truth. The architecture (<code>slm/pipeline.py</code>) locks them
+together so each covers the other's failure mode:</p>
+
+<div class="pipeline">
+  <div class="stage sym"><span class="tag">Symbolic</span>
+    <div><h4>1 · Lattice — enumerate</h4>
+    <p><code>SandhiEngine.split</code> lists every rule-licensed segmentation. Exhaustive, never wrong about what is <em>legal</em> — but over-generates and cannot rank.</p></div>
+  </div>
+  <div class="flow-arrow">▼ candidates</div>
+  <div class="stage sym"><span class="tag">Symbolic</span>
+    <div><h4>2 · Lexicon — gate</h4>
+    <p>Real corpus vocabulary filters: a split whose words are attested in 33k verses beats one that isn't. A hard out-of-vocabulary penalty stops the model's love of copying its input.</p></div>
+  </div>
+  <div class="flow-arrow">▼ survivors</div>
+  <div class="stage neu"><span class="tag">Neural</span>
+    <div><h4>3 · Model — rank</h4>
+    <p>The GPT scores each survivor's plausibility (<code>Inference.logprob</code>) and contributes its own guess as one more candidate. It proposes and ranks — it never invents characters outside the lattice.</p></div>
+  </div>
+  <div class="flow-arrow">▼ best analysis</div>
+  <div class="stage sym"><span class="tag">Symbolic</span>
+    <div><h4>4 · Verify — certify</h4>
+    <p>Each chosen word is round-tripped through the Dhātupāṭha. Nothing is asserted that the rule engine cannot independently confirm. A hallucinated root (<code>morph zzzq</code>) is <strong>rejected</strong>, visibly.</p></div>
+  </div>
+</div>
+
+<p>The ranking formula makes the power balance explicit — the symbolic lexicon signal
+dominates and the neural score only breaks ties:</p>
+
+<pre><code>score = 4.0·lex_coverage − 0.6·oov_count + 0.3·model_logprob − 0.05·n_words</code></pre>
+
+<div class="callout gold">
+  <span class="label">The economic insight</span>
+  <p>Published Sanskrit systems throw 300M–600M-parameter models at these tasks.
+  Because our model is only ever a <em>ranker inside a symbolically constrained space</em>
+  — never a free generator — the hard guarantees come from the rules, and the network
+  only needs enough capacity to have taste. That is why 10.7M parameters and five
+  minutes of training produce usable behavior. Whether that trade-off holds up under
+  rigorous evaluation is the project's central research question.</p>
+</div>
+
+<h2 id="status"><span class="chap">Chapter 5 · Where We Are</span>What works today</h2>
+
+<p>The full loop is built and demoable: corpus → tokenizer → training → structured
+inference → verification, plus a CLI REPL (<code>demo.py</code>), a web UI
+(<code>serve.py</code>, port 8008), and the four-layer analyzer
+(<code>slm/pipeline.py</code>). Numbers from the standard 5-minute run:</p>
+
+<div class="metric-row">
+  <div class="metric"><div class="v">96.4%</div><div class="k">verify-survival — model root proposals that Pāṇini's tables confirm</div></div>
+  <div class="metric"><div class="v">91–96%</div><div class="k">sandhi join exact-match (in-distribution)</div></div>
+  <div class="metric"><div class="v warn">38.5%</div><div class="k">segmentation exact-match, held-out Rāmāyaṇa</div></div>
+  <div class="metric"><div class="v">0.46</div><div class="k">val_bpb (random ≈ 7)</div></div>
+</div>
+
+<p>The classic textbook sandhi cases all come out right:
+<code>rAma+asti → rAmAsti</code>, <code>tat+hitam → tadDitam</code>,
+<code>deva+indra → devendra</code>, <code>gaNgA+udakam → gaNgodakam</code>.
+The analyzer correctly segments fused real inputs like <code>rAmo'sti</code>,
+<code>sUryodayaH</code>, <code>tapovanam</code>. Multi-script input works:
+type Devanagari, IAST, or SLP1 — all normalize internally. Meter identification
+covers 145 meters including the epic <em>anuṣṭubh</em> (śloka).</p>
+
+<h2 id="issues"><span class="chap">Chapter 6 · Honest Ledger</span>What's broken or missing</h2>
+
+<div class="callout bad">
+  <span class="label">Issue 1 — segmentation is the weak link (38.5%)</span>
+  <p>Exact-match means the <em>whole sentence</em> must be split perfectly — a harsh
+  metric — but state-of-the-art systems reach 85%+ on comparable tasks. Root causes:
+  the model decodes greedily and unconstrained (the lattice-constrained decoding that
+  would forbid illegal splits is designed but not yet wired into the seg decoder), and
+  the training corpus is narrow.</p>
+</div>
+
+<div class="callout bad">
+  <span class="label">Issue 2 — morphology of inflected words is a stub</span>
+  <p>Today we verify bare roots only. Given <code>gacchati</code> (an inflected surface
+  form), the pipeline cannot yet say “root <code>gam</code>, present, 3rd singular” —
+  that needs millions of (form → analysis) training pairs, which the
+  <a href="https://github.com/ambuda-org/vidyut">vidyut-prakriya</a> derivation engine
+  can generate exhaustively. Designed (spec §2.1), not built. The pipeline reports this
+  honestly as <em>pending</em> rather than faking it.</p>
+</div>
+
+<div class="callout bad">
+  <span class="label">Issue 3 — the go/no-go baseline hasn't been run</span>
+  <p>The spec's own discipline: the neural model earns its place only if it beats a
+  dumb trigram baseline on verification-survival and segmentation. That baseline isn't
+  built yet, so “the network helps” is currently a hypothesis, not a measurement. This
+  matters doubly because the current scoring formula weights the symbolic lexicon 13×
+  over the model — the ablation may reveal the model contributes little at this size.</p>
+</div>
+
+<div class="callout bad">
+  <span class="label">Issue 4 — evaluation is in-distribution and non-standard</span>
+  <p>The 91–96% sandhi number is measured on the same rule-generated distribution the
+  model trained on. Nothing has been run on community benchmarks (the SIGHUM /
+  Hackathon sandhi-split datasets, DCS held-out works), so no number is comparable to
+  published literature yet. Corpus breadth is also thin: two texts (Rāmāyaṇa + Yoga
+  Sūtras) versus the ~4.8M-token Digital Corpus of Sanskrit.</p>
+</div>
+
+<h2 id="next"><span class="chap">Chapter 7 · Roadmap</span>What next, in dependency order</h2>
+
+<div class="tablewrap"><table>
+  <tr><th>#</th><th>Step</th><th>Unlocks</th></tr>
+  <tr><td class="num">1</td><td><strong>Constrained decoding for seg</strong> — restrict the decoder to boundaries the lattice licenses (task jm8.9). Cheap; likely the single biggest jump in the 38.5%.</td><td>Segmentation accuracy</td></tr>
+  <tr><td class="num">2</td><td><strong>Trigram baseline A/B</strong> — build the honesty baseline and run the go/no-go gate.</td><td>Scientific claim: “the neural net earns its place”</td></tr>
+  <tr><td class="num">3</td><td><strong>vidyut-prakriya data</strong> — forward-generate ~10M (inflected form → analysis) pairs across all ~2,000 roots (task jm8.3).</td><td>Full-word morphology; the strongest verifier (rule-trace round-trip, not just table lookup)</td></tr>
+  <tr><td class="num">4</td><td><strong>DCS gold corpus</strong> — segmentation supervision from 4.8M tokens; evaluate on standard splits, held out <em>by work, not by line</em>.</td><td>Publishable, comparable numbers</td></tr>
+  <tr><td class="num">5</td><td><strong>ByT5 scale-up</strong> — the spec's real target: a ~120M encoder-decoder, earned only after steps 1–4 prove the pipeline. The verifier gate is architecture-agnostic, so nothing built so far is thrown away.</td><td>Competitive accuracy</td></tr>
+</table></div>
+
+<h2 id="publish"><span class="chap">Chapter 8 · The Frank Assessment</span>Paper? Patent?</h2>
+
+<h3>A paper — plausible, with conditions</h3>
+<p>The field is active: character-level segmenters (Hellwig &amp; Nehrdich 2018),
+lattice-transformer splitters (TransLIST 2022), and a multi-task
+<strong>ByT5-Sanskrit</strong> (2024) that is state-of-the-art on segmentation and
+morphology. A “we trained a Sanskrit model” paper is therefore not novel. What
+<em>is</em> a defensible angle here:</p>
+
+<dl class="verdict">
+  <dt class="yes">novel</dt><dd><strong>Verification-survival as a first-class metric.</strong> Published systems report accuracy; none make “% of outputs a Pāṇinian engine can independently re-derive” the headline number. That's a guaranteed-faithfulness story, directly relevant to the hallucination literature.</dd>
+  <dt class="yes">novel</dt><dd><strong>The compute-frugality claim.</strong> “A 10.7M model inside a symbolic lattice retains X% of a 300M model's accuracy at 1/30,000th the training cost” — if the numbers hold, that's a clean, quantified result about where capacity actually matters. Nobody has published the small end of this curve for Sanskrit.</dd>
+  <dt class="no">required</dt><dd>Numbers on the standard benchmarks (SIGHUM/Hackathon splits, DCS) — otherwise reviewers cannot place the work. Roadmap steps 1–4 are exactly the missing ingredients.</dd>
+  <dt class="no">required</dt><dd>The trigram-baseline ablation, plus a with/without-verifier ablation. The paper's story <em>is</em> the ablation table.</dd>
+</dl>
+
+<p><strong>Realistic venues:</strong> the SIGHUM workshop at ACL (computational
+humanities — the natural home), LREC (resources), the World Sanskrit Conference
+computational track, or an *CL Findings paper if the frugality result is strong.
+Workshop first is the right ambition level: 2–3 months of the roadmap above, then write.</p>
+
+<h3>A patent — honestly, no</h3>
+<p>Three reasons. <strong>Prior art:</strong> neuro-symbolic propose-and-verify loops
+are extensively published; lattice-constrained decoding for Sanskrit specifically
+appears in existing papers. <strong>Eligibility:</strong> post-<em>Alice</em>, pure
+algorithm/pipeline claims with no novel hardware face steep abstract-idea rejections.
+<strong>Economics:</strong> $15–30k+ prosecution cost against a market with no
+plausible infringer paying royalties. If protection-of-record matters, publishing
+(paper or even this repo) is itself a <em>defensive publication</em> — it prevents
+anyone else from patenting the idea, for free. The value here compounds as open
+science: papers, citations, and adoption by the Sanskrit-NLP community
+(Ambuda/vidyut ecosystem), not as IP.</p>
+
+<div class="callout">
+  <span class="label">One-paragraph summary</span>
+  <p>We built a complete, demoable neuro-symbolic Sanskrit engine: a five-minute-trainable
+  10.7M-parameter character GPT that proposes analyses, wrapped in Pāṇini-derived rule
+  tables that enumerate what's legal beforehand and veto what's unverifiable afterwards.
+  Verification-survival is 96.4%; segmentation (38.5%) is the known weak link with a
+  designed fix. The path to a workshop paper is concrete — constrained decoding, the
+  trigram ablation, vidyut-generated morphology data, standard benchmarks. A patent is
+  not worth pursuing; open publication is.</p>
+</div>
+
+<footer>
+  <p>sanskrit-lm · Path A · generated 2026-07-17 · sources: <code>README.md</code>,
+  <code>path-a-sanskrit-model-spec.md</code>, <code>program.md</code>,
+  <code>slm/pipeline.py</code>, <code>evals/</code></p>
+</footer>
+</main>

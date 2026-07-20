@@ -112,6 +112,9 @@ def main():
     ap.add_argument("--n-embd", type=int, default=384)
     ap.add_argument("--dropout", type=float, default=0.1)
     ap.add_argument("--seed", type=int, default=1337)
+    ap.add_argument("--out", default=str(ROOT / "data" / "ckpt.pt"),
+                    help="checkpoint path; point smoke tests elsewhere so they "
+                         "cannot clobber the production data/ckpt.pt")
     args = ap.parse_args()
 
     torch.manual_seed(args.seed)
@@ -141,10 +144,13 @@ def main():
         prog = (step - args.warmup) / max(1, total - args.warmup)
         return args.min_lr + 0.5 * (args.lr - args.min_lr) * (1 + math.cos(math.pi * prog))
 
-    # estimate total steps for the cosine schedule
+    # estimate total steps for the cosine schedule; in budget mode, re-estimate
+    # from measured steps/sec so the schedule tracks the real horizon instead
+    # of parking at min_lr partway through a longer run (BUG-A, jm-improve-5pt)
     est_total = args.max_steps if args.max_steps > 0 else 3000
     t0 = time.time()
     best_bpb = float("inf")
+    best_state = None
     step = 0
     model.train()
     while True:
@@ -152,6 +158,9 @@ def main():
             break
         if args.max_steps == 0 and (time.time() - t0) > args.budget_min * 60:
             break
+        if args.max_steps == 0 and step == 100:
+            rate = step / max(1e-9, time.time() - t0)
+            est_total = max(est_total, int(rate * args.budget_min * 60))
 
         lr = lr_at(step, est_total)
         for g in opt.param_groups:
@@ -169,21 +178,31 @@ def main():
             el = time.time() - t0
             print(f"step {step:5d} | {el:5.1f}s | lr {lr:.2e} | "
                   f"train {loss.item():.3f} | val {vl:.3f} | val_bpb {vbpb:.4f}")
-            best_bpb = min(best_bpb, vbpb)
+            if vbpb < best_bpb:
+                best_bpb = vbpb
+                best_state = {k: v.detach().to("cpu", copy=True)
+                              for k, v in model.state_dict().items()}
         step += 1
 
     vl, vbpb = evaluate(model, val_rows, cfg, pad_id, device, args.batch_size)
-    best_bpb = min(best_bpb, vbpb)
+    if vbpb < best_bpb:
+        best_bpb = vbpb
+        best_state = None  # final state is the best; save it below
     print(f"\nFINAL  steps={step}  time={(time.time()-t0):.1f}s  "
           f"val_loss={vl:.4f}  val_bpb={vbpb:.4f}  best_bpb={best_bpb:.4f}")
+    if best_state is not None:
+        # restore the best-val_bpb weights (BUG-B: previously saved final-step
+        # weights even when an earlier eval was better)
+        model.load_state_dict(best_state)
+        model.to(device)
 
     print("\n--- decode demos ---")
     for p, o in sample_demos(model, tok, device, cfg):
         print(f"  {p:24s} -> {o!r}")
 
-    ckpt = ROOT / "data" / "ckpt.pt"
+    ckpt = Path(args.out)
     torch.save({"model": model.state_dict(), "cfg": cfg.__dict__, "meta": meta,
-                "val_bpb": vbpb}, ckpt)
+                "val_bpb": best_bpb}, ckpt)
     print(f"\nsaved {ckpt}")
 
 

@@ -6,3 +6,5 @@ tokenizer/slp1_vocab.json
 .serena/
 .remember/
 data/
+*.swp
+*.swo
