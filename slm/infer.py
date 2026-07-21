@@ -67,6 +67,42 @@ class Inference:
             n += 1
         return tot / max(1, n)
 
+    @torch.no_grad()
+    def logprob_batch(self, src: str, tgts: list[str]) -> list[float]:
+        """Batched equivalent of `logprob` for a shared `src` and many `tgts`.
+
+        Encodes `src` once and runs a SINGLE padded forward over all candidates
+        instead of one teacher-forced pass per candidate — the per-candidate
+        mean log-probs are identical (within fp tolerance) to
+        ``[logprob(src, t) for t in tgts]``. Used by `seg_dp` to rescore k-best
+        DP paths in one shot. Right-padding is safe because attention is causal
+        (a real position never attends to a later pad), and padded target
+        positions are masked out so they never enter any sequence's mean."""
+        if not tgts:
+            return []
+        src_ids = self.tok.encode(src)
+        prefix = [self.tok.bos_id] + src_ids + [self.tok.sep_id]
+        start = len(src_ids) + 1  # shared across all: first tgt-target position
+        # full_i = prefix + encode(tgt_i) + [eos]; score positions [start, real_len_i - 2]
+        fulls = [prefix + self.tok.encode(t) + [self.tok.eos_id] for t in tgts]
+        lens = [len(f) for f in fulls]
+        max_len = max(lens)
+        pad = self.tok.pad_id
+        batch = [f + [pad] * (max_len - len(f)) for f in fulls]
+        seq = torch.tensor(batch, dtype=torch.long, device=self.device)
+        x, y = seq[:, :-1], seq[:, 1:]
+        logits, _ = self.model(x)
+        logp = torch.log_softmax(logits, dim=-1)
+        tok_lp = logp.gather(2, y.unsqueeze(-1)).squeeze(-1)  # (B, T)
+        T = y.size(1)
+        pos = torch.arange(T, device=self.device).unsqueeze(0)  # (1, T)
+        # last scored y-index for seq i is real_len_i - 2 (predicts its eos)
+        last = torch.tensor([l - 2 for l in lens], device=self.device).unsqueeze(1)
+        mask = (pos >= start) & (pos <= last)
+        tot = (tok_lp * mask).sum(dim=1)
+        n = mask.sum(dim=1).clamp(min=1)
+        return (tot / n).tolist()
+
     def morph(self, root: str) -> dict:
         raw = self._gen(f"<morph>{root}")
         m, gn, ar = _DHATU_RE.search(raw), _GANA_RE.search(raw), _ARTHA_RE.search(raw)
@@ -156,11 +192,17 @@ class Inference:
             out["tier"] = "constrained-fallback"
             return out
         # LM always votes (even a single full-cover path can carry the wrong
-        # licensed spelling variant once variant edges are generated)
-        def joint(sc, padas):
-            tgt = " | ".join(padas)
-            return sc + self.logprob(f"<seg>{text}", tgt) * len(tgt)
-        best = max(cands, key=lambda t: joint(*t))[1] if len(cands) > 1 else cands[0][1]
+        # licensed spelling variant once variant edges are generated). All k
+        # candidates are rescored in ONE padded batch forward (P1.1) rather than
+        # k sequential teacher-forced passes; the joint score and tie-break
+        # (first-wins, candidate order) are unchanged.
+        if len(cands) > 1:
+            tgts = [" | ".join(padas) for _, padas in cands]
+            lps = self.logprob_batch(f"<seg>{text}", tgts)
+            scores = [cands[i][0] + lps[i] * len(tgts[i]) for i in range(len(cands))]
+            best = cands[max(range(len(cands)), key=lambda i: scores[i])][1]
+        else:
+            best = cands[0][1]
         return {"task": "seg", "input": text, "model": " | ".join(best),
                 "padas": best, "constrained": True, "tier": "lexicon-dp"}
 
