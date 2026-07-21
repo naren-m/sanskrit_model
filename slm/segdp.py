@@ -46,6 +46,27 @@ DEFAULT_K = 8
 DEFAULT_PRUNE = (10, 50)
 
 
+# trie terminal marker: a sentinel object never equal to any 1-char key, so a
+# node's word-end flag can never collide with a child edge (SLP1 chars).
+_TERMINAL = object()
+
+
+def _build_trie(keys, value=True):
+    """Char trie over `keys`. Each terminal node maps _TERMINAL -> `value`, or,
+    when `value` is callable, -> value(key) (used to stash the result string)."""
+    root: dict = {}
+    for key in keys:
+        node = root
+        for ch in key:
+            nxt = node.get(ch)
+            if nxt is None:
+                nxt = {}
+                node[ch] = nxt
+            node = nxt
+        node[_TERMINAL] = value(key) if callable(value) else value
+    return root
+
+
 _VOWELS = set("aAiIuUfFxXeEoO")
 # Panini-licensed pada-final nasal alternations (8.3.23 anusvara, 8.4.58
 # homorganic). OFF by default: the dev gain (+5/500 with LM rescoring) did not
@@ -93,6 +114,21 @@ class LexiconSegmenter:
                 continue
             self.redges[res].append((f, s))
         self.results = sorted(self.redges, key=len, reverse=True)
+        # rank each result by its position in `self.results` so per-position
+        # matches can be replayed in the exact order the old linear scan used
+        # (push() re-sorts, but preserving order keeps state-discovery — hence
+        # k-best output — byte-identical).
+        self._res_rank = {res: i for i, res in enumerate(self.results)}
+        # trie over lexicon keys: walk it from a position to enumerate only the
+        # spans that are known padas (verbatim) or prefixes of one (so a
+        # junction edge `pref+first` could still complete), instead of scanning
+        # all MAX_WORD lengths. A falling-off walk provably yields no further
+        # verbatim/junction edge, so the DP can stop early.
+        self._trie = _build_trie(self.vocab)
+        # trie over junction-result strings (<=4 chars); terminal stashes the
+        # result so a single left-to-right walk collects every rule result that
+        # begins at each surface position.
+        self._rtrie = _build_trie(self.redges, value=lambda k: k)
 
     @staticmethod
     def _prune_span_entries(vocab: dict[str, int], max_freq: int,
@@ -147,6 +183,29 @@ class LexiconSegmenter:
                 seen.add(state)
                 order.append(state)
 
+        # results starting at each surface position, in self.results order —
+        # replaces the per-(pos,item,j) `for res in self.results` scan (792
+        # results) with one left-to-right rtrie walk reused across all states.
+        res_at: list[list[str]] = [[] for _ in range(n + 1)]
+        for p in range(n):
+            node = self._rtrie
+            q = p
+            while q < n:
+                node = node.get(src[q])
+                if node is None:
+                    break
+                q += 1
+                res = node.get(_TERMINAL)
+                if res is not None:
+                    res_at[p].append(res)
+            if len(res_at[p]) > 1:
+                res_at[p].sort(key=self._res_rank.__getitem__)
+
+        # the nasal edge (opt-in) can fire even where the span is not a pada
+        # prefix, so it needs the full length scan; every other edge stops being
+        # possible past a trie miss, so the common path breaks out early.
+        trie = self._trie
+
         qi = 0
         while qi < len(order):
             st = order[qi]
@@ -154,39 +213,60 @@ class LexiconSegmenter:
             pos, pend = st
             if pos == n:
                 continue
+            jmax = min(n, pos + MAX_WORD)
+            # trie node for the pending-initial prefix; None => `pend` is not a
+            # prefix of any pada, so no span from here can be/extend to a pada.
+            base = trie
+            for ch in pend:
+                base = base.get(ch)
+                if base is None:
+                    break
             for sc, words in list(best[st]):
-                for j in range(pos + 1, min(n, pos + MAX_WORD) + 1):
+                node = base
+                j = pos
+                while j < jmax:
+                    node = None if node is None else node.get(src[j])
+                    j += 1
                     w = pend + src[pos:j]
-                    ws = self._score(w)
-                    if ws is not None:
-                        push((j, ""), (sc + ws, words + (w,)))
-                    # nasal-variant edges (see _NASAL_VARIANTS note; opt-in)
-                    if (nasal_variants and w and w[-1] in _NASAL_VARIANTS
-                            and j < n
-                            and src[j] not in _VOWELS and src[j] not in "MH'"):
+                    # edge order below mirrors the old scan exactly (verbatim,
+                    # nasal, junction, oov) so state-discovery order — and thus
+                    # the k-best result — is byte-identical.
+                    if node is not None and _TERMINAL in node:
+                        push((j, ""), (sc + self._score(w), words + (w,)))
+                    if nasal_variants and w[-1] in _NASAL_VARIANTS \
+                            and j < n \
+                            and src[j] not in _VOWELS and src[j] not in "MH'":
                         for fin in _NASAL_VARIANTS[w[-1]]:
                             alt = w[:-1] + fin
                             ws2 = self._score(alt)
                             if ws2 is not None:
                                 push((j, ""), (sc + ws2, words + (alt,)))
-                    for res in self.results:
-                        if not src.startswith(res, j):
-                            continue
-                        for f, s in self.redges[res]:
-                            w2 = pend + src[pos:j] + f
-                            # rules carry underlying finals (as/ur); the lexicon
-                            # and gold carry pausa forms (aH/uH) — try both,
-                            # emit the attested one
-                            for cand in (w2, pausa(w2)):
-                                ws2 = self._score(cand)
-                                if ws2 is None:
-                                    continue
-                                push((j + len(res), s),
-                                     (sc + ws2 - RULE_PENALTY, words + (cand,)))
-                                break
+                    if node is not None:
+                        for res in res_at[j]:
+                            for f, s in self.redges[res]:
+                                w2 = w + f
+                                # rules carry underlying finals (as/ur); lexicon
+                                # and gold carry pausa forms (aH/uH) — try both,
+                                # emit the attested one
+                                for cand in (w2, pausa(w2)):
+                                    ws2 = self._score(cand)
+                                    if ws2 is None:
+                                        continue
+                                    push((j + len(res), s),
+                                         (sc + ws2 - RULE_PENALTY,
+                                          words + (cand,)))
+                                    break
+                    # once the span stops being a pada prefix, no verbatim or
+                    # junction edge can fire further; only the nasal edge (which
+                    # replaces the span's last char) can still match past here.
+                    if node is None and not nasal_variants:
+                        break
                 if oov_penalty is not None:
-                    # unknown-span edge: consume src[pos:j] as one OOV pada
-                    w = pend + src[pos:j]
+                    # unknown-span edge: consume the maximal span src[pos:jmax]
+                    # as a single OOV pada (fires once per item, as the old scan
+                    # did outside the length loop with j at its final value).
+                    w = pend + src[pos:jmax]
                     if w not in self.vocab:
-                        push((j, ""), (sc + oov_penalty * len(w), words + (w,)))
+                        push((jmax, ""), (sc + oov_penalty * len(w),
+                                          words + (w,)))
         return [(sc, list(ws)) for sc, ws in best.get((n, ""), [])]
