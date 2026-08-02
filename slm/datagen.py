@@ -128,15 +128,78 @@ def build_seg(engine: rules.SandhiEngine, sloka_seqs: list[list[str]],
 
 
 def build_meter() -> list[dict]:
+    """L/G weight string -> meter name.
+
+    Three things the naive version of this got wrong, all of which made the
+    trained head useless on real input:
+
+    1. **Train/inference format mismatch.** It emitted the raw ``pattern``
+       column, which carries ``|`` yati markers and ``/`` pada separators
+       (``GGGG|LLLLLG|GLGGLGG``). At inference ``Inference.meter()`` feeds
+       ``padas[0]["weights"]`` -- a bare L/G string with no markers. The model
+       had never seen that form for any of the ~40 meters with a yati.
+    2. **Multi-pada rows glued together.** An ardhasamavrtta row's pattern is
+       two different padas; as one string it matched nothing. Each pada is now
+       its own example.
+    3. **No anceps.** The final syllable of a pada is free, so a real verse
+       often presents ``...LGL`` where the table says ``...LGG``. The
+       short-ending form is emitted too -- but only when it is unambiguous
+       (see below), so the rule gets learned rather than showing up as an
+       unexplained miss.
+
+    Collisions are real and are resolved, not papered over. One L/G string can
+    be claimed by several rows -- e.g. ``GGLGGLLGLGG`` is indravajra *and* the
+    first pada of the ardhasama rows akhyaniki and viparitakhyaniki. Claims are
+    filtered in two steps: an exact definition beats an anceps variant, and a
+    samavrtta row beats a multi-pada row (a lone pada of an ardhasama meter is
+    not evidence for that meter). Four ardhasama meters -- akhyaniki,
+    viparitakhyaniki, aparavaktra, drutamadhya -- end up with no example at
+    all, because every one of their padas is some samavrtta meter's exact
+    definition. That is correct: this head sees ONE pada, and one pada of an
+    ardhasama meter genuinely does not identify it. They are named by
+    ChandasEngine.scan(), which sees all four padas.
+
+    What survives the filtering is genuine synonymy -- campakamala/rukmavati,
+    sandrapada/sri and four other groups are the same meter under different
+    prosodists' names -- and every such name is kept.
+    """
     rows = _read_csv(ROOT / "meters-full.csv")
-    out = []
+
+    def _padas_of(row: dict) -> list[str]:
+        return [p.strip() for p in row.get("pattern", "").replace("|", "").split("/")
+                if p.strip() and not (set(p.strip()) - {"L", "G"})]
+
+    def _variants(pada: str) -> set[str]:
+        # Anceps applies to real verse meters only: the 1-2 syllable rows are
+        # gana names, and flipping their single syllable manufactures noise.
+        if len(pada) < 8:
+            return {pada}
+        return {pada, pada[:-1] + "L", pada[:-1] + "G"}
+
+    # Pass 1: collect every claim on every weight string, tagged with how
+    # strong the claim is (exact definition? samavrtta row?).
+    claims: dict[str, list[tuple[str, bool, bool]]] = {}
     for r in rows:
-        pat = r.get("pattern", "").strip()
         name = r.get("name_slp1", "").strip()  # SLP1 (ASCII); name_iast has diacritics
-        if not pat or not name:
+        if not name:
             continue
-        out.append({"task": "meter", "src": f"<Candas><wt>{pat}",
-                    "tgt": f"<meter>{name}", "provenance": "meters-full"})
+        padas = _padas_of(r)
+        samavrtta = len(padas) == 1
+        for pada in padas:
+            for variant in _variants(pada):
+                claims.setdefault(variant, []).append(
+                    (name, variant == pada, samavrtta))
+
+    # Pass 2: resolve each string to its strongest claimants and emit.
+    out = []
+    for variant, entries in claims.items():
+        for strong in (lambda e: e[1], lambda e: e[2]):  # exact, then samavrtta
+            preferred = [e for e in entries if strong(e)]
+            if preferred:
+                entries = preferred
+        for name in sorted({e[0] for e in entries}):
+            out.append({"task": "meter", "src": f"<Candas><wt>{variant}",
+                        "tgt": f"<meter>{name}", "provenance": "meters-full"})
     return out
 
 
