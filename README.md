@@ -84,6 +84,32 @@ confirms it against the real Dhātupāṭha (or **rejects a hallucination** — 
 Classic sandhi cases all correct: `rAma+asti→rAmAsti`, `tat+hitam→tadDitam`,
 `deva+indra→devendra`, `gaNgA+udakam→gaNgodakam`.
 
+## Tests
+
+```bash
+uv run pytest                      # everything (dev group installs pytest)
+uv run python -m slm.rules         # symbolic-engine self-test, real verses
+```
+
+Meter identification is graded against `tests/data/golden_meters.json` — 20
+attested verses (Rāmāyaṇa, Gītā, Kālidāsa, Bhartṛhari, Śaṅkara, Sāṃkhyakārikā)
+covering anuṣṭubh pathyā/vipulā, 8 vṛttas, upajāti and āryā. Ground truth is
+derived from Piṅgala's *gaṇa* definitions, deliberately **not** from
+`meters-full.csv`, so a bad row in the table shows up as a failure instead of
+being silently confirmed.
+
+An optional second opinion cross-checks the whole golden set against the
+independent MIT-licensed [`sanskrit/chandas`](https://github.com/sanskrit/chandas):
+
+```bash
+git clone --depth 1 https://github.com/sanskrit/chandas /tmp/chandas
+SANSKRIT_CHANDAS_PATH=/tmp/chandas uv run pytest tests/test_chandas_crossvalidate.py
+```
+
+It is not a dependency (no `setup.py`, Python 2 `__init__`), so those tests
+skip unless the env var is set. The two known divergences are asserted with
+their reasons rather than tolerated — see the module docstring.
+
 ## Files
 
 ```
@@ -98,5 +124,8 @@ train.py           THE editable trainer (autoresearch train.py)
 demo.py            CLI showcase / REPL
 serve.py           local web UI (stdlib http.server)
 evals/eval.py      task metrics + verification-survival
+tests/data/golden_meters.json          20 attested verses + their meters
+tests/test_chandas_golden.py           meter identification, graded
+tests/test_chandas_crossvalidate.py    optional 2nd opinion (sanskrit/chandas)
 program.md         autonomous-research instructions for a coding agent
 ```

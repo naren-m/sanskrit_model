@@ -1,0 +1,268 @@
+{
+  "_comment": [
+    "Golden meter-identification set: real, attested Sanskrit verses paired with",
+    "their traditionally-assigned chandas. Every entry is verified twice:",
+    "  1. by an INDEPENDENT gana-string expansion (see tests/test_chandas_golden.py",
+    "     GANAS/_pattern_from_ganas) -- so the golden truth does not depend on",
+    "     meters-full.csv being right, and disagreements surface as CSV bugs;",
+    "  2. by slm.rules.ChandasEngine.scan(), which is what the test asserts on.",
+    "",
+    "Conventions:",
+    "  meter    -- lowercase IAST name, must match meters-full.csv name_iast for",
+    "              vrtta entries; 'anustubh' / 'upajati' are rule-defined families.",
+    "  ganas    -- canonical Pingala gana definition, or null for rule-defined",
+    "              families (anustubh, upajati) that have no single fixed pattern.",
+    "  syllables-- syllables per pada (null for rule-defined families).",
+    "  text     -- IAST, one pada per line, no dandas needed.",
+    "",
+    "Sources are listed per entry. Meter attributions cross-checked against",
+    "Pingala's Chandahsutra gana definitions and the references in `source_url`."
+  ],
+  "verses": [
+    {
+      "id": "ramayana-1.1.1",
+      "source": "Valmiki Ramayana 1.1.1 (Balakanda, opening verse)",
+      "source_url": "https://www.sacred-texts.com/hin/rama/index.htm",
+      "meter": "anuṣṭubh",
+      "variant": "na-vipula",
+      "ganas": null,
+      "syllables": null,
+      "text": "tapaḥsvādhyāyanirataṃ\ntapasvī vāgvidāṃ varam\nnāradaṃ paripapraccha\nvālmīkir munipuṅgavam",
+      "notes": "Odd pada a has L L L at syllables 5-7 (na-gana) -- a legal na-vipula, NOT pathya. Regression guard: the epic's own first verse must not be rejected as 'unknown'."
+    },
+    {
+      "id": "raghuvamsha-1.1",
+      "source": "Kalidasa, Raghuvamsha 1.1",
+      "source_url": "https://www.wisdomlib.org/hinduism/book/raghuvamsha",
+      "meter": "anuṣṭubh",
+      "variant": "pathya",
+      "ganas": null,
+      "syllables": null,
+      "text": "vāgarthāviva saṃpṛktau\nvāgarthapratipattaye\njagataḥ pitarau vande\npārvatīparameśvarau",
+      "notes": "Textbook pathya: 5-6-7 = L G G in odd padas, L G L in even padas."
+    },
+    {
+      "id": "bg-2.47",
+      "source": "Bhagavad Gita 2.47",
+      "source_url": "https://kymyogavaisharadi.org/display/moola/bhagavadgita/iast",
+      "meter": "anuṣṭubh",
+      "variant": null,
+      "ganas": null,
+      "syllables": null,
+      "text": "karmaṇyevādhikāraste\nmā phaleṣu kadācana\nmā karmaphalaheturbhūr\nmā te saṅgo'stvakarmaṇi",
+      "notes": "645 of the Gita's 700 verses are anustubh."
+    },
+    {
+      "id": "bg-8.28",
+      "source": "Bhagavad Gita 8.28",
+      "source_url": "https://kymyogavaisharadi.org/display/moola/bhagavadgita/iast",
+      "meter": "indravajrā",
+      "variant": null,
+      "ganas": "ta ta ja ga ga",
+      "syllables": 11,
+      "text": "vedeṣu yajñeṣu tapaḥsu caiva\ndāneṣu yatpuṇyaphalaṃ pradiṣṭam\natyeti tatsarvamidaṃ viditvā\nyogī paraṃ sthānamupaiti cādyam",
+      "notes": "One of only three pure-indravajra verses in the Gita (8.28, 15.5, 15.15). Pada a ends in short 'va' -- pada-final anceps is REQUIRED to match."
+    },
+    {
+      "id": "bg-15.5",
+      "source": "Bhagavad Gita 15.5",
+      "source_url": "https://kymyogavaisharadi.org/display/moola/bhagavadgita/iast",
+      "meter": "indravajrā",
+      "variant": null,
+      "ganas": "ta ta ja ga ga",
+      "syllables": 11,
+      "text": "nirmānamohā jitasaṅgadoṣā\nadhyātmanityā vinivṛttakāmāḥ\ndvandvairvimuktāḥ sukhaduḥkhasaṃjñair\ngacchantyamūḍhāḥ padamavyayaṃ tat",
+      "notes": "Pada d ends in short 'tat' -> L; anceps required."
+    },
+    {
+      "id": "bg-11.28",
+      "source": "Bhagavad Gita 11.28",
+      "source_url": "https://kymyogavaisharadi.org/display/moola/bhagavadgita/iast",
+      "meter": "upendravajrā",
+      "variant": null,
+      "ganas": "ja ta ja ga ga",
+      "syllables": 11,
+      "text": "yathā nadīnāṃ bahavo'mbuvegāḥ\nsamudramevābhimukhā dravanti\ntathā tavāmī naralokavīrā\nviśanti vaktrāṇyabhivijvalanti",
+      "notes": "All four padas open with a laghu -> pure upendravajra, not upajati."
+    },
+    {
+      "id": "bg-2.22",
+      "source": "Bhagavad Gita 2.22 (vasamsi jirnani yatha vihaya)",
+      "source_url": "https://kymyogavaisharadi.org/display/moola/bhagavadgita/iast",
+      "meter": "upajāti",
+      "variant": "indravajra/upendravajra mix",
+      "ganas": null,
+      "syllables": 11,
+      "text": "vāsāṃsi jīrṇāni yathā vihāya\nnavāni gṛhṇāti naro'parāṇi\ntathā śarīrāṇi vihāya jīrṇāny\nanyāni saṃyāti navāni dehī",
+      "notes": "Padas a/d are indravajra, b/c upendravajra -> genuine mixed upajati. Upajati is 49 of the Gita's 55 non-anustubh verses and cannot be a row in meters-full.csv. Note the pada c/d split falls INSIDE the sandhi jirnani+anyani -> jirnany|anyani, which is why pada c is written ending in -ny."
+    },
+    {
+      "id": "kumarasambhava-1.1",
+      "source": "Kalidasa, Kumarasambhava 1.1",
+      "source_url": "https://www.wisdomlib.org/hinduism/book/kumarasambhava",
+      "meter": "upajāti",
+      "variant": "indravajra/upendravajra mix",
+      "ganas": null,
+      "syllables": 11,
+      "text": "astyuttarasyāṃ diśi devatātmā\nhimālayo nāma nagādhirājaḥ\npūrvāparau toyanidhī vagāhya\nsthitaḥ pṛthivyā iva mānadaṇḍaḥ",
+      "notes": "Pada a = indravajra, pada b = upendravajra."
+    },
+    {
+      "id": "meghaduta-1.1",
+      "source": "Kalidasa, Meghaduta 1.1 -- the locus classicus of mandakranta",
+      "source_url": "https://en.wikipedia.org/wiki/Mandakranta_metre",
+      "meter": "mandākrāntā",
+      "variant": null,
+      "ganas": "ma bha na ta ta ga ga",
+      "syllables": 17,
+      "text": "kaścit kāntāvirahaguruṇā svādhikārapramattaḥ\nśāpenāstaṃgamitamahimā varṣabhogyeṇa bhartuḥ\nyakṣaścakre janakatanayāsnānapuṇyodakeṣu\nsnigdhacchāyātaruṣu vasatiṃ rāmagiryāśrameṣu",
+      "notes": "The verse Kalidasa is said to have invented the metre for. Yati after syllables 4 and 10."
+    },
+    {
+      "id": "vishnu-dhyana",
+      "source": "Vishnu dhyana shloka (shantakaram bhujagashayanam)",
+      "source_url": "https://sanskritdocuments.org/doc_vishhnu/",
+      "meter": "mandākrāntā",
+      "variant": null,
+      "ganas": "ma bha na ta ta ga ga",
+      "syllables": 17,
+      "text": "śāntākāraṃ bhujagaśayanaṃ padmanābhaṃ sureśaṃ\nviśvādhāraṃ gaganasadṛśaṃ meghavarṇaṃ śubhāṅgam\nlakṣmīkāntaṃ kamalanayanaṃ yogibhirdhyānagamyaṃ\nvande viṣṇuṃ bhavabhayaharaṃ sarvalokaikanātham",
+      "notes": "Very widely recited; independent second witness for mandakranta."
+    },
+    {
+      "id": "sarasvati-vandana",
+      "source": "Sarasvati vandana (ya kundendutushara-)",
+      "source_url": "https://sanskritdocuments.org/doc_devii/",
+      "meter": "śārdūlavikrīḍita",
+      "variant": null,
+      "ganas": "ma sa ja sa ta ta ga",
+      "syllables": 19,
+      "text": "yā kundendutuṣārahāradhavalā yā śubhravastrāvṛtā\nyā vīṇāvaradaṇḍamaṇḍitakarā yā śvetapadmāsanā\nyā brahmācyutaśaṅkaraprabhṛtibhirdevaiḥ sadā vanditā\nsā māṃ pātu sarasvatī bhagavatī niḥśeṣajāḍyāpahā",
+      "notes": "Yati after syllable 12."
+    },
+    {
+      "id": "kasturi-tilakam",
+      "source": "Krishna dhyana shloka (kasturi tilakam lalata-phalake)",
+      "source_url": "https://sanskritdocuments.org/doc_vishhnu/",
+      "meter": "śārdūlavikrīḍita",
+      "variant": null,
+      "ganas": "ma sa ja sa ta ta ga",
+      "syllables": 19,
+      "text": "kastūrītilakaṃ lalāṭaphalake vakṣaḥsthale kaustubhaṃ\nnāsāgre varamauktikaṃ karatale veṇuṃ kare kaṅkaṇam\nsarvāṅge haricandanaṃ sulalitaṃ kaṇṭhe ca muktāvalī\ngopastrīpariveṣṭito vijayate gopālacūḍāmaṇiḥ",
+      "notes": "Second independent witness for shardulavikridita."
+    },
+    {
+      "id": "nitishataka-2",
+      "source": "Bhartrhari, Nitishataka 2 (yam cintayami satatam)",
+      "source_url": "https://sanskritdocuments.org/doc_z_misc_major_works/niiti.html",
+      "meter": "vasantatilakā",
+      "variant": null,
+      "ganas": "ta bha ja ja ga ga",
+      "syllables": 14,
+      "text": "yāṃ cintayāmi satataṃ mayi sā viraktā\nsāpyanyamicchati janaṃ sa jano'nyasaktaḥ\nasmatkṛte ca pariśuṣyati kācidanyā\ndhiktāṃ ca taṃ ca madanaṃ ca imāṃ ca māṃ ca",
+      "notes": "Vasantatilaka has no obligatory yati."
+    },
+    {
+      "id": "shivamahimna-1",
+      "source": "Pushpadanta, Shivamahimnah Stotram 1",
+      "source_url": "https://sanskritdocuments.org/doc_shiva/",
+      "meter": "śikhariṇī",
+      "variant": null,
+      "ganas": "ya ma na sa bha la ga",
+      "syllables": 17,
+      "text": "mahimnaḥ pāraṃ te paramaviduṣo yadyasadṛśī\nstutirbrahmādīnāmapi tadavasannāstvayi giraḥ\nathāvācyaḥ sarvaḥ svamatipariṇāmāvadhi gṛṇan\nmamāpyeṣa stotre hara nirapavādaḥ parikaraḥ",
+      "notes": "Yati after syllable 6."
+    },
+    {
+      "id": "gangashtakam-1",
+      "source": "Shankara, Shri Gangashtakam 1",
+      "source_url": "https://sanskritdocuments.org/doc_devii/",
+      "meter": "mālinī",
+      "variant": null,
+      "ganas": "na na ma ya ya",
+      "syllables": 15,
+      "text": "bhagavati tava tīre nīramātrāśano'haṃ\nvigataviṣayatṛṣṇaḥ kṛṣṇamārādhayāmi\nsakalakaluṣabhaṅge svargasopānasaṅge\ntaralatarataraṅge devi gaṅge prasīda",
+      "notes": "Opens with five laghus -- malini's signature."
+    },
+    {
+      "id": "nirvanashatkam-1",
+      "source": "Shankara, Nirvanashatkam / Atmashatkam 1",
+      "source_url": "https://sanskritdocuments.org/doc_z_misc_shankara/",
+      "meter": "bhujaṅgaprayāta",
+      "variant": null,
+      "ganas": "ya ya ya ya",
+      "syllables": 12,
+      "text": "manobuddhyahaṅkāracittāni nāhaṃ\nna ca śrotrajihve na ca ghrāṇanetre\nna ca vyoma bhūmirna tejo na vāyuḥ\ncidānandarūpaḥ śivo'haṃ śivo'ham",
+      "notes": "Four ya-ganas (L G G x4)."
+    },
+    {
+      "id": "shiva-tandava-1",
+      "source": "Shiva Tandava Stotram 1 (attrib. Ravana)",
+      "source_url": "https://sanskritdocuments.org/doc_shiva/shivtAND.itx",
+      "meter": "pañcacāmara",
+      "variant": null,
+      "ganas": "ja ra ja ra ja ga",
+      "syllables": 16,
+      "text": "jaṭāṭavīgalajjalapravāhapāvitasthale\ngalevalambya lambitāṃ bhujaṅgatuṅgamālikām\nḍamaḍḍamaḍḍamaḍḍamannināda vaḍḍamarvayaṃ\ncakāra caṇḍatāṇḍavaṃ tanotu naḥ śivaḥ śivam",
+      "notes": "Strict L-G alternation, 16 syllables. meters-full.csv currently lists pañcacāmara as 12 syllables (LGLGLGLGLGLG) -- that row is WRONG; canonical is ja ra ja ra ja ga = 16."
+    },
+    {
+      "id": "shakuntala-1.1",
+      "source": "Kalidasa, Abhijnanashakuntalam 1.1 (nandi verse)",
+      "source_url": "https://www.wisdomlib.org/hinduism/book/abhijnana-shakuntalam",
+      "meter": "sragdharā",
+      "variant": null,
+      "ganas": "ma ra bha na ya ya ya",
+      "syllables": 21,
+      "text": "yā sṛṣṭiḥ sraṣṭurādyā vahati vidhihutaṃ yā havir yā ca hotrī\nye dve kālaṃ vidhattaḥ śrutiviṣayaguṇā yā sthitā vyāpya viśvam\nyāmāhuḥ sarvabījaprakṛtiriti yayā prāṇinaḥ prāṇavantaḥ\npratyakṣābhiḥ prapannastanubhiravatu vastābhiraṣṭābhirīśaḥ",
+      "notes": "Longest metre in regular use. Yati after syllables 7 and 14."
+    },
+    {
+      "id": "samkhyakarika-2",
+      "source": "Ishvarakrishna, Samkhyakarika 2",
+      "source_url": "https://www.wisdomlib.org/hinduism/book/samkhya-karika",
+      "meter": "āryā",
+      "variant": null,
+      "ganas": null,
+      "syllables": null,
+      "matras": [12, 18, 12, 15],
+      "text": "dṛṣṭavadānuśravikaḥ sa hyaviśuddhikṣayātiśayayuktaḥ\ntadviparītaḥ śreyānvyaktāvyaktajñavijñānāt",
+      "notes": "Jati (moraic), not aksharachandas: 57 matras split 12/18/12/15, with NO fixed syllable pattern -- this verse is 35 syllables, another arya may be 30. The whole Samkhyakarika is in arya. Written as 2 lines (the conventional half-verse layout), so pada_count is 2, not 4."
+    },
+    {
+      "id": "samkhyakarika-1",
+      "source": "Ishvarakrishna, Samkhyakarika 1",
+      "source_url": "https://www.wisdomlib.org/hinduism/book/samkhya-karika",
+      "meter": "āryā",
+      "variant": null,
+      "ganas": null,
+      "syllables": null,
+      "matras": [12, 18, 12, 15],
+      "text": "duḥkhatrayābhighātājjijñāsā tadapaghātake hetau\ndṛṣṭe sāpārthā cennaikāntātyantato'bhāvāt",
+      "notes": "Adversarial case: this arya happens to have 32 syllables, exactly an anustubh's count. sanskrit/chandas misfiles it as 'sloka' because its sloka entry is the all-wildcard pattern '........' and matches any 32-syllable verse. Our anustubh check enforces the 5-7 pathya/vipula rules, so pada d (L G G in an even pada) rejects it and it correctly falls through to the jati test."
+    }
+  ],
+  "irregular": [
+    {
+      "id": "bg-11.32",
+      "source": "Bhagavad Gita 11.32 (kalo'smi lokakshayakrt pravrddho)",
+      "text": "kālo'smi lokakṣayakṛtpravṛddho\nlokānsamāhartumiha pravṛttaḥ\nṛte'pi tvāṃ na bhaviṣyanti sarve\nye'vasthitāḥ pratyanīkeṣu yodhāḥ",
+      "commonly_called": "upajāti (tristubh)",
+      "scansion": [
+        "GGLGGLLGLGG  indravajra",
+        "GGLGGLLGLGG  indravajra",
+        "LGGGLLGGLGG  vatormi with a laghu opening -- not upendravajra",
+        "GGLGGLGGLGG  1 off indravajra at syllable 7"
+      ],
+      "reason": "Held OUT of the graded set on purpose. Popular sources call this verse upajati, but only two of its four padas are classical indravajra; the other two follow the looser epic/Vedic tristubh licence (11 syllables + fixed cadence, free interior). Grading a strict classical identifier against it would be scoring the engine on a claim the text does not support. Kept here as documentation of a real, common input the engine will honestly return 'unknown' for."
+    }
+  ],
+  "unsupported": [
+    {
+      "id": "jati-families-beyond-arya",
+      "source": "giti / upagiti / udgiti / aryagiti / vaitaliya / matrasamaka",
+      "meter": "the rest of the jāti (mora-counting) families",
+      "reason": "ChandasEngine.JATIS holds only arya (12/18/12/15). The mechanism -- _jati(), mora prefix-sums -- generalises to the other jatis by adding rows, but each needs an attested golden verse first: a jati rule is far looser than a fixed L/G pattern, so an unverified row can shadow real vrtta matches. Adding one without a test would trade a known gap for an unknown regression."
+    }
+  ]
+}

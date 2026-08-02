@@ -8,7 +8,9 @@ algorithms, with no neural network involved:
   2. Sandhi     — join two padas at their junction; propose splits of a
                   sandhied string back into padas.
   3. Dhātu      — look up a verbal root's gaṇa/meaning from the dhātupāṭha.
-  4. Chandas    — identify the meter of a verse line from its L/G pattern.
+  4. Chandas    — identify the meter of a whole verse: fixed-pattern vṛttas
+                  from the CSV, plus the rule-defined families no table can
+                  hold (anuṣṭubh pathyā/vipulā, upajāti, and the moraic jātis).
 
 This is the "Pāṇini disposes" half of the project's "neural proposes, Pāṇini
 disposes" philosophy (see path-a-sanskrit-model-spec.md): a trained model may
@@ -22,7 +24,17 @@ Data files (SLP1 encoding, repo root, sibling of this ``slm/`` package):
     dhatus-full.csv         ~2259 verbal roots (upadesha form + gana + artha)
     dhatus-core.csv         294 of the above, hand-curated with a clean
                              ``core_root`` column (no anubandhas)
-    meters-full.csv         145 named meters (vrtta), one L/G pattern per pada
+    meters-full.csv         145 named meters. 124 are samavrtta (one L/G
+                             pattern); the other 21 are ardhasama/vishama and
+                             give one pattern per pada, '/'-separated. '|'
+                             marks a yati and is not a syllable.
+
+The chandas half is graded against tests/data/golden_meters.json — 20 attested
+verses whose ground truth is derived from Pingala's gana definitions, i.e.
+independently of meters-full.csv. The moraic (jati) matcher reimplements the
+algorithm from the MIT-licensed sanskrit/chandas package
+<https://github.com/sanskrit/chandas>, which tests/test_chandas_crossvalidate.py
+also uses as an independent second opinion on the whole golden set.
 
 Naming note: constants/classes below (VOWELS, CONSONANTS, SLP1_ALPHABET,
 SandhiEngine, DhatuKosha, ChandasEngine) are a fixed public API relied on by
@@ -31,6 +43,7 @@ other modules in this project — do not rename without updating call sites.
 from __future__ import annotations
 
 import csv
+import re
 import unicodedata
 from pathlib import Path
 
@@ -176,6 +189,10 @@ def _devanagari_to_slp1(text: str) -> str:
                 out.append("'")
             elif ch in "।॥":
                 out.append("\n")
+            elif ch == "\n":
+                # a literal line break is a pada boundary and must survive:
+                # folding it to a space welds all four padas into one line.
+                out.append("\n")
             elif ch.isspace():
                 out.append(" ")
             # digits, punctuation, unknown marks -> dropped
@@ -208,7 +225,9 @@ def _roman_to_slp1(text: str) -> str:
             i += 1
             continue
         if ch.isspace():
-            out.append(" ")
+            # newlines are pada boundaries (see _devanagari_to_slp1) -- keep
+            # them; every other whitespace run collapses to a single space.
+            out.append("\n" if ch == "\n" else " ")
             i += 1
             continue
         for key in _ROMAN_KEYS:
@@ -617,48 +636,127 @@ class DhatuKosha:
 # 4. Meter (chandas) identification
 # ---------------------------------------------------------------------------
 
-class ChandasEngine:
-    """Identify Sanskrit verse meters from meters-full.csv (145 named vrttas,
-    each a fixed L/G weight pattern for one pada).
+#: Pingala's eight trisyllabic ganas plus the two single-syllable markers.
+#: Every fixed pattern in meters-full.csv is a concatenation of these, and the
+#: CSV's own ``ganas`` column spells out which -- so the two columns can be
+#: cross-checked against each other (see tests/test_chandas_golden.py).
+GANAS: dict[str, str] = {
+    "ma": "GGG", "na": "LLL", "bha": "GLL", "ya": "LGG",
+    "ja": "LGL", "ra": "GLG", "sa": "LLG", "ta": "GGL",
+    "ga": "G", "la": "L",
+}
 
-    ``pattern`` in the CSV may contain a literal ``|`` marking a yati
-    (caesura) position; that character is not a syllable and is stripped
-    before comparing against a computed L/G weight string.
+#: Fallback pada splitter for a verse typed on ONE line with no dandas: two or
+#: more spaces are treated as a pada break. (Single ``|`` dandas never reach
+#: here -- to_slp1 has already turned them into newlines.)
+_PADA_SPLIT_RE = re.compile(r"\s{2,}")
+
+#: Moraic (*jati*) meters, as mora counts per pada. A guru is 2 matras, a
+#: laghu 1. Unlike a vrtta these fix no syllable pattern at all -- only each
+#: pada's mora total -- so they cannot live in meters-full.csv, which stores
+#: L/G strings. Arya is the one that matters: the whole Samkhyakarika is in it.
+#: Counts and the matching algorithm follow the MIT-licensed sanskrit/chandas
+#: package <https://github.com/sanskrit/chandas>.
+JATIS: dict[str, tuple[int, int, int, int]] = {
+    "āryā": (12, 18, 12, 15),
+}
+
+
+class ChandasEngine:
+    """Identify Sanskrit verse meters from meters-full.csv (145 named vrttas)
+    plus the two rule-defined families that no fixed table can hold: anustubh
+    and upajati.
+
+    CSV ``pattern`` syntax:
+      ``|``  yati (caesura) marker -- not a syllable, stripped.
+      ``/``  pada boundary -- an *ardhasamavrtta* row gives a different L/G
+             string per pada (e.g. akhyaniki, pushpitagra). These are split
+             into :pydata:`_pada_patterns`; concatenating them, as this class
+             used to, produced a string containing a literal ``/`` that could
+             never match anything.
+
+    Prosodic rules this class implements beyond raw string matching:
+
+    * **Pada-final anceps.** The last syllable of a pada is *free*: a short
+      syllable there scans as guru. 142 of the 145 CSV patterns end in G, so
+      without this rule any verse whose pada ends in a short vowel -- e.g.
+      Bhagavad Gita 8.28 pada a, ``...tapaHsu caiva`` -- fails to match.
+    * **Anustubh pathya/vipula.** See :meth:`_anustubh`.
+    * **Upajati.** See :meth:`_upajati`.
     """
+
+    #: Syllables 5-7 of an ODD anustubh pada (a, c). ``LGG`` is the canonical
+    #: *pathya*; the four other legal shapes are the *vipulas*, each named for
+    #: the gana it forms. Any other shape (sa/ja/ta) is avoided by poets and
+    #: is treated here as "not anustubh".
+    _ODD_5_7 = {
+        "LGG": "pathyā", "LLL": "na-vipulā", "GLL": "bha-vipulā",
+        "GGG": "ma-vipulā", "GLG": "ra-vipulā",
+    }
+    #: Syllables 5-7 of an EVEN anustubh pada (b, d) -- obligatory, no variants.
+    _EVEN_5_7 = "LGL"
 
     def __init__(self, csv_path: str | Path | None = None):
         path = Path(csv_path) if csv_path else _REPO_ROOT / "meters-full.csv"
         with open(path, encoding="utf-8") as f:
             self.meters: list[dict] = list(csv.DictReader(f))
         for m in self.meters:
-            m["_clean_pattern"] = m["pattern"].replace("|", "")
+            pats = [p for p in m["pattern"].replace("|", "").split("/") if p]
+            m["_pada_patterns"] = pats
+            m["_samavrtta"] = len(pats) == 1
+            m["_clean_pattern"] = pats[0]  # back-compat: first pada's pattern
+
+        # Upajati families: two samavrtta meters whose patterns differ ONLY in
+        # the first syllable (indravajra/upendravajra; vamsastha/indravamsa).
+        # A verse that mixes them pada-by-pada is an upajati -- by definition
+        # not a single fixed pattern, so it cannot be a CSV row. Keyed by the
+        # shared tail (pattern minus its first syllable).
+        families: dict[str, list[str]] = {}
+        for m in self.meters:
+            if m["_samavrtta"]:
+                families.setdefault(m["_clean_pattern"][1:], []).append(m["name_iast"])
+        self.upajati_families: dict[str, list[str]] = {
+            tail: sorted(names) for tail, names in families.items() if len(names) > 1
+        }
+
+    # --- matching primitives ---------------------------------------------
+
+    @staticmethod
+    def _matches(weights: str, pattern: str) -> bool:
+        """Exact metrical match, honouring pada-final anceps."""
+        return bool(weights) and len(weights) == len(pattern) and \
+            weights[:-1] == pattern[:-1]
 
     @staticmethod
     def _distance(weights: str, pattern: str) -> int:
-        """Length-penalized Hamming distance: exact Hamming when the two
-        strings are the same length; otherwise the length difference plus
-        the Hamming distance over their common (overlapping) prefix, so
-        near-miss (off-by-a-syllable) meters still rank above wildly wrong
-        ones instead of being simply excluded."""
+        """Length-penalized Hamming distance, with the pada-final syllable
+        treated as anceps when the lengths agree (so a correct verse ending in
+        a short syllable scores 0, not 1). When the lengths differ the final
+        position is a genuine mismatch and is counted normally."""
+        if not weights or not pattern:
+            return max(len(weights), len(pattern))
         common = min(len(weights), len(pattern))
-        mismatches = sum(1 for a, b in zip(weights[:common], pattern[:common]) if a != b)
+        stop = common - 1 if len(weights) == len(pattern) else common
+        mismatches = sum(1 for a, b in zip(weights[:stop], pattern[:stop]) if a != b)
         return abs(len(weights) - len(pattern)) + mismatches
 
     def identify(self, verse_line: str) -> list[dict]:
-        """Rank all known fixed-pattern (vrtta) meters by distance to
-        ``verse_line``. Input is transliterated to SLP1 first, so IAST or
-        Devanagari padas work. Exact matches (distance 0) sort first. Returns
-        [{name_iast, class, pattern, distance, exact}, ...], best first.
+        """Rank all known fixed-pattern meters by distance to a single pada.
 
-        NOTE: this only knows *samavrtta* meters with a fixed L/G string. It
-        cannot recognise Anustubh (rule-defined, not a fixed pattern) -- use
-        :meth:`scan`, which checks the Anustubh rules before falling back
-        here. A non-zero best distance means "no exact vrtta match", not a
-        confident identification."""
+        Input is transliterated to SLP1 first, so IAST or Devanagari padas
+        work. For an ardhasamavrtta row (several pada patterns) the row scores
+        its best-fitting pada. Exact matches (distance 0, anceps-tolerant)
+        sort first. Returns [{name_iast, class, pattern, distance, exact}, ...].
+
+        NOTE: this is a *pada-level* ranker over fixed patterns. It cannot
+        recognise the rule-defined families (anustubh, upajati), which need
+        the whole verse -- use :meth:`scan`, which checks those first. A
+        non-zero best distance means "no exact match", not an identification.
+        """
         weights = syllable_weights(to_slp1(verse_line).replace("\n", " "))
         ranked = []
         for m in self.meters:
-            d = self._distance(weights, m["_clean_pattern"])
+            d = min(self._distance(weights, p) for p in m["_pada_patterns"])
             ranked.append({
                 "name_iast": m["name_iast"],
                 "class": m["class"],
@@ -669,80 +767,203 @@ class ChandasEngine:
         ranked.sort(key=lambda r: (r["distance"], r["name_iast"]))
         return ranked
 
-    @staticmethod
-    def _anustubh(padas_w: list[str]) -> str | None:
-        """Recognise the Anustubh (sloka) family from a list of per-pada L/G
-        strings. Anustubh is defined by *rules*, not a fixed pattern: 4 padas
-        (or a 2-pada half) of 8 syllables, with the 5th syllable laghu and the
-        6th guru in every pada. The 7th alternates -- guru in odd padas,
-        laghu in even -- for the canonical *pathya*; any other 7th pattern is
-        a *vipula* variant. Returns a label, or None if the rules don't hold
-        (so the caller falls back to fixed-pattern matching)."""
+    # --- rule-defined families -------------------------------------------
+
+    @classmethod
+    def _anustubh(cls, padas_w: list[str]) -> str | None:
+        """Recognise the anustubh (sloka) family from per-pada L/G strings.
+
+        Anustubh is defined by *rules*, not a fixed pattern: 4 padas (or a
+        2-pada half) of 8 syllables. Syllables 1 and 8 are free; the metre
+        lives at syllables 5-7:
+
+        * even padas (b, d) are always ``L G L`` -- no licence;
+        * odd padas (a, c) are ``L G G`` in the canonical *pathya*, or one of
+          the four *vipula* shapes (na ``LLL``, bha ``GLL``, ma ``GGG``,
+          ra ``GLG``).
+
+        Returns a label naming the variant, or None if the rules don't hold.
+        The previous implementation demanded 5th-laghu + 6th-guru in *every*
+        pada, which is the pathya rule only -- it rejected every vipula verse,
+        including Ramayana 1.1.1 (``tapaHsvADyAyanirataM``, na-vipula).
+        """
         if len(padas_w) not in (2, 4) or any(len(p) != 8 for p in padas_w):
             return None
-        # 5th laghu (idx 4) + 6th guru (idx 5) in every pada is the core sig
-        if not all(p[4] == "L" and p[5] == "G" for p in padas_w):
+        variants: list[str] = []
+        for i, p in enumerate(padas_w):
+            shape = p[4:7]
+            if i % 2:  # pada b / d
+                if shape != cls._EVEN_5_7:
+                    return None
+            else:      # pada a / c
+                label = cls._ODD_5_7.get(shape)
+                if label is None:
+                    return None
+                variants.append(label)
+        vipulas = list(dict.fromkeys(v for v in variants if v != "pathyā"))
+        return f"anuṣṭubh ({', '.join(vipulas)})" if vipulas else "anuṣṭubh (pathyā)"
+
+    def _upajati(self, padas_w: list[str]) -> list[str] | None:
+        """Recognise an upajati: a verse whose padas mix two meters differing
+        only in their first syllable. The classical case is indravajra
+        (``GGLGGLLGLGG``) mixed with upendravajra (``LGLGGLLGLGG``), which
+        accounts for 49 of the Bhagavad Gita's 55 non-anustubh verses and for
+        the opening of the Kumarasambhava. Returns the family's member names,
+        or None. A verse whose padas all start with the *same* weight is a
+        pure vrtta, not an upajati, and is deliberately rejected here."""
+        if len(padas_w) < 2 or len({len(p) for p in padas_w}) != 1:
             return None
-        pathya = all((p[6] == "G") == (i % 2 == 0) for i, p in enumerate(padas_w))
-        return "anuṣṭubh (pathyā)" if pathya else "anuṣṭubh (vipulā)"
+        if len({p[0] for p in padas_w}) < 2:
+            return None  # unmixed -> let the plain vrtta match name it
+        for tail, names in self.upajati_families.items():
+            if all(self._matches(p[1:], tail) for p in padas_w):
+                return names
+        return None
+
+    @staticmethod
+    def _jati(scan: str) -> str | None:
+        """Recognise a moraic (*jati*) meter from the verse's flat L/G scan.
+
+        A jati fixes no syllable pattern -- only the *mora* total of each pada
+        -- so no amount of L/G string matching can find one. Guru = 2 matras,
+        laghu = 1: walk the scan accumulating a running total and record every
+        prefix sum. The verse is a given jati iff each pada's cumulative mora
+        boundary appears among those prefix sums, i.e. the syllables can be cut
+        at exactly the right places. Padas b and d may come up one matra short
+        (a guru straddling the boundary), so both paths are tried.
+
+        Algorithm from the MIT-licensed sanskrit/chandas package
+        <https://github.com/sanskrit/chandas>, reimplemented here.
+
+        Deliberately the LAST thing :meth:`scan` tries: a mora rule is far
+        looser than a fixed pattern, so it would shadow real vrtta matches.
+        """
+        totals: set[int] = set()
+        running = 0
+        for weight in scan:
+            running += 2 if weight == "G" else 1
+            totals.add(running)
+        for name, (a, b, c, d) in JATIS.items():
+            b, c, d = a + b, a + b + c, a + b + c + d
+            if a not in totals:
+                continue
+            if b in totals and c in totals and (d in totals or d - 1 in totals):
+                return name
+            if b - 1 in totals and c - 1 in totals and (d - 1 in totals or d - 2 in totals):
+                return name
+        return None
+
+    def _vrtta(self, padas_w: list[str], *, samavrtta: bool) -> dict | None:
+        """Name the meter when EVERY pada matches one CSV row. Ardhasamavrtta
+        rows (several pada patterns) are matched cyclically, so a 4-pada verse
+        checks pattern[0], pattern[1], pattern[0], pattern[1]."""
+        for m in self.meters:
+            if m["_samavrtta"] is not samavrtta:
+                continue
+            pats = m["_pada_patterns"]
+            if all(self._matches(w, pats[i % len(pats)])
+                   for i, w in enumerate(padas_w)):
+                return m
+        return None
+
+    # --- whole-verse entry point -----------------------------------------
 
     def scan(self, verse: str, transliterate: bool = True) -> dict:
         """Identify the meter of a whole verse.
 
         The verse is transliterated to SLP1 (IAST / loose-roman / Devanagari
-        all accepted; dandas and newlines split padas), then:
+        all accepted; dandas and line breaks split padas), then tried in this
+        order, most-constrained first:
 
-        1. If it parses as 8-syllable padas obeying the Anustubh rules, it is
-           reported as anuṣṭubh -- the meter of most epic/stotra verse, which
-           the fixed-pattern table cannot represent.
-        2. Otherwise each pada is matched against the samavrtta table, and the
-           verse meter is the first pada's match *only if it is exact*.
+        1. **anustubh** -- 8-syllable padas obeying the pathya/vipula rules;
+        2. **samavrtta** -- every pada matches the same fixed-pattern row of
+           meters-full.csv, pada-final anceps allowed;
+        3. **upajati** -- the padas mix two meters differing only in their
+           first syllable;
+        4. **ardhasamavrtta** -- the padas alternate between the two patterns
+           of one multi-pada row;
+        5. **jati** -- no fixed pattern at all, only per-pada mora totals
+           (arya). Tried last because a mora rule is much looser than a
+           syllable pattern and would otherwise shadow real vrtta matches.
 
-        Returns per-pada weights/counts/best_meter plus a verse-level
-        ``verse_meter`` string and ``verse_meter_guess`` (the raw best-match
-        dict, kept for backward compatibility)."""
+        Upajati is deliberately tried *before* ardhasamavrtta: an indravajra /
+        upendravajra alternation also fits the ardhasama row ``akhyaniki``, but
+        the conventional reading of e.g. Kumarasambhava 1.1 is upajati (the
+        ardhasama name is reserved for works that keep the alternation
+        systematically). ``meter_detail`` names the alternative.
+
+        Only a whole-verse agreement counts: the old implementation named the
+        verse after pada 0's best match alone, which called a verse identified
+        on the strength of a quarter of its evidence.
+
+        Returns per-pada weights/counts/best_meter plus:
+          ``meter_name``   canonical name, or None when nothing matched;
+          ``meter_detail`` the variant ("pathyā", "na-vipulā", "vṛtta", ...);
+          ``verse_meter``  the human-readable one-liner;
+          ``anustubh`` / ``verse_meter_guess``  kept for backward compat.
+        """
         if transliterate:
             verse = to_slp1(verse)
         lines = [ln.strip() for ln in verse.strip().splitlines() if ln.strip()]
         if len(lines) <= 1:
             raw = lines[0] if lines else verse.strip()
-            import re
-            parts = [p.strip() for p in re.split(r"\s{2,}|\|", raw) if p.strip()]
+            parts = [p.strip() for p in _PADA_SPLIT_RE.split(raw) if p.strip()]
             lines = parts if len(parts) > 1 else ([raw] if raw else [])
 
         padas = []
         for line in lines:
-            guesses = self.identify(line)
+            weights = syllable_weights(to_slp1(line))
             padas.append({
                 "text": line,
-                "weights": syllable_weights(to_slp1(line).replace("\n", " ")),
-                "syllable_count": len(syllable_weights(to_slp1(line).replace("\n", " "))),
-                "best_meter": guesses[0] if guesses else None,
+                "weights": weights,
+                "syllable_count": len(weights),
+                "best_meter": (self.identify(line) or [None])[0],
             })
+
+        pada_weights = [p["weights"] for p in padas]
 
         # Anustubh check: flatten all syllables and re-chunk into 8-syl padas
         # (a sloka is often typed as 2 lines of 16, not 4 lines of 8).
-        flat = "".join(p["weights"] for p in padas)
+        flat = "".join(pada_weights)
         anustubh = None
         if flat and len(flat) % 8 == 0 and len(flat) // 8 in (2, 4):
             chunks = [flat[i:i + 8] for i in range(0, len(flat), 8)]
             anustubh = self._anustubh(chunks)
 
-        best = padas[0]["best_meter"] if padas else None
+        meter_name: str | None = None
+        meter_detail: str | None = None
         if anustubh:
+            meter_name = "anuṣṭubh"
+            meter_detail = anustubh[anustubh.index("(") + 1:-1]
             verse_meter = f"{anustubh}  [{len(flat)} syllables]"
-        elif best and best.get("exact"):
-            verse_meter = f"{best['name_iast']} (vṛtta, exact)"
+        elif (row := self._vrtta(pada_weights, samavrtta=True)) is not None:
+            meter_name = row["name_iast"]
+            meter_detail = "vṛtta"
+            verse_meter = f"{meter_name} (vṛtta, exact)"
+        elif (family := self._upajati(pada_weights)) is not None:
+            meter_name = "upajāti"
+            meter_detail = "/".join(family) + " mix"
+            verse_meter = f"upajāti ({meter_detail})"
+        elif (row := self._vrtta(pada_weights, samavrtta=False)) is not None:
+            meter_name = row["name_iast"]
+            meter_detail = "ardhasamavṛtta"
+            verse_meter = f"{meter_name} (ardhasamavṛtta, exact)"
+        elif (jati := self._jati(flat)) is not None:
+            meter_name = jati
+            meter_detail = "jāti"
+            verse_meter = f"{jati} (jāti, {sum(JATIS[jati])} mātrās)"
         else:
-            verse_meter = "unknown (no exact vṛtta match; not anuṣṭubh)"
+            verse_meter = "unknown (no exact vṛtta match; not anuṣṭubh or a jāti)"
 
         return {
             "pada_count": len(padas),
             "padas": padas,
             "total_syllables": len(flat),
             "anustubh": anustubh,
+            "meter_name": meter_name,
+            "meter_detail": meter_detail,
             "verse_meter": verse_meter,
-            "verse_meter_guess": best,
+            "verse_meter_guess": padas[0]["best_meter"] if padas else None,
         }
 
 
@@ -790,33 +1011,43 @@ if __name__ == "__main__":
         print(f"    syllabify({word!r}) = {syllabify(word)}")
         print(f"    syllable_weights({word!r}) = {syllable_weights(word)!r}")
 
-    print("\n[5] Meter identification")
-    # Reconstruct a dummy pada whose weights exactly match a known vrtta's
-    # pattern, then confirm identify() recovers it at distance 0.
-    sample_meter = next(m for m in chandas.meters if m["name_iast"] == "māṇavaka")
-    pattern = sample_meter["_clean_pattern"]
-    print(f"    target meter: {sample_meter['name_iast']} pattern={pattern!r}")
+    print("\n[5] Meter identification (single pada)")
+    # NOTE: this used to synthesise a pada by pasting "kA"/"ka" together to
+    # match a pattern read out of the CSV, then check that the pattern matched
+    # itself -- a tautology that could not fail. Real padas from real texts
+    # only; the graded set lives in data/golden_meters.json and is asserted by
+    # tests/test_chandas_golden.py.
+    for label, pada in [
+        ("Meghaduta 1.1a", "kaścit kāntāvirahaguruṇā svādhikārapramattaḥ"),
+        ("Bhagavad Gita 8.28a", "vedeṣu yajñeṣu tapaḥsu caiva"),
+    ]:
+        weights = syllable_weights(to_slp1(pada))
+        print(f"    {label}: {weights} ({len(weights)} syllables)")
+        for guess in chandas.identify(pada)[:3]:
+            print(f"      distance={guess['distance']}  {guess['name_iast']:18} "
+                  f"({guess['class']})  pattern={guess['pattern']!r}")
 
-    def _syllable_for(weight: str) -> str:
-        # Guru: long vowel A. Laghu: short vowel a followed by <2 consonants.
-        return "kA" if weight == "G" else "ka"
-
-    dummy_line = "".join(_syllable_for(w) for w in pattern)
-    print(f"    constructed dummy line: {dummy_line!r}")
-    print(f"    its syllable_weights:   {syllable_weights(dummy_line)!r}")
-    for guess in chandas.identify(dummy_line)[:3]:
-        print(f"      distance={guess['distance']}  {guess['name_iast']:15} "
-              f"({guess['class']})  pattern={guess['pattern']!r}")
-
-    print("\n[6] Verse scan")
-    verse = "kacit kucalam avyagraM rAjyaM te rAGavAnuja\nkacit svakezu dArezu SAstravat kuruze wiman"
-    result = chandas.scan(verse)
-    print(f"    pada_count={result['pada_count']}")
-    for p in result["padas"]:
-        best = p["best_meter"]
-        best_str = f"{best['name_iast']} (d={best['distance']})" if best else "n/a"
-        print(f"      [{p['syllable_count']:2}] {p['weights']:20} best={best_str}  text={p['text']!r}")
-    print(f"    verse_meter => {result['verse_meter']}")
+    print("\n[6] Verse scan (whole verse, all four padas must agree)")
+    verses = {
+        "Ramayana 1.1.1 (anustubh, na-vipula)":
+            "tapaḥsvādhyāyanirataṃ\ntapasvī vāgvidāṃ varam\n"
+            "nāradaṃ paripapraccha\nvālmīkir munipuṅgavam",
+        "Bhagavad Gita 8.28 (indravajra; pada a ends short)":
+            "vedeṣu yajñeṣu tapaḥsu caiva\ndāneṣu yatpuṇyaphalaṃ pradiṣṭam\n"
+            "atyeti tatsarvamidaṃ viditvā\nyogī paraṃ sthānamupaiti cādyam",
+        "Kumarasambhava 1.1 (upajati: mixed indra/upendra)":
+            "astyuttarasyāṃ diśi devatātmā\nhimālayo nāma nagādhirājaḥ\n"
+            "pūrvāparau toyanidhī vagāhya\nsthitaḥ pṛthivyā iva mānadaṇḍaḥ",
+        "Samkhyakarika 2 (arya: moraic, no fixed pattern)":
+            "dṛṣṭavadānuśravikaḥ sa hyaviśuddhikṣayātiśayayuktaḥ\n"
+            "tadviparītaḥ śreyānvyaktāvyaktajñavijñānāt",
+    }
+    for label, verse in verses.items():
+        result = chandas.scan(verse)
+        print(f"    {label}")
+        for p in result["padas"]:
+            print(f"      [{p['syllable_count']:2}] {p['weights']:22} {p['text']!r}")
+        print(f"      => {result['verse_meter']}")
 
     print("\n" + "=" * 70)
     print("Self-test complete.")

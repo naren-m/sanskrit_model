@@ -58,7 +58,7 @@ mOktidadAma,mauktidadāma,मौक्तिददाम,vrtta,LGLLGLLGLLGL,12,j
 maRimAlA,maṇimālā,मणिमाला,vrtta,GGLLGGGGLLGG,12,ta-ya-ta-ya,
 mAlatI,mālatī,मालती,vrtta,LLLLGLLGLGLG,12,na-ja-ja-ra,
 navamAlinI,navamālinī,नवमालिनी,vrtta,LLLL|GLGLLLGG,12,na-ja-bha-ya,4
-paYcacAmara,pañcacāmara,पञ्चचामर,vrtta,LGLGLGLGLGLG,12,ja-ra-ja-ra,
+paYcacAmara,pañcacāmara,पञ्चचामर,vrtta,LGLGLGLGLGLGLGLG,16,ja-ra-ja-ra-ja-ga,8
 praBA,prabhā,प्रभा,vrtta,LLLLLLGLGGLG,12,na-na-ra-ra,
 pramitAkzarA,pramitākṣarā,प्रमिताक्षरा,vrtta,LLGLGLLLGLLG,12,sa-ja-sa-sa,
 pramuditavadanA,pramuditavadanā,प्रमुदितवदना,vrtta,LLLLLLGLGGLG,12,na-na-ra-ra,
@@ -85,7 +85,7 @@ praharaRakalikA,praharaṇakalikā,प्रहरणकलिका,vrtta,LLLLL
 vasantatilakA,vasantatilakā,वसन्ततिलका,vrtta,GGLGLLLGLLGLGG,14,ta-bha-ja-ja-ga-ga,
 candraleKA,candralekhā,चन्द्रलेखा,vrtta,GGGGLGG|GGLGGLGG,15,ma-ra-ma-ya-ya,7
 elA,elā,एला,vrtta,LLGLG|LLLLLLLLGG,15,sa-ja-na-na-ya,5
-malinI,malinī,मलिनी,vrtta,LLLLLLGG|GLGGLGG,15,na-na-ma-ya-ya,8
+mAlinI,mālinī,मालिनी,vrtta,LLLLLLGG|GLGGLGG,15,na-na-ma-ya-ya,8
 maRiguRanikara,maṇiguṇanikara,मणिगुणनिकर,vrtta,LLLLLLLL|LLLLLLG,15,na-na-na-na-sa,8
 mAlA,mālā,माला,vrtta,LLLLLL|LLLLLLLLG,15,na-na-na-na-sa,6
 praBadraka,prabhadraka,प्रभद्रक,vrtta,LLLLGLGLLLGLGLG,15,na-ja-bha-ja-ra,
@@ -101,7 +101,7 @@ vaMSapatrapatitam,vaṃśapatrapatitam,वंशपत्रपतितम्,v
 SiKariRI,śikhariṇī,शिखरिणी,vrtta,LGGGGG|LLLLLGGLLLG,17,ya-ma-na-sa-bha-la-ga,6
 kusumitalatAvellitA,kusumitalatāvellitā,कुसुमितलतावेल्लिता,vrtta,GGGGG|LLLLLG|GLGGLGG,18,ma-ta-na-ya-ya-ya,5;6
 meGavisPurjita,meghavisphurjita,मेघविस्फुर्जित,vrtta,LGGGGG|LLLLLG|GLGGLGG,19,ya-ma-na-sa-ra-ra-ga,6;6
-SArdulavikrIqita,śārdulavikrīḍita,शार्दुलविक्रीडित,vrtta,GGGLLGLGLLLG|GGLGGLG,19,ma-sa-ja-sa-ta-ta-ga,12
+SArdUlavikrIqita,śārdūlavikrīḍita,शार्दूलविक्रीडित,vrtta,GGGLLGLGLLLG|GGLGGLG,19,ma-sa-ja-sa-ta-ta-ga,12
 suvadanA,suvadanā,सुवदना,vrtta,GGGGLGG|LLLLLLG|GGLLLG,20,ma-ra-bha-na-ya-bha-la-ga,7;7
 vftta,vṛtta,वृत्त,vrtta,GLGLGLGLGLGLGLGLGLGL,20,ra-ja-ra-ja-ra-ja-ga-la,
 BadravirAw,bhadravirāṭ,भद्रविराट्,vrtta,GGLLGLGLGG/GGGLLGLGLG,21,ta-ja-ra-?-ta-ja-ra,
