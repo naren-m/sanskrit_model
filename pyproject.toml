@@ -9,8 +9,18 @@ dependencies = [
     "indic-transliteration>=2.3.82",
 ]
 
+[dependency-groups]
+dev = ["pytest>=8.0"]
+
 [tool.uv]
 # CPU/MPS build is fine on Apple Silicon; default PyPI wheels ship MPS support.
 
 [tool.setuptools]
 packages = ["slm"]
+
+[tool.pytest.ini_options]
+# tests/ imports `slm` from the repo root, which is NOT on sys.path when pytest
+# is invoked from elsewhere. Without this every test module dies at collection
+# with ModuleNotFoundError: No module named 'slm'.
+pythonpath = ["."]
+testpaths = ["tests"]

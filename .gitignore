@@ -5,6 +5,9 @@ uv.lock
 tokenizer/slp1_vocab.json
 .serena/
 .remember/
-data/
+# anchored: only the top-level generated-artifact dir (corpus, mixtures,
+# ckpt.pt). An unanchored `data/` also swallows nested ones like
+# tests/data/, which holds version-controlled fixtures.
+/data/
 *.swp
 *.swo
