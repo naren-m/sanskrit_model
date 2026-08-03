@@ -73,7 +73,7 @@ const TASKS={
  morph:{f:["root"],ph:["gam / BU / kf / vad …"],hint:"Enter a bare SLP1 root. The net proposes a Dhātupāṭha analysis; the engine verifies it exists."},
  sandhi:{f:["a","b"],ph:["rAma","asti"],hint:"Two padas. Net joins them; the rule engine gives the licensed sandhi."},
  seg:{f:["text"],ph:["rAmo'sti / sUryodayaH"],hint:"Continuous SLP1. Net splits it into padas."},
- meter:{f:["line"],ph:["vAgarTAviva / rAmAya"],hint:"An SLP1 pāda. Engine scans laghu/guru; net names the meter."},
+ meter:{f:["line"],ph:["vAgarTAviva saMpfktO / kaScit kAntAvirahaguruRA"],hint:"A verse (SLP1, IAST or Devanagari; one pāda per line, or | between them). Rule engine only — meter is decidable, so there is nothing for the net to propose."},
 };
 let cur="morph";
 const tabs=document.getElementById("tabs"),inp=document.getElementById("inputs"),
@@ -108,10 +108,15 @@ function render(d){
   out.innerHTML=`<div class=prop>model segments</div><div>${d.padas.map(p=>`<span class=pada>${p}</span>`).join("")||d.model}</div>`;
  }else if(d.task==="meter"){
   out.innerHTML=`<div><span class=prop>chandas</span>: ${d.input}</div>`+
-   `<div class=wt>${d.weights}</div><div class=mut>${d.syllables} syllables</div>`+
-   `<div>meter: <b>${d.verse_meter||"?"}</b></div>`+
-   `<div class=mut>vṛtta best: ${d.symbolic_best.name||"?"} (distance ${d.symbolic_best.distance})</div>`+
-   `<div class=mut>model guess: ${d.model_name}</div>`;
+   `<div class=wt>${d.weights}</div>`+
+   `<div class=mut>${d.syllables} syllables in ${d.pada_count} pāda(s)</div>`+
+   `<div>meter: <b>${d.meter_name||"unidentified"}</b>`+
+   (d.meter_detail?` <span class=mut>(${d.meter_detail})</span>`:"")+`</div>`+
+   `<div class=mut>${d.verse_meter}</div>`+
+   // Only worth showing when nothing matched: beside a confident answer a
+   // far-off "nearest" row reads as a rival candidate, which it is not.
+   (d.meter_name?"":`<div class=mut>nearest vṛtta to pāda 1: ${d.symbolic_best.name||"?"} (distance ${d.symbolic_best.distance})</div>`)+
+   `<div class=mut>rule engine only — no model output for this task</div>`;
  }
 }
 draw();go();

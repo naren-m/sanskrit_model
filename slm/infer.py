@@ -20,7 +20,6 @@ DATA = ROOT / "data"
 _DHATU_RE = re.compile(r"<dhAtu>([^<]*)")
 _GANA_RE = re.compile(r"<gaRa>([^<]*)")
 _ARTHA_RE = re.compile(r"<artha>([^<]*)")
-_METER_RE = re.compile(r"<meter>([^<]*)")
 
 
 class Inference:
@@ -207,18 +206,37 @@ class Inference:
                 "padas": best, "constrained": True, "tier": "lexicon-dp"}
 
     def meter(self, line: str) -> dict:
-        # scan() transliterates IAST/Devanagari/loose-roman -> SLP1, splits
-        # padas, and applies the Anustubh rules before the vrtta table.
+        """Identify a verse's meter. Purely symbolic -- the model is not called.
+
+        Unlike the other four tasks, meter identification is *decidable*: a
+        verse either scans to a known pattern or it does not, and there is no
+        ambiguity for a learned head to resolve. ChandasEngine settles it
+        exactly and is graded at 20/20 on tests/data/golden_meters.json, so a
+        model guess adds no information. Reporting one next to a proof would
+        invite the reader to weigh them against each other as if they were
+        comparable evidence, which they are not.
+
+        The ``<meter>`` head is still trained (see slm/datagen.build_meter) as
+        an auxiliary prosody signal for the mixture; it is simply not the
+        answer to this question.
+
+        scan() transliterates IAST/Devanagari/loose-roman -> SLP1, splits
+        padas, and tries anustubh, then the vrtta table, then upajati and the
+        jatis.
+        """
         result = self.chandas.scan(line)
         weights = "".join(p["weights"] for p in result["padas"])
         best = result["verse_meter_guess"] or {}
-        raw = self._gen(f"<Candas><wt>{result['padas'][0]['weights']}") if result["padas"] else ""
-        mm = _METER_RE.search(raw)
         return {
             "task": "meter", "input": line, "weights": weights,
             "syllables": len(weights),
+            "pada_count": result["pada_count"],
+            # None when nothing matched -- an honest "unknown", not a guess.
+            "meter_name": result["meter_name"],
+            "meter_detail": result["meter_detail"],
             "verse_meter": result["verse_meter"],
+            # Diagnostic only: pada 1's nearest fixed-pattern row. A non-zero
+            # distance means no exact match, NOT a weaker identification.
             "symbolic_best": {"name": best.get("name_iast", best.get("name_slp1", "")),
                               "distance": best.get("distance")},
-            "model_name": mm.group(1) if mm else raw,
         }

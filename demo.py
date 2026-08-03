@@ -5,7 +5,9 @@ Runs the trained GPT and the symbolic rule engine side by side:
   * morph  : model proposes a dhatu analysis; DhatuKosha verifies it.
   * sandhi : model joins two padas; SandhiEngine gives the rule-licensed answer.
   * seg    : model segments continuous SLP1 into padas.
-  * meter  : ChandasEngine scans an SLP1 line into laghu/guru + names the meter.
+  * meter  : ChandasEngine alone scans a verse into laghu/guru and names the
+             meter. The only task with no model half -- meter is decidable, so
+             there is nothing for the net to propose.
 
 Usage:
   uv run demo.py                 # scripted showcase
@@ -96,11 +98,9 @@ class Engine:
             print(f"      pāda {i}: {p['weights']}  "
                   f"({p['syllable_count']} syl)  {p['text']}")
         print(f"      {G}meter{X}: {result['verse_meter']}")
-        # per-pada model guess from the first pada's L/G string
-        if result["padas"]:
-            w = result["padas"][0]["weights"]
-            pred = self._gen(f"<Candas><wt>{w}")
-            print(f"      {DIM}model guess from L/G (pāda 1): {pred}{X}")
+        # No model guess here, unlike the other three tasks: meter is decidable,
+        # so the rule engine's answer is the answer. See Inference.meter().
+        print(f"      {DIM}symbolic only — meter needs no model{X}")
 
 
 def showcase(e: Engine):

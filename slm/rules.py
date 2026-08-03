@@ -857,6 +857,9 @@ class ChandasEngine:
         """Name the meter when EVERY pada matches one CSV row. Ardhasamavrtta
         rows (several pada patterns) are matched cyclically, so a 4-pada verse
         checks pattern[0], pattern[1], pattern[0], pattern[1]."""
+        if not padas_w:
+            return None  # all() is vacuously true on an empty verse, which
+            # would hand back whichever row happens to come first in the CSV
         for m in self.meters:
             if m["_samavrtta"] is not samavrtta:
                 continue

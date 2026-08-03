@@ -250,6 +250,18 @@ def test_nonsense_is_not_identified():
     assert r["meter_name"] is None, r["verse_meter"]
 
 
+def test_empty_and_junk_input_is_not_identified():
+    """Empty input must not be handed a meter.
+
+    ``all(...)`` over an empty pāda list is vacuously true, so before this was
+    guarded an empty verse matched *every* CSV row and came back as whichever
+    one sorted first ('śrī', confidently, at distance 0). Found by smoke-testing
+    the /api/meter endpoint with a mis-named query parameter."""
+    for junk in ("", "   ", "\n\n", "12345", "..."):
+        r = _ENGINE.scan(junk)
+        assert r["meter_name"] is None, f"{junk!r} -> {r['verse_meter']}"
+
+
 def test_irregular_verses_are_honestly_unidentified():
     """Verses in ``golden_meters.json['irregular']`` follow the loose epic
     tristubh licence, not a classical fixed pattern. A strict identifier must
