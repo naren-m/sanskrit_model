@@ -526,110 +526,21 @@ class SandhiEngine:
 
 
 # ---------------------------------------------------------------------------
-# 3. Dhatu lookup
+# 3. Dhatu lookup  (owned by sanskrit_analyzer)
 # ---------------------------------------------------------------------------
+#
+# The Dhatupatha index and the it-marker stripping moved to
+# sanskrit_analyzer.dhatu.dhatupatha, which is now the single owner of that
+# data — three projects were carrying partial copies. Re-exported here so
+# every existing `rules.DhatuKosha()` / `rules.strip_anubandhas()` call site
+# in datagen, infer, evals and demo keeps working unchanged.
 
-#: Traditional dhatupatha "cutu" it-clusters conventionally prefixed to a
-#: root purely to disambiguate it in the recitation list (e.g. "qukfY" for
-#: kf, "quBf\\Y" for Bf). Safe to strip: this convention is unambiguous and
-#: does not collide with any real root's actual initial phonemes in the data.
-_IT_PREFIX_CLUSTERS = ("qu", "wu", "Qu", "Wu", "Gu")
+from sanskrit_analyzer.dhatu.dhatupatha import (  # noqa: E402
+    DhatuKosha,
+    strip_anubandhas,
+)
 
-
-def strip_anubandhas(upadesha: str) -> str:
-    """Heuristically strip Paninian it-markers (anubandhas) from a dhatu's
-    upadesha (citation) form, approximating the "clean root".
-
-    This is deliberately NOT a full implementation of the it-samjna sutras
-    (Ashtadhyayi 1.3.2-1.3.9). Those require knowing, per root, exactly
-    which letters are markers versus real root phonemes -- the same surface
-    letter (e.g. a final consonant, or a consonant just before a nasalized
-    vowel) is a marker in some roots and part of the root in others, which
-    is exactly why dhatus-core.csv exists as a 294-entry hand-curated table.
-    Callers should always prefer that curated ``core_root`` column when a
-    root is in it; this function is only the best-effort fallback for the
-    ~2000 roots in dhatus-full.csv that are not (yet) curated.
-
-    Steps applied, all directly from the upadesha's surface form:
-      1. Drop pitch-accent marks ``\\`` (anudatta) and ``^`` (svarita) --
-         these are never phonemic, just recitation accent.
-      2. Drop a conventional leading "cutu" it-prefix (qu-/wu-/Qu-/Wu-/Gu-),
-         a fixed dhatupatha citation convention (see _IT_PREFIX_CLUSTERS).
-      3. If the form ends in ``~`` (anunasika/nasal-vowel marker per 1.3.2),
-         drop the ``~`` and the vowel immediately before it.
-      4. Otherwise, if the form (after steps 1-2) ends in a bare consonant
-         with no ``~`` anywhere, drop that one trailing consonant (a rough
-         reading of 1.3.3 "halantyam": upadesha forms overwhelmingly do not
-         cite roots with a genuine bare final consonant).
-
-    Measured against dhatus-core.csv's hand-curated core_root as ground
-    truth, this reproduces the curated root exactly for ~75% of the 294
-    entries; most misses are cases that need lexical knowledge no surface
-    heuristic can recover (nasal-infix roots like citi~ -> "cint", or
-    retroflexion s/z alternations like za\\dx~ -> "sad").
-    """
-    s = upadesha.replace("^", "").replace("\\", "")
-
-    for prefix in _IT_PREFIX_CLUSTERS:
-        if s.startswith(prefix) and len(s) > len(prefix) + 1:
-            s = s[len(prefix):]
-            break
-
-    if s.endswith("~"):
-        s = s[:-1]
-        if s and s[-1] in VOWELS:
-            s = s[:-1]
-    elif s and s[-1] in CONSONANTS:
-        s = s[:-1]
-
-    return s
-
-
-class DhatuKosha:
-    """Lookup over the dhatupatha: dhatus-full.csv (~2259 roots) merged with
-    the hand-curated dhatus-core.csv (294 roots with a clean ``core_root``).
-
-    Every row of dhatus-full.csv is loaded and given a resolved clean-root
-    field: the curated ``core_root`` from dhatus-core.csv when that row's
-    ``code`` is present there (curated=True), else the best-effort output of
-    :func:`strip_anubandhas` on its ``dhatu_slp1`` (curated=False). All three
-    lookup methods operate over this single merged table.
-    """
-
-    def __init__(self, full_path: str | Path | None = None, core_path: str | Path | None = None):
-        full_p = Path(full_path) if full_path else _REPO_ROOT / "dhatus-full.csv"
-        core_p = Path(core_path) if core_path else _REPO_ROOT / "dhatus-core.csv"
-
-        with open(core_p, encoding="utf-8") as f:
-            core_by_code = {r["code"]: r["core_root"] for r in csv.DictReader(f)}
-
-        with open(full_p, encoding="utf-8") as f:
-            rows = list(csv.DictReader(f))
-
-        self.entries: list[dict] = []
-        for r in rows:
-            entry = dict(r)
-            curated_root = core_by_code.get(r["code"])
-            if curated_root is not None:
-                entry["core_root"] = curated_root
-                entry["curated"] = True
-            else:
-                entry["core_root"] = strip_anubandhas(r["dhatu_slp1"])
-                entry["curated"] = False
-            self.entries.append(entry)
-
-    def lookup(self, root: str) -> list[dict]:
-        """Return every dhatu entry whose resolved core_root == ``root``
-        (exact match on the clean SLP1 root, e.g. "gam", "BU", "kf")."""
-        return [e for e in self.entries if e["core_root"] == root]
-
-    def by_gana(self, gana: int) -> list[dict]:
-        """Return every dhatu entry belonging to a given gana (1-10)."""
-        return [e for e in self.entries if int(e["gana"]) == int(gana)]
-
-    def all_roots(self) -> list[str]:
-        """Return the sorted set of unique resolved clean roots."""
-        return sorted({e["core_root"] for e in self.entries})
+__all__ = [*globals().get("__all__", []), "DhatuKosha", "strip_anubandhas"]
 
 
 # ---------------------------------------------------------------------------
