@@ -43,7 +43,7 @@ def _read_csv(path: Path) -> list[dict]:
 
 # --- task builders -----------------------------------------------------------
 def build_morph(kosha: rules.DhatuKosha, cap: int | None = None) -> list[dict]:
-    rows = _read_csv(ROOT / "dhatus-full.csv")
+    rows = kosha.entries
     out = []
     for r in rows:
         root = rules.strip_anubandhas(r["dhatu_slp1"])
