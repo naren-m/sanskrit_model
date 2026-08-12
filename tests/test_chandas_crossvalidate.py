@@ -42,10 +42,26 @@ _HERE = Path(__file__).resolve().parent
 GOLDEN = json.loads((_HERE / "data" / "golden_meters.json").read_text(encoding="utf-8"))
 _CHANDAS_PATH = os.environ.get("SANSKRIT_CHANDAS_PATH")
 
-pytestmark = pytest.mark.skipif(
-    not _CHANDAS_PATH,
-    reason="set SANSKRIT_CHANDAS_PATH to a clone of github.com/sanskrit/chandas",
-)
+
+def _unavailable() -> str | None:
+    """Why the cross-check can't run, or None if it can.
+
+    A *stale* env var — pointing at a clone that has since been deleted, which
+    is easy when the clone lives in a temp dir — must skip with an explanation,
+    not raise ModuleNotFoundError four times from fixture setup."""
+    if not _CHANDAS_PATH:
+        return "set SANSKRIT_CHANDAS_PATH to a clone of github.com/sanskrit/chandas"
+    root = Path(_CHANDAS_PATH)
+    if not root.is_dir():
+        return f"SANSKRIT_CHANDAS_PATH={_CHANDAS_PATH} does not exist"
+    missing = [str(p) for p in (root / "chandas" / "classify.py",
+                                root / "data" / "data.json") if not p.exists()]
+    if missing:
+        return f"SANSKRIT_CHANDAS_PATH={_CHANDAS_PATH} is not a chandas clone (no {missing[0]})"
+    return None
+
+
+pytestmark = pytest.mark.skipif(_unavailable() is not None, reason=_unavailable() or "")
 
 
 def _load_classifier():

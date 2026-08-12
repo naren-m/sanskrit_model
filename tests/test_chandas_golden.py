@@ -102,27 +102,73 @@ def test_csv_pattern_matches_canonical_ganas():
     assert not bad, "meters-full.csv disagrees with Pingala:\n  " + "\n  ".join(bad)
 
 
-def test_every_samavrtta_row_is_self_consistent():
-    """All 124 single-pada rows: pattern == ganas expansion == syllables count,
-    and the pattern contains nothing but L and G.
+def _decompose(pattern: str) -> str:
+    """L/G string -> canonical gana spec: whole trisyllabic ganas, then the
+    1-2 leftover syllables as the single-syllable markers la/ga.
+
+    This is the convention every row of meters-full.csv follows, and it
+    reproduces all 145 ``ganas`` cells exactly (asserted below), so it can be
+    trusted as the arbiter of how a pattern *should* be spelled."""
+    out, i = [], 0
+    while len(pattern) - i >= 3:
+        out.append(_GANA_OF[pattern[i:i + 3]])
+        i += 3
+    out.extend("ga" if ch == "G" else "la" for ch in pattern[i:])
+    return "-".join(out)
+
+
+#: inverse of GANAS, for _decompose
+_GANA_OF = {v: k for k, v in GANAS.items() if len(v) == 3}
+
+
+def test_every_csv_row_is_self_consistent():
+    """All 145 rows, samavrtta and multi-pada alike: each pada's ganas cell
+    expands to exactly that pada's L/G pattern, the syllables column equals the
+    total syllable count, and patterns contain nothing but L and G.
 
     This catches data rot across the whole table, not just the rows the golden
-    verses happen to touch. It is how the pañcacāmara row was found to be
-    wrong: it carried ja-ra-ja-ra (12 syllables) under a name whose canonical
-    definition is ja-ra-ja-ra-ja-ga (16)."""
+    verses happen to touch — which is how the pañcacāmara row was caught
+    carrying ja-ra-ja-ra (12 syllables) under a name whose canonical definition
+    is ja-ra-ja-ra-ja-ga (16).
+
+    The 21 multi-pada rows used to be exempt from this: their ganas cells were
+    lossy, dropping each non-final pada's trailing la/ga markers and replacing
+    them with a '?', while the syllables column counted those '?' as syllables.
+    Both columns were regenerated from the (intact) pattern column and the
+    exemption is gone. Separators now match the pattern column's: '/' between
+    padas, '-' between ganas."""
     bad = []
     for m in _ENGINE.meters:
-        if not m["_samavrtta"]:
-            continue  # multi-pada rows: see test_multipada_rows_parse
-        pattern = m["_clean_pattern"]
-        expanded = "".join(GANAS[g] for g in m["ganas"].split("-") if g)
-        if expanded != pattern:
-            bad.append(f"{m['name_iast']}: ganas {m['ganas']} -> {expanded} != {pattern}")
-        if int(m["syllables"]) != len(pattern):
-            bad.append(f"{m['name_iast']}: syllables={m['syllables']} != {len(pattern)}")
-        if set(pattern) - {"L", "G"}:
-            bad.append(f"{m['name_iast']}: stray chars in pattern {pattern!r}")
+        gana_padas = m["ganas"].split("/")
+        pattern_padas = m["_pada_patterns"]
+        if len(gana_padas) != len(pattern_padas):
+            bad.append(f"{m['name_iast']}: {len(gana_padas)} gana padas vs "
+                       f"{len(pattern_padas)} pattern padas")
+            continue
+        for spec, pattern in zip(gana_padas, pattern_padas):
+            expanded = "".join(GANAS[g] for g in spec.split("-") if g)
+            if expanded != pattern:
+                bad.append(f"{m['name_iast']}: ganas {spec!r} -> {expanded} != {pattern}")
+            if set(pattern) - {"L", "G"}:
+                bad.append(f"{m['name_iast']}: stray chars in pattern {pattern!r}")
+        total = sum(len(p) for p in pattern_padas)
+        if int(m["syllables"]) != total:
+            bad.append(f"{m['name_iast']}: syllables={m['syllables']} != {total}")
     assert not bad, "meters-full.csv row errors:\n  " + "\n  ".join(bad)
+
+
+def test_ganas_cells_use_the_canonical_decomposition():
+    """Every ganas cell is spelled the one canonical way (whole ganas first,
+    leftovers as la/ga). Without this a hand-edit could stay *arithmetically*
+    valid while segmenting differently — e.g. writing 'ga-ga' where the table
+    everywhere else writes a trailing 'ma' — and the table would drift into two
+    conventions that both pass the consistency check above."""
+    bad = []
+    for m in _ENGINE.meters:
+        want = "/".join(_decompose(p) for p in m["_pada_patterns"])
+        if m["ganas"] != want:
+            bad.append(f"{m['name_iast']}: {m['ganas']!r} != canonical {want!r}")
+    assert not bad, "non-canonical gana spelling:\n  " + "\n  ".join(bad)
 
 
 def test_multipada_rows_parse_into_clean_pada_patterns():
@@ -131,11 +177,7 @@ def test_multipada_rows_parse_into_clean_pada_patterns():
 
     Before this was handled, ``_clean_pattern`` stripped only the yati '|' and
     left the '/' in place, so e.g. akhyaniki was compared as the 23-character
-    string 'GGLGGLLGLGG/LGLGGLLGLGG' — a pattern no verse can ever match.
-
-    Their ``ganas`` and ``syllables`` columns are known-lossy (the trailing
-    ganas of each non-final pada are dropped and replaced by a '?'), so those
-    two columns are deliberately NOT asserted here."""
+    string 'GGLGGLLGLGG/LGLGGLLGLGG' — a pattern no verse can ever match."""
     multi = [m for m in _ENGINE.meters if not m["_samavrtta"]]
     assert multi, "expected some ardhasamavrtta rows"
     for m in multi:
